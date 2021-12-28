@@ -36,7 +36,6 @@ class PatientDtoValidationTest {
 	
 	private LocalDate birthday = LocalDate.now().minusDays(1);
 	private LocalDate futurebirthday = LocalDate.now().plusDays(1);
-	private LocalDate invalidbirthday = LocalDate.now().minusYears(1000);
 	
 
 	@BeforeEach
