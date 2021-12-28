@@ -1,11 +1,50 @@
+buildscript {
+    repositories {
+    	// Maven Central for resolving dependencies
+        mavenCentral()
+            flatDir {
+        dirs 'libs'
+    }
+    }
+    dependencies {
+    	// https://plugins.gradle.org/plugin/org.springframework.boot
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+    }
+}
+
+// https://docs.gradle.org/current/samples/sample_building_java_libraries.html
+
+plugins {
+	// Apply the java-library plugin for API and implementation separation
+    id 'java-library'
+    id 'maven-publish'
+}
+
+
+
 plugins {
 	id 'org.springframework.boot' version '2.6.2'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
+	id 'eclipse'
+	id "jacoco"
+	id 'war'
 }
 
+
+bootWar {
+    baseName = 'patient'
+    version =  '1.0.0'
+}
+
+/*
+war {
+    enabled=true
+}
+*/
+
 group = 'com.patient'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 sourceCompatibility = '11'
 
 configurations {
@@ -15,8 +54,14 @@ configurations {
 }
 
 repositories {
-	mavenCentral()
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 ext {
 	set('springCloudVersion', "2021.0.0")
@@ -27,15 +72,48 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
-	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+	
+	
+//	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+//	implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
 	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+	
+	// Lombok
 	compileOnly 'org.projectlombok:lombok'
+
+	// Live dev tools
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	
+	// Databases
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'mysql:mysql-connector-java'
+	
+	
 	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Tests
+	testImplementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'junit'
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+
+
+	testImplementation("org.junit.platform:junit-platform-launcher:1.2.0")
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.3.1')
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.3.1')
+
+	testCompileOnly 'junit:junit:4.12' 
+//	testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
+    
+    // Use JUnit Jupiter for testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+
+
+
 }
 
 dependencyManagement {
@@ -44,6 +122,39 @@ dependencyManagement {
 	}
 }
 
+
 test {
-	useJUnitPlatform()
+    useJUnitPlatform() {
+    includeEngines 'junit-jupiter'
+    }
+    
+}
+
+
+// Jacoco
+jacoco {
+    toolVersion = "0.8.7"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.destination file("${buildDir}/jacocoHtml")
+    }
+}
+
+test.finalizedBy jacocoTestReport
+check.dependsOn jacocoTestCoverageVerification
+
+jacocoTestCoverageVerification {
+  violationRules {
+    rule {
+      limit {
+        counter = 'LINE'
+        value = 'COVEREDRATIO'
+        minimum = 0.5
+      }
+    }
+  }
 }
