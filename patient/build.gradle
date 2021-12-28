@@ -102,16 +102,16 @@ dependencies {
 
 
 	testImplementation("org.junit.platform:junit-platform-launcher:1.2.0")
-    testImplementation('org.junit.jupiter:junit-jupiter-api:5.3.1')
-    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.3.1')
-    testImplementation('org.junit.jupiter:junit-jupiter-params:5.3.1')
+//    testImplementation('org.junit.jupiter:junit-jupiter-api:5.7.2')
+    testImplementation('org.junit.jupiter:junit-jupiter-engine:5.7.2')
+    testImplementation('org.junit.jupiter:junit-jupiter-params:5.7.2')
 
 	testCompileOnly 'junit:junit:4.12' 
 //	testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.3.1'
     
     // Use JUnit Jupiter for testing
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
 
 

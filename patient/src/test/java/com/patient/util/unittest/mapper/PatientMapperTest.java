@@ -22,7 +22,7 @@ class PatientMapperTest {
     		+ "Given an PatientDTO,"
     		+ "when ToPatient DO,"
     		+ " then return result as expected Patient DO")
-    public void givenAPatientDTO_whenPatient_thenReturnExpectedPatient() {
+    public void testToPatientDO() {
 
     	Patient expectedPatient = new Patient(
     			"Ferguson",
@@ -52,7 +52,7 @@ class PatientMapperTest {
     		+ "Given an Patient,"
     		+ "when ToPatientDTO,"
     		+ " then return result as expected PatientDTO")
-    public void givenAnPatient_whenToPatientDTO_thenReturnExpectedPatientDTO() {
+    public void testToPatientDTO() {
 
     	PatientDTO expectedPatientDTO = new PatientDTO(
     			1,

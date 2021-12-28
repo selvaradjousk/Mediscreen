@@ -58,12 +58,12 @@ class PatientRepositoryTest {
 	// ******************************************************************
 	// *******************LIST USERS ************************************
 	// ******************************************************************
-	@DisplayName("LIST OF USERS - "
-			+ "GIVEN - Users in H2 Database "
-			+ "WHEN request list of users SpringData JPA repositories"
-			+ "THEN returns the number of user avalable in the H2 DB dataset")
+	@DisplayName("LIST OF Patients - "
+			+ "GIVEN - Patientss in H2 Database "
+			+ "WHEN request list of Patients SpringData JPA repositories"
+			+ "THEN returns the number of patients avalable in the H2 DB dataset")
 	@Test
-	public void should_find_all_Users() {
+	public void should_find_all_Patients() {
 		
 		Iterable<Patient> patients = patientRepository.findAll();
 		
