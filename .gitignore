@@ -1,0 +1,120 @@
+HELP.md
+
+##############################
+## Maven
+##############################
+target
+*target*
+bin/
+**/target
+
+##############################
+## Personal log folder
+##############################
+#info/
+#/info/
+logs/
+/logs/
+**/logs/
+##############################
+# Gradle of project
+##############################
+**/.gradle
+/build/
+**/build/
+!src/**/build/
+
+##############################
+# JAVA
+##############################
+*.class
+
+##############################
+# Package Files #
+##############################
+*.jar
+*.war
+*.ear
+
+##############################
+# Eclipse specific git ignore #
+##############################
+**/.project
+**/.metadata
+**/.project
+**/.metadata
+**/bin/**
+**/tmp/**
+**/tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+**/local.properties
+**/.classpath
+**/.settings/
+**/.loadpath
+# Locally stored "Eclipse launch configurations"
+*.launch
+# External tool builders
+**/.externalToolBuilders/
+
+##############################
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+##############################
+!gradle-wrapper.jar
+
+##############################
+# Cache of project
+##############################
+.gradletasknamecache
+
+##############################
+# Ignore Gradle GUI config
+##############################
+gradle-app.setting
+
+##############################
+# Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
+##############################
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+##############################
+### STS ###
+##############################
+**/.apt_generated
+**/.classpath
+**/.factorypath
+**/.project
+**/.settings
+.springBeans
+.sts4-cache
+.apt_generated
+.apt_generated_tests
+
+##############################
+### IntelliJ IDEA ###
+##############################
+**/.idea
+*.iws
+*.iml
+*.ipr
+
+##############################
+### NetBeans ###
+##############################
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+##############################
+### VS Code ###
+##############################
+.vscode/
