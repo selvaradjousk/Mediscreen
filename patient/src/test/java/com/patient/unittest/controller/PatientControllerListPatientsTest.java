@@ -27,11 +27,12 @@ import com.patient.controller.PatientController;
 import com.patient.dto.PatientDTO;
 import com.patient.service.IPatientService;
 
-@DisplayName("UNIT TESTS - Controller - Patient")
+@DisplayName("UNIT TESTS - Controller - LIST Patient")
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(PatientController.class)
-class PatientControllerTest {
+class PatientControllerListPatientsTest {
 
+	
     @MockBean
     private IPatientService patientService;
 
@@ -45,7 +46,12 @@ class PatientControllerTest {
     
 
     private final static String PATIENT_LIST_URL = "/patient/list/";
-    
+
+
+
+  	// *******************************************************************
+
+
 
     @BeforeEach
     public void setup() {
@@ -56,8 +62,14 @@ class PatientControllerTest {
     }
     
 
+
+
+  	// *******************************************************************
+
+
+
     @Test
-    @DisplayName("test patient list - "
+    @DisplayName("test GET patient list - "
     		+ "Given a patient list,"
     		+ " when getAllPatient,"
     		+ " then return Ok status")
@@ -78,5 +90,11 @@ class PatientControllerTest {
         assertThat(content).contains("Pippa", "Rees");
     }
 
+
+
+  	// *******************************************************************
+
+
+   
 
 }

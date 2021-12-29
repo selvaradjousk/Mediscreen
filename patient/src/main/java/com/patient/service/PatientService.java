@@ -19,6 +19,12 @@ public class PatientService implements IPatientService {
     private final PatientMapper patientMapper;
 
 
+
+
+  	// *******************************************************************
+
+
+
     public PatientService(
     		final PatientRepository patientRepository,
     		final PatientMapper patientMapper) {
@@ -26,6 +32,12 @@ public class PatientService implements IPatientService {
 		this.patientRepository = patientRepository;
 		this.patientMapper = patientMapper;
 	}
+
+
+
+
+  	// *******************************************************************
+
 
 
     @Override
@@ -37,6 +49,12 @@ public class PatientService implements IPatientService {
         
         return patientList;
     }
+
+
+
+  	// *******************************************************************
+
+
 
 
     public PatientDTO updatePatient(
@@ -56,5 +74,11 @@ public class PatientService implements IPatientService {
 
         return patientMapper.toPatientDTO(patientUpdated);
     }
+
+
+
+  	// *******************************************************************
+
+
 
 }

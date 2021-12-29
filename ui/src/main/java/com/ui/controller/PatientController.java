@@ -15,10 +15,22 @@ public class PatientController {
 
     private MicroservicePatientProxy patientProxy;
 
+
+
+  	// *******************************************************************
+
+
+
     @Autowired
     public PatientController(final MicroservicePatientProxy patientProxy) {
         this.patientProxy = patientProxy;
     }
+
+
+
+
+  	// *******************************************************************
+
 
 
     @GetMapping({"/list"})
@@ -31,6 +43,12 @@ public class PatientController {
 
         return "patient/list";
     }
+
+
+
+
+
+  	// *******************************************************************
 
 
 
