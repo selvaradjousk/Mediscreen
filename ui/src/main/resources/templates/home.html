@@ -1,15 +1,69 @@
- <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Mediscreen Home Page</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="../../css/custom.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    
+
+    <!-- <link rel="icon" type="image/png" href="/img/favicon.ico" /> -->
 </head>
 <body>
+<div class="container mt-4">
 
-<h1>Welcome to MEDISCREEN APP</h1>
+<nav class="navbar navbar-light bg-light justify-content-between">
 
-<p><a href="/patient/list"><h5>Patient management</h5></a></p>
+<img src="/img/mediscreen-logo.png" width="240" height="60" alt="Site logo">
+  <form class="form-inline">
+  
+  <!-- Search form -->
+    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search">🔎︎</i></button>
+  </form>
+</nav>
 
-<p>Users .. Page under construction... App will be sooon available</p>
+
+					</div>
+
+
+	<!-- Navigation -->
+	<div th:replace="fragments/general.html :: navigation"></div>
+
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-md-12 order-lg-2 col-lg-9 px-0">
+				<img th:src="@{/img/mediscreen-people.png}" class="img-fluid"
+					alt="MediScreen image">
+			</div>
+			<div class="col-12 col-md-12 order-lg-1 col-lg-3 px-1 pt-2 text-left ">
+				<p>
+				<h2 class="text-primary text-bold font-weight-bold text-info pt-4">We care.</h2><br>
+				Mediscreen specializes in detecting risk factors for disease.
+				Our screenings using predictive analysis of patient populations at
+				an affordable cost.
+				</p>
+				<ul>
+				<li>Are you a small or rural clinic or practice?</li>
+				<li>Do you nedd screenings for heart disease or hypertension precursors?</li>
+				</ul>
+				<h5 class="text-primary text-bold font-weight-bold text-info pt-4">We have a solution for you.</h4>
+			</div>
+			
+		</div>
+
+	</div>
+
+	<!-- Footer -->
+	<div th:replace="fragments/general.html :: footer"></div>
+
+
+	<script src="/webjars/jquery/3.6.0/jquery.slim.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
 
 </body>
-</html> 
+</html>
