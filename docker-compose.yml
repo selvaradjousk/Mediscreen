@@ -11,7 +11,6 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - 3306:3306
-
     networks:
       - web-server
     restart: always
@@ -40,6 +39,8 @@ services:
     build:
       context: ./ui/
       dockerfile: Dockerfile
+    environment:
+      - PROXY_PATIENT=http://patient:9091/patient
     ports:
       - 9090:9090
     networks:

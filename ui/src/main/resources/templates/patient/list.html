@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Patient List</title>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+        </div>
+        <div class="col-6 text-right">
+            <a href="/"><h5>Home</h5></a>
+        </div>
+    </div>
+    <div class="row"><h2>Patient List</h2></div>
+    <br/><br/>
+    <form th:action="@{/patient/list}">
+        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+        &nbsp;
+        <input type="submit" value="Search" />
+        &nbsp;
+        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+    </form>
+    <br/><br/>
+    <div class="row">
+        <a href="/patient/add" class="btn btn-primary btn-sm">Add New Patient</a>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Date of birth</th>
+                <th>Sex</th>
+                <th>Address</th>
+                <th>Phone</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="patient : ${patients}">
+                <td style="width: 10%" th:text="${patient.id}"></td>
+                <td th:text="${patient.lastName}"></td>
+                <td th:text="${patient.firstName}"></td>
+                <td th:text="${patient.birthDate}"></td>
+                <td th:text="${patient.sex}"></td>
+                <td th:text="${patient.address}"></td>
+                <td th:text="${patient.phoneNumber}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
