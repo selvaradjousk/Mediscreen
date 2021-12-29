@@ -8,19 +8,11 @@ buildscript {
     }
     dependencies {
     	// https://plugins.gradle.org/plugin/org.springframework.boot
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.1.6.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.6.2")
     }
 }
 
 // https://docs.gradle.org/current/samples/sample_building_java_libraries.html
-
-plugins {
-	// Apply the java-library plugin for API and implementation separation
-    id 'java-library'
-    id 'maven-publish'
-}
-
-
 
 plugins {
 	id 'org.springframework.boot' version '2.6.2'
@@ -29,6 +21,9 @@ plugins {
 	id 'eclipse'
 	id "jacoco"
 	id 'war'
+		// Apply the java-library plugin for API and implementation separation
+    id 'java-library'
+    id 'maven-publish'
 }
 
 
