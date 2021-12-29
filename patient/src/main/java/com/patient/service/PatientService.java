@@ -86,7 +86,7 @@ public class PatientService implements IPatientService {
         Patient patient = patientRepository
         		.findById(patientId).orElseThrow(() ->
                 new ResourceNotFoundException(
-                		"No patient registered with this id"));
+                		"Patient not found"));
 
         return patientMapper.toPatientDTO(patient);
     }
