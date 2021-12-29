@@ -3,19 +3,42 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
-    <title>Patient List</title>
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/custom.css">
+    <!-- <link rel="icon" type="image/png" href="/img/favicon.ico" /> -->
 </head>
 <body>
+
+<div class="container mt-4">
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+
+<img src="/img/mediscreen-logo.png" width="240" height="60" alt="Site logo">
+  <form class="form-inline">
+  
+  <!-- Search form -->
+    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search">🔎︎</i></button>
+  </form>
+</nav>
+
+
+					</div>
+
+
+	<!-- Navigation -->
+	<div th:replace="fragments/general.html :: navigation"></div>
+
 <div class="container">
     <div class="row">
         <div class="col-6">
         </div>
-        <div class="col-6 text-right">
-            <a href="/"><h5>Home</h5></a>
-        </div>
+
     </div>
-    <div class="row"><h2>Patient List</h2></div>
+    <div class="row mt-4"><h2 class="text-info">Patient List</h2></div>
     <br/><br/>
     <form th:action="@{/patient/list}">
         Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
@@ -26,7 +49,7 @@
     </form>
     <br/><br/>
     <div class="row">
-        <a href="/patient/add" class="btn btn-primary btn-sm">Add New Patient</a>
+        <a href="/patient/add" class="btn btn-primary btn-lg bg-info font-weight-bold "> + Add New Patient</a>
         <table class="table table-bordered">
             <thead>
             <tr>
@@ -53,5 +76,25 @@
         </table>
     </div>
 </div>
+
+
+<script type="text/javascript">
+	function clearSearch() {
+		window.location = "[[@{/patient/list}]]";
+	}
+</script>
+
+
+<div class="container mt-4 md-4">
+	<!-- Footer -->
+	<div th:replace="fragments/general.html :: footer"></div>
+
+
+<!-- 	<script src="/webjars/jquery/3.6.0/jquery.slim.min.js"></script>
+	<script type="text/javascript"
+		src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script> -->
+ </div>
+
+
 </body>
 </html>
