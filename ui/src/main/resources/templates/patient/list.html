@@ -60,17 +60,23 @@
                 <th>Sex</th>
                 <th>Address</th>
                 <th>Phone</th>
+                <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr th:each="patient : ${patients}">
-                <td style="width: 10%" th:text="${patient.id}"></td>
-                <td th:text="${patient.lastName}"></td>
-                <td th:text="${patient.firstName}"></td>
-                <td th:text="${patient.birthDate}"></td>
-                <td th:text="${patient.sex}"></td>
-                <td th:text="${patient.address}"></td>
-                <td th:text="${patient.phoneNumber}"></td>
+                <td style="width: 3%" th:text="${patient.id}"></td>
+                <td style="width: 10%" th:text="${patient.lastName}"></td>
+                <td style="width: 10%" th:text="${patient.firstName}"></td>
+                <td style="width: 5%" th:text="${patient.birthDate}"></td>
+                <td style="width: 1%" th:text="${patient.sex}"></td>
+                <td style="width: 10%" th:text="${patient.address}"></td>
+                <td style="width: 5%" th:text="${patient.phoneNumber}"></td>
+                <td style="width: 20%" class="text-center">
+                <div class="btn-toolbar">
+                    <a th:href="@{/patient/update/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light">Edit</button></a>
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>
