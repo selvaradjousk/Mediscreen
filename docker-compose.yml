@@ -34,6 +34,18 @@ services:
       - mysql
     restart: always
 
+  ui:
+    image: ui
+    container_name: ui
+    build:
+      context: ./ui/
+      dockerfile: Dockerfile
+    ports:
+      - 9090:9090
+    networks:
+      - web-server
+    restart: always
+
 networks:
   web-server:
     driver: bridge
