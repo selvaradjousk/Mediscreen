@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.patient.dto.PatientDTO;
+import com.patient.exception.ResourceNotFoundException;
+import com.patient.model.Patient;
 import com.patient.repository.PatientRepository;
 import com.patient.util.PatientMapper;
 
@@ -36,5 +38,23 @@ public class PatientService implements IPatientService {
         return patientList;
     }
 
+
+    public PatientDTO updatePatient(
+    		final int patientId,
+    		final PatientDTO patientDTO) {
+
+        patientRepository.findById(patientId).orElseThrow(() ->
+                new ResourceNotFoundException("Patient Id not found"));
+
+        Patient patientToUpdate = patientMapper
+        		.toPatient(patientDTO);
+
+        patientToUpdate.setId(patientId);
+
+        Patient patientUpdated = patientRepository
+        		.save(patientToUpdate);
+
+        return patientMapper.toPatientDTO(patientUpdated);
+    }
 
 }

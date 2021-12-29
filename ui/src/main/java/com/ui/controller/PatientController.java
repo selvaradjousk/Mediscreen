@@ -32,4 +32,10 @@ public class PatientController {
         return "patient/list";
     }
 
+
+
+
+
+
+
 }

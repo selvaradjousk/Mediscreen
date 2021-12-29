@@ -8,4 +8,6 @@ public interface IPatientService {
 
 	List<PatientDTO> getAllPatients();
 
+	PatientDTO updatePatient(int patientId, PatientDTO patientDTO);
+
 }
