@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ui.dto.PatientDTO;
 
@@ -15,6 +17,17 @@ public interface MicroservicePatientProxy {
 
     @GetMapping({"/list"})
     List<PatientDTO> getPatientList();
+
+
+    @PostMapping({"/update/{id}"})
+    PatientDTO updatePatient(
+    		@PathVariable("id") final Integer patientId,
+    		final PatientDTO patientDTO);
+
+
+    @GetMapping({"/get/{id}"})
+    PatientDTO getPatientById
+    		(@PathVariable("id") final Integer patientId);
 
 
 }

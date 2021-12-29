@@ -68,6 +68,19 @@ public class PatientController {
 
   	// *******************************************************************
 
+    @GetMapping("/get/{id}")
+    public PatientDTO getPatientById(
+    		@PathVariable("id") final Integer patientId) {
+
+        PatientDTO patient = patientService
+        		.getPatientById(patientId);
+
+        return patient;
+    }
+
+
+
+  	// *******************************************************************
 
 
 

@@ -10,4 +10,7 @@ public interface IPatientService {
 
 	PatientDTO updatePatient(int patientId, PatientDTO patientDTO);
 
+    PatientDTO getPatientById(final int patientId);
+
+
 }
