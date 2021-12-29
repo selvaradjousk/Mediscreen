@@ -23,7 +23,7 @@ import com.patient.repository.PatientRepository;
 import com.patient.service.PatientService;
 import com.patient.util.PatientMapper;
 
-@DisplayName("Unit Test - Service - Patient")
+@DisplayName("UNIT TESTS - Service - Patient")
 @ExtendWith(MockitoExtension.class)
 class PatientServiceTest {
 
@@ -45,7 +45,7 @@ class PatientServiceTest {
 
     private static PatientDTO patient2DTO;
 
-    private static List<PatientDTO> patientListDTO,patientnewListDTO;
+    private static List<PatientDTO> patientListDTO, patientnewListDTO;
 
 	@BeforeEach
     public void setUp() {

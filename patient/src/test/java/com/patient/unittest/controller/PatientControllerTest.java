@@ -27,7 +27,7 @@ import com.patient.controller.PatientController;
 import com.patient.dto.PatientDTO;
 import com.patient.service.IPatientService;
 
-@DisplayName("Unit Test - Controller - Patient")
+@DisplayName("UNIT TESTS - Controller - Patient")
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(PatientController.class)
 class PatientControllerTest {

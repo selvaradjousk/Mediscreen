@@ -1,6 +1,16 @@
 HELP.md
 
 ##############################
+## Mysql microservice folder
+##############################
+mediscreen_mysql
+*mediscreen_mysql*
+**/mediscreen_mysql
+/mediscreen_mysql
+/mediscreen_mysql/
+
+
+##############################
 ## Maven
 ##############################
 target

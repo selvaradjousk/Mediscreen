@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  mysql:
+    image: mysql
+    container_name: mysqldb
+    environment:
+      MYSQL_DATABASE: mediscreendb
+      MYSQL_USER: mediuser
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_PASSWORD: password
+    ports:
+      - 3306:3306
+
+    networks:
+      - web-server
+    restart: always
+
+  patient:
+    image: patient
+    container_name: patient
+    build:
+      context: ./patient/
+      dockerfile: Dockerfile
+    ports:
+      - 9091:9091
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/mediscreendb?serverTimezone=Europe/Paris
+      - SPRING_DATASOURCE_USERNAME=mediuser
+      - SPRING_DATASOURCE_PASSWORD=password
+    networks:
+      - web-server
+    depends_on:
+      - mysql
+    restart: always
+
+networks:
+  web-server:
+    driver: bridge
