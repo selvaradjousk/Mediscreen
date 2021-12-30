@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ui.dto.PatientDTO;
 import com.ui.proxy.MicroservicePatientProxy;
 
+import feign.Param;
+
 @Controller
 @RequestMapping({"/patient"})
 public class PatientController {
@@ -37,11 +39,14 @@ public class PatientController {
 
     @GetMapping({"/list"})
     public String getPatientList(
-    		final Model model) {
+    		final Model model,
+    		@Param("keyword") final String keyword) {
 
         model.addAttribute(
         		"patients",
-        		this.patientProxy.getPatientList());
+        		this.patientProxy.getPatientList(keyword));
+
+        model.addAttribute("keyword", keyword);
 
         return "patient/list";
     }
