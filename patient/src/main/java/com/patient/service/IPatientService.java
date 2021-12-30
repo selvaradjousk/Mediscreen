@@ -6,11 +6,11 @@ import com.patient.dto.PatientDTO;
 
 public interface IPatientService {
 
-	List<PatientDTO> getAllPatients();
+	List<PatientDTO> getAllPatients(String keyword);
 
 	PatientDTO updatePatient(int patientId, PatientDTO patientDTO);
 
-    PatientDTO getPatientById(final int patientId);
+    PatientDTO getPatientById(int patientId);
 
 
 }

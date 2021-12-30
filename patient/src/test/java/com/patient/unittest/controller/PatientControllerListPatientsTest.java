@@ -60,7 +60,6 @@ class PatientControllerListPatientsTest {
 
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
-    
 
 
 
@@ -69,15 +68,15 @@ class PatientControllerListPatientsTest {
 
 
     @Test
-    @DisplayName("test GET patient list - "
+    @DisplayName("test GET patient list - without search keyword"
     		+ "Given a patient list,"
-    		+ " when getAllPatient,"
+    		+ " when getAllPatient without search keyword,"
     		+ " then return Ok status")
-    public void testPatientList() throws Exception {
-        PatientDTO patient2 = new PatientDTO(1, "Rees", "Pippa",
+    public void testPatientListwithoutKeyword() throws Exception {
+        PatientDTO patient2DTO = new PatientDTO(1, "new Reeeees", "Pippa",
                 LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 
-        when(patientService.getAllPatients()).thenReturn(Arrays.asList(patientDTO, patient2));
+        when(patientService.getAllPatients(null)).thenReturn(Arrays.asList(patientDTO, patient2DTO));
 
         MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(PATIENT_LIST_URL)
                 .contentType(MediaType.APPLICATION_JSON))
@@ -86,8 +85,8 @@ class PatientControllerListPatientsTest {
 
         String content = result.getResponse().getContentAsString();
 
-        verify(patientService).getAllPatients();
-        assertThat(content).contains("Pippa", "Rees");
+        verify(patientService).getAllPatients(null);
+        assertThat(content).contains("new Reeeees", "Rees");
     }
 
 
@@ -95,6 +94,34 @@ class PatientControllerListPatientsTest {
   	// *******************************************************************
 
 
-   
+
+    @Test
+    @DisplayName("test GET patient list - with search keyword"
+    		+ "Given a patient list,"
+    		+ " when getAllPatient with search keyword,"
+    		+ " then return Ok status")
+    public void testPatientListwithKeyword() throws Exception {
+        PatientDTO patient2DTO = new PatientDTO(1, "new Reeeees", "Piiiippa",
+                LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
+
+        when(patientService.getAllPatients("Reeeees")).thenReturn(Arrays.asList(patient2DTO));
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.get(PATIENT_LIST_URL + "?keyword=Reeeees")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+
+        verify(patientService).getAllPatients("Reeeees");
+        assertThat(content).contains("new Reeeees");
+        assertThat(content).doesNotContain("Rees");
+    }
+
+
+
+  	// *******************************************************************
+
+
 
 }

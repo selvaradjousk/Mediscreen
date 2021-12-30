@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.patient.dto.PatientDTO;
@@ -41,10 +42,11 @@ public class PatientController {
 
 
     @GetMapping("/list")
-    public List<PatientDTO> getPatientList() {
+    public List<PatientDTO> getPatientList(
+    		@RequestParam(value = "keyword", required = false) final String keyword) {
 
         List<PatientDTO> patientList = patientService
-        		.getAllPatients();
+        		.getAllPatients(keyword);
 
         return patientList;
     }

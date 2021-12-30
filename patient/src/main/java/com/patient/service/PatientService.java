@@ -41,15 +41,25 @@ public class PatientService implements IPatientService {
 
 
     @Override
-	public List<PatientDTO> getAllPatients(){
+	public List<PatientDTO> getAllPatients(final String keyword) {
 
-    	List<PatientDTO> patientList = patientRepository.findAll().stream()
+        if (keyword != null) {
+    	List<PatientDTO> patientList = patientRepository
+    			.findByKeyword(keyword).stream()
                 .map(patient -> patientMapper.toPatientDTO(patient))
                 .collect(Collectors.toList());
         
         return patientList;
     }
 
+    List<PatientDTO> allPatient = patientRepository
+    		.findAll().stream()
+            .map(patient -> patientMapper.toPatientDTO(patient))
+            .collect(Collectors.toList());
+
+    return allPatient;
+    
+}
 
 
   	// *******************************************************************
