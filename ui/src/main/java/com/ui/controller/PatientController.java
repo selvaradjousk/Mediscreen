@@ -1,10 +1,14 @@
 package com.ui.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ui.dto.PatientDTO;
@@ -78,6 +82,27 @@ public class PatientController {
   	// *******************************************************************
 
 
+    @PostMapping({"/update/{id}"})
+    public String updateUser(
+    		@PathVariable("id") final Integer patientId,
+    		@Valid final PatientDTO patientDTO,
+    		final BindingResult result) {
+
+
+        if (result.hasErrors()) {
+
+            return "patient/update";
+        } else {
+            this.patientProxy.updatePatient(patientId, patientDTO);
+
+            return "redirect:/patient/list";
+        }
+    }
+
+
+
+
+  	// *******************************************************************
 
 
 }

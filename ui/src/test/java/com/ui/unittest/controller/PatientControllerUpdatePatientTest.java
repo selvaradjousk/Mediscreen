@@ -1,6 +1,5 @@
 package com.ui.unittest.controller;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -25,7 +24,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -54,7 +52,7 @@ class PatientControllerUpdatePatientTest {
     @Autowired
     private ObjectMapper mapper;
 
-    private PatientDTO patientDTO;
+    private PatientDTO patientDTO, patientToUpdateDTO;
     
 
     private final static String PATIENT_UPDATE_URL = "/patient/update/";
@@ -67,7 +65,11 @@ class PatientControllerUpdatePatientTest {
 
     @BeforeEach
     public void setup() {
-    	patientDTO = new PatientDTO(1, "Rees", "Pippa",
+    	patientDTO = new PatientDTO("Rees", "Pippa",
+                LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
+    	
+    	
+    	patientToUpdateDTO = new PatientDTO("Rees", "Pippa",
                 LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
@@ -102,41 +104,69 @@ class PatientControllerUpdatePatientTest {
 
 
     @Test
-    @DisplayName("test PUT updatePatient - valid"
+    @DisplayName("test POST updatePatient - valid"
     		+ " Given a Patient to update,"
     		+ " when request for updatePatient,"
     		+ " then return status 200 Ok")
     public void testUpdatePatient() throws Exception {
-
+    	
     	when(patientProxy.updatePatient(1, patientDTO)).thenReturn(patientDTO);
 
         mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
                 .content(mapper.writeValueAsString(patientDTO))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(redirectedUrl("/patient/list"))
                 .andReturn();
     }
 
 
   	// *******************************************************************
 
+
     @Test
-    @DisplayName("test PUT updatePatient - Empty Lastname"
+    @DisplayName("test POST updatePatient - redirectURL"
+    		+ " Given a Patient to update,"
+    		+ " when request for updatePatient,"
+    		+ " then return status REDIRECT to patient list URL")
+    public void testUpdatePatientRedirectUrl() throws Exception {
+
+   	
+    	when(patientProxy.updatePatient(1, patientDTO)).thenReturn(patientToUpdateDTO);
+
+        mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
+                .sessionAttr("patientDTO", patientDTO)
+                .param("lastName", patientDTO.getLastName())
+                .param("firstName", patientDTO.getFirstName())
+                .param("birthDate", patientDTO.getBirthDate().toString())
+                .param("sex", patientDTO.getSex())
+                .param("address", patientDTO.getAddress())
+                .param("phoneNumber", patientDTO.getPhoneNumber()))
+                .andExpect(redirectedUrl("/patient/list"));
+
+        verify(patientProxy).updatePatient(anyInt(), any(PatientDTO.class));
+    }
+
+
+  	// *******************************************************************
+
+    @Test
+    @DisplayName("test POST updatePatient - Empty Lastname"
     		+ " Given a Patient to Empty Lastname,"
     		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
+    		+ "then return redirect patient/update")
     void testUpdatePatientForEmptyLastName() throws Exception {
 
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "", "Pippa", LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
-
-//    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Lastname is mandatory")))
+        mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
+                .sessionAttr("patientDTO", patientDTO)
+                .param("lastName", "")
+                .param("firstName", patientDTO.getFirstName())
+                .param("birthDate", patientDTO.getBirthDate().toString())
+                .param("sex", patientDTO.getSex())
+                .param("address", patientDTO.getAddress())
+                .param("phoneNumber", patientDTO.getPhoneNumber()))
+        		.andExpect(content().string(containsString("Lastname is mandatory")))
+        		.andExpect(model().hasErrors())
+                .andExpect(view().name("patient/update"))
                 .andReturn();
 
         verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
@@ -148,105 +178,56 @@ class PatientControllerUpdatePatientTest {
 
 
     @Test
-    @DisplayName("test PUT updatePatient - LastNameNull"
-    		+ " Given a Patient to LastNameNull,"
-    		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
-    void testUpdatePatientForLastNameNull() throws Exception {
-
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, null, "Pippa", LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
-
-//    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Lastname is mandatory")))
-                .andReturn();
-
-        verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
-    }
-
-
-
-  	// *******************************************************************
-
-
-    @Test
-    @DisplayName("test PUT updatePatient - Empty Firstname"
+    @DisplayName("test POST updatePatient - Empty Firstname"
     		+ " Given a Patient to Empty Firstname,"
     		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
+    		+ "then  redirect patient/update")
     void testUpdatePatientForEmptyFirstname() throws Exception {
 
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", "", LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 
-//    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Firstname is mandatory")))
+		mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
+                .sessionAttr("patientDTO", patientDTO)
+                .param("lastName", patientDTO.getLastName())
+                .param("firstName", "")
+                .param("birthDate", patientDTO.getBirthDate().toString())
+                .param("sex", patientDTO.getSex())
+                .param("address", patientDTO.getAddress())
+                .param("phoneNumber", patientDTO.getPhoneNumber()))
+        		.andExpect(model().hasErrors())
+                .andExpect(view().name("patient/update"))
                 .andReturn();
-
+		
+		
         verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
     }
 
 
 
   	// *******************************************************************
-
-
-    @Test
-    @DisplayName("test PUT updatePatient - FirstnameNull"
-    		+ " Given a Patient to FirstnameNull,"
-    		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
-    void testUpdatePatientForFirstnameNull() throws Exception {
-
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", null, LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
-
-//    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Firstname is mandatory")))
-                .andReturn();
-
-        verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
-    }
-
-
-
-  	// *******************************************************************
-
     
     
       
     
     @Test
-    @DisplayName("test PUT updatePatient - Invalid Birthdate"
+    @DisplayName("test POST updatePatient - Invalid Birthdate"
     		+ " Given a Patient to invalid birthdate,"
     		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
+    		+ "then  redirect patient/update")
     void testUpdatePatientForInvalidBirthDate() throws Exception {
 
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", "Pippa", LocalDate.parse("9999-09-16"), "F", "745 West Valley Farms Drive", "628-423-0993");
-
-    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Please enter a valid birth date")))
+		mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
+                .sessionAttr("patientDTO", patientDTO)
+                .param("lastName", patientDTO.getLastName())
+                .param("firstName", patientDTO.getFirstName())
+                .param("birthDate", "sdfsqdf")
+                .param("sex", patientDTO.getSex())
+                .param("address", patientDTO.getAddress())
+                .param("phoneNumber", patientDTO.getPhoneNumber()))
+        		.andExpect(model().hasErrors())
+                .andExpect(view().name("patient/update"))
                 .andReturn();
-
-        assertThat(result.getResponse().getContentAsString()).contains("Please enter a valid birth date");
+		
+		
         verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
     }
 
@@ -255,78 +236,25 @@ class PatientControllerUpdatePatientTest {
   	// *******************************************************************
 
     
-    
-      
-    
-    @Test
-    @DisplayName("test PUT updatePatient - Null Birthdate"
-    		+ " Given a Patient to Null birthdate,"
-    		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
-    void testUpdatePatientForNullBirthDate() throws Exception {
-
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", "Pippa", null, "F", "745 West Valley Farms Drive", "628-423-0993");
-
-    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andReturn();
-
-        assertThat(result.getResponse().getContentAsString()).contains("Date of birth is mandatory");
-        verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
-    }
-
-
-
-  	// *******************************************************************
-
-
+ 
 
     @Test
-    @DisplayName("test PUT updatePatient - Empty Sex"
+    @DisplayName("test POST updatePatient - Empty Sex"
     		+ " Given a Patient to Empty Sex,"
     		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
+    		+ "then  redirect patient/update")
     void testUpdatePatientForEmptySex() throws Exception {
 
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", "Pippa", LocalDate.of(1952, 11, 11), "", "745 West Valley Farms Drive", "628-423-0993");
-
-//    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Please enter character M or F")))
-                .andReturn();
-
-        verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
-    }
-
-
-
-  	// *******************************************************************
-
-
-    @Test
-    @DisplayName("test PUT updatePatient - SexNull"
-    		+ " Given a Patient to SexNull,"
-    		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
-    void testUpdatePatientForSexNull() throws Exception {
-
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", "Pippa", LocalDate.of(1952, 11, 11), null, "745 West Valley Farms Drive", "628-423-0993");
-
-//    	MvcResult result = 
-    			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Sex is mandatory")))
+		mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
+                .sessionAttr("patientDTO", patientDTO)
+                .param("lastName", patientDTO.getLastName())
+                .param("firstName", patientDTO.getFirstName())
+                .param("birthDate", patientDTO.getBirthDate().toString())
+                .param("sex", "")
+                .param("address", patientDTO.getAddress())
+                .param("phoneNumber", patientDTO.getPhoneNumber()))
+        		.andExpect(model().hasErrors())
+                .andExpect(view().name("patient/update"))
                 .andReturn();
 
         verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
@@ -338,23 +266,26 @@ class PatientControllerUpdatePatientTest {
 
 
 
+
     @Test
-    @DisplayName("test PUT updatePatient - Sex Invalid"
+    @DisplayName("test POST updatePatient - Sex Invalid"
     		+ " Given a Patient to Sex Invalid,"
     		+ " when request for updatePatient, "
-    		+ "then return BAD_REQUEST")
+    		+ "then redirect patient/update")
     void testUpdatePatientForSexInvalid() throws Exception {
 
-    	PatientDTO patientDTO = new PatientDTO(
-    			1, "Rees", "Pippa", LocalDate.of(1952, 11, 11), "Z", "745 West Valley Farms Drive", "628-423-0993");
 
-//    	MvcResult result = 
     			mockMvc.perform(MockMvcRequestBuilders.post(PATIENT_UPDATE_URL + 1)
-                .content(mapper.writeValueAsString(patientDTO))
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(MockMvcResultMatchers.status().isBadRequest())
-                .andExpect(content().string(containsString("Please enter character M or F")))
-                .andReturn();
+    	                .sessionAttr("patientDTO", patientDTO)
+    	                .param("lastName", patientDTO.getLastName())
+    	                .param("firstName", patientDTO.getFirstName())
+    	                .param("birthDate", patientDTO.getBirthDate().toString())
+    	                .param("sex", "Z")
+    	                .param("address", patientDTO.getAddress())
+    	                .param("phoneNumber", patientDTO.getPhoneNumber()))
+    	        		.andExpect(model().hasErrors())
+    	                .andExpect(view().name("patient/update"))
+    	                .andReturn();
 
         verify(patientProxy, times(0)).updatePatient(anyInt(), any(PatientDTO.class));
     }
