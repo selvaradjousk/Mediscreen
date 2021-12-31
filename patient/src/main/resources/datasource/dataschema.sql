@@ -1,6 +1,13 @@
-create database if not exists MEDISCREENDB;
+DROP DATABASE IF EXISTS MEDISCREENDB
 
-use `MEDISCREENDB`;
+/** PRODUCTION DB **/
+
+-- CREATE Database
+    CREATE DATABASE IF NOT EXISTS MEDISCREENDB;
+	USE `MEDISCREENDB`;
+    SET autocommit=1;
+
+-- CREATE Tables
 create table if not exists PATIENTS (
   ID bigint not null auto_increment,
   LAST_NAME varchar(125) not null,
@@ -11,4 +18,6 @@ create table if not exists PATIENTS (
   PHONE_NUMBER varchar(20) default null,
   primary key (ID)
 )
-engine INNODB;
+engine INNODB
+AUTO_INCREMENT=0;
+

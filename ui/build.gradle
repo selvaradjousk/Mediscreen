@@ -20,15 +20,21 @@ plugins {
 	id 'java'
 	id 'eclipse'
 	id "jacoco"
-	id 'war'
+//	id 'war'
+//	id 'jar'
 		// Apply the java-library plugin for API and implementation separation
     id 'java-library'
     id 'maven-publish'
 }
 
-
+/*
 bootWar {
     baseName = 'patient'
+    version =  '1.0.0'
+}*/
+
+bootJar {
+    baseName = 'ui'
     version =  '1.0.0'
 }
 

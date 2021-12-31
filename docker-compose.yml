@@ -1,16 +1,20 @@
 version: '3.3'
 
 services:
-  mysql:
-    image: mysql
-    container_name: mysqldb
+  mysql_db:
+    image: mysql:latest
+    container_name: mysql_db
+    volumes:
+      - "./docker_db/mysql/database_prod.sql:/docker-entrypoint-initdb.d/0_init\
+        .sql"
     environment:
       MYSQL_DATABASE: mediscreendb
       MYSQL_USER: mediuser
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
     ports:
-      - 3306:3306
+      - 3307:3306
     networks:
       - web-server
     restart: always
@@ -24,13 +28,13 @@ services:
     ports:
       - 9091:9091
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:mysql://mysqldb:3306/mediscreendb?serverTimezone=Europe/Paris
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/mediscreendb?serverTimezone=Europe/Paris
       - SPRING_DATASOURCE_USERNAME=mediuser
       - SPRING_DATASOURCE_PASSWORD=password
     networks:
       - web-server
     depends_on:
-      - mysql
+      - mysql_db
     restart: always
 
   ui:
