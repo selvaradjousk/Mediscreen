@@ -125,7 +125,10 @@ All SPRINT progress are documented with Notion.io and reported in the link below
 
 All SPRINT Retrospectives are documented reported here in the link below:
 
-[SPRINT progress documentation for this project](https://github.com/selvaradjousk/Mediscreen/tree/develop/readme_docs/retrospectives)
+[SPRINT Retrospectives documentation for this project](https://github.com/selvaradjousk/Mediscreen/tree/develop/readme_docs/retrospectives)<br>
+<br>
+[SPRINT 1 Retrospectives readme documentation for this project](https://github.com/selvaradjousk/Mediscreen/blob/develop/readme_docs/retrospectives/retro_readme.md)<br>
+<br>
 
 
 
@@ -133,8 +136,7 @@ All SPRINT Retrospectives are documented reported here in the link below:
 
 All Tasks timeline progress are documented and reported here in the link below:
 
-[Tasks Timeline progress documentation](https://github.com/selvaradjousk/Mediscreen/commits/develop/readme_docs/project_progress_tracker.txt)
-
+[Tasks Timeline progress documentation](https://github.com/selvaradjousk/Mediscreen/commits/develop/readme_docs/project_progress_tracker.txt)<br>
 
 
 ### Authors

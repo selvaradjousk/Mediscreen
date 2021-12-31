@@ -1,26 +1,120 @@
 
-Rétrospectif 
- 
-Ce qui s’est bien passé : (What went well)
- 
-  
+Rétrospectif (Retrospective)
+
+Goals: SPRINT 1
+	- DB intial config, microservices infrastructure plan, UI conception, Patient microservice implementation initiation, Docker implementation
+	  Testing with test data, data & input validation, sprint workflows (Notion.so)
+
+
+Ce qui s’est bien passé : (What went well?)
+---------------------------------------------
+
+[SPRINT 1] Tasks automation possibilities with docker
+
+	- better project launch - start
+	  (able to understand the project easily with kanban boards and helped to maske easy & fast planning + design process)
+
+	- Frontend-Backend integration for better delivery & efficient UX
+	  (UI + backend integration from the startline helps progressive product delivary & to get timely client feedbacks on the UX)
+
+	- Development Build speed enhanced - Guided by previous projects instead of starting from scartch
+	  (Modules developed in previous projects improved the reusability of functionalities as were well developed with SOLID principles)
+
+	- Better communication tools
+	  (user of integrated communication tools like Kanban interface, emails & other document types has made efficient to provide neccessary information required to the project initiation & progression during development process)
+
+
+	- Better choice of efficient technologies
+	  Choice of Gradle over Maven was overwhelmingly challenging
+	  (Helped to gain confidence & pushes forward to master-the-art as a follow-up initiated from previous project)
+
+	- Conception of MicroServices Architectural (MSA) for the project got relatively easy & fast to execute the task.
+	  (as a follow-up application point of you from the previous project)
+
+	- SQL DB setup to Docker network implementation were challenging & interesting.
+	  (challenging with gradle integration & build integration)
+
+	- Simutaneous UI frontend-Backend microservices implementation was challenging.
+	  (Microservices at initial setup was interesting and usefull for testing, but was challenging to integrate feign+DB+docker integration)
+
+	- Enhancing UX in frontend at intial stage provides a positive mindset & satisfaction on output & testing scopes.
+	  (opens a good testing & visualisation of output at the enduser UX anticipation perspective)
+
+	- Tasks automation possibilities with docker (Dockerfile & docker-compose)
+	  (intially was challenging but provides great oppurtunity to explore automation possibilities)
+
+	- Agile Method - Sprint WorkFlow Integration was very usefull for development process 
+	  (Managing Product Backlog > Sprint Backlog > in progress > questions > to Test > Completion workflow are very userful and valuable tool to timely managing of tasks and reporting)
+
+	- API specification documentation - good & clean approach for user stories development, testing & reporting
+
+	- Parallel documentation on the progress of tasks is motivating process & fastens the process of software development
+	
 
 
 
- 
-Ce qui s’est pas bien passé & solution trouvé: (What went wrong & solution found)
- 
-   
- 
- 
- 
+Ce qui s’est pas bien passé & solution trouvé: (What didn’t go so well? & solution found)
+--------------------------------------------------------------------------------------------
+
+	- Docker + mysql integration
+	  (had issues in the new user configuration & integration in docker container for rights management and data manipulation)
+	  [solution: fixed manually user setting inside the container]
+
+	- Information input - incompelete / conflicts to sprint backlogs spec
+	  (curl test users doc provided does not match to the SPRINT 1 task - ADD fuctions will only specified for implementation SPRINT 2)
+	  [solution: can advance the ADD and DELETE functions implementation tasks from SPRINT 2 to SPRINT1 to complete the curl test tasks]
+	
+	- Handling logs in the container at dettached mode while troble shooting.
+
+
+
 Ce qui aurait pu aller mieux : (What can be done better)
+----------------------------------------------------------
 
- 
- 
- 
- 
- 
- 
-  
+	- Docker + mysql integration
+	  [will work on integrating automation process in the Dockerfile or external shell script .sh to finalize this workflow integration]
+
+	- Information input - incompelete / conflicts to sprint backlogs spec
+	  (will have to cross check and identify the tasklist integrity with SPRINT Backlogs)
+	  Guarantee all stories have clear acceptanc critieria before picking them up (test sets match with sprint backlog)
+
+
 Ce que j’aimerais faire différemment : (what can be done differently)
+-------------------------------------------------------------------
+
+	- integrating docker AUTOMATION in gradle.build configuration
+
+	- EXTERNALISATION of environmental variables to the maximum possible for better accessibiliy and security concerns
+
+	- Sprint backlogs task split-up	coherence to the individual microservices - avoid overlapping
+
+	- Bigger projects should split tasks to subtasking for short and fast sprint Backlog process
+	  continue to look for oppurtunities to split stories during refinement of sprint backlog
+
+
+What have I learned?
+----------------------
+
+	Docker container based development
+
+	Docker networking with DB SQL integrated microservices
+
+	Gradle in-depth implementation
+
+	Docker & shell .sh automation scripting
+
+	Agile workflow - Kanban board usage and its advantages in agile based efficient development process
+
+	UI decoupled microservice implementation
+
+	Progressive documentation integration development process (CI & CD basics)
+
+
+What still puzzles me?
+-------------------------
+
+	NoSQL DB config, implementation & integration needed for the following sprint 2
+
+	Curl test data does not match with parameter naming provided in doc Vs described for model input list
+
+

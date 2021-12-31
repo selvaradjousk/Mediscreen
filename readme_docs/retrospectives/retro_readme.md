@@ -1,24 +1,18 @@
 <img src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/> *** <img src="https://img.shields.io/badge/spring%20-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white"/> *** <img src="https://img.shields.io/badge/docker%20-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white"/> *** <img src="https://img.shields.io/badge/gradle-%23ED8B00.svg?&style=for-the-badge&logo=gradle&logoColor=white"/>
 
-<h1 align="center">Mediscreen - KANBAN SprintBacklog Progress Report</h1>
+<h1 align="center">Mediscreen - SPRINT Retrospective Report</h1>
 
 **Mediscreen** is a _Spring Boot web_ application with _MSA_ (MicroService Architecure) that faciliates to connect microservices with the industry's most _scalable_ and _flexible_ API Platform through recent _cross-cutting edge_ technologies.
 <br>
 <br>
 <br>
 
- ### Progress status: 31-12-2021
+ ### SPRINT 1 - RETROSPECTIVE REPORT
 
-![SPRINT PROGRESS 31-12-2021](../images/20211230_sprint_update.PNG "SPRINT PROGRESS 31-12-2021")<br />
-
-<br>
-
-
- ### Progress status: STARTLINE -  28-12-2021
-
-![SPRING PROGRESS_STARLINE 28-12-2021](../images/20211228_sprint_update.PNG "SPRING PROGRESS_STARLINE 28-12-2021")<br />
+![SPRINT 1 - RETROSPECTIVE REPORT](../images/sprint1.PNG "SPRINT 1 - RETROSPECTIVE REPORT")<br />
 
 <br>
+
 
 
 
