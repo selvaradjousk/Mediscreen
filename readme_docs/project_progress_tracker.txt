@@ -1,0 +1,128 @@
+
+******************************************************************
+04-01-2022 TASKS (objectives for following session)
+******************************************************************
+DEVELOPMENT - DOCUMENTATION:
+----------------------------
+	- USER STORY => API-REST-specification doc		- TODO (updating in progress)
+
+DEVELOPMENT - CODING
+---------------------------
+
+- *** SPRINT 1  ***  (Tasks: PATIENT MS)
+
+	DB (SQL) connection & configuration		- TODO
+	MICROSERVICE - Patient
+		- MVC structure implementation		- TODO
+		- Demographic data inserted in DB
+		  (insert data @DB script, list json)	- TODO
+		- Patient GET list - FEAT implementat	- TODO
+		  (DO, DTO, Repo, Service, controller)
+		- Patient GET list - TESTS		- TODO
+		- Patient GET byID - Implementation	- TODO
+		- Patient GET byID - TESTS		- TODO
+		- Patient GET search key - Implement	- TODO
+		- Patient GET search key - TESTS	- TODO
+		- Patient UPDATE - FEAT implementation 	- TODO
+			Require VALIDATE endpoint steps to be added
+		- Patient UPDATE- TESTS			- TODO
+		- Patient DELETE - FEAT implementation 	- TODO
+		- Patient DELETE- TESTS			- TODO
+		- Patient ADD - FEAT implementation 	- TODO
+		- Patient ADD- TESTS			- TODO
+		- DOCKER - Dockerfile			- TODO
+		- DOCKER - docker-compose		- TODO
+
+		- CURL tests @4 test data		- ???
+
+		API-REST-specification doc		- TODO
+		Rectrospective doc			- TODO
+		NOTION - KANBAN				- TODO
+
+
+- *** SPRINT 2  *** (Tasks: NOTES MS)
+
+	DB (NoSQL) connection & configuration		- TODO
+	MICROSERVICE - Notes
+		- MVC structure implementation		- TODO
+		- Demographic data inserted in DB
+		  (insert data @DB script, list json)	- TODO
+		- Notes GET list - FEAT implementat	- TODO
+		  (DO, DTO, Repo, Service, controller)
+		- Notes GET list - TESTS		- TODO
+		- Notes GET byID - Implementation	- TODO
+		- Notes GET byID - TESTS		- TODO
+		- Notes UPDATE - FEAT implementation 	- TODO
+		- Notes UPDATE- TESTS			- TODO
+		- Notes DELETE - FEAT implementation 	- NA
+		- Notes DELETE- TESTS			- NA
+		- Notes ADD - FEAT implementation 	- TODO
+		- Notes ADD- TESTS			- TODO
+		- DOCKER - Dockerfile			- TODO
+		- DOCKER - docker-compose		- TODO
+
+		- CURL tests @4 test data		- TODO
+
+		API-REST-specification doc		- TODO
+		Rectrospective doc			- TODO
+		NOTION - KANBAN				- TODO
+
+
+- *** SPRINT 3  ***  (Tasks: ASSESSMENT MS)
+
+	DB (SQL) connection & configuration		- TODO
+	MICROSERVICE - Notes
+		- MVC structure implementation		- TODO
+		- Demographic data inserted in DB
+		  (insert data @DB script, list json)	- TODO
+		- Assess GET list - FEAT implementat	- TODO
+		  (DO, DTO, Repo, Service, controller)
+		- Assess GET list - TESTS		- TODO
+		- DOCKER - Dockerfile			- TODO
+		- DOCKER - docker-compose		- TODO
+
+		- CURL tests @4 test data		- TODO			
+
+		API-REST-specification doc		- TODO
+		Rectrospective doc			- TODO
+		NOTION - KANBAN				- TODO
+
+
+QUESTIONS DURING PROGRESS (RECTRO inputs)
+-----------------------------------------
+	- 
+	- 
+	- 
+	- 
+
+
+
+-----------------------------------------------------------------
+
+******************************************************************
+28-12-2021 STARTLINE
+******************************************************************
+DOCUMENTATION:
+----------------------------
+	- Technical design (link between MS docker to correct)	- TODO (under progress)
+	- MCD design						- TODO (under progress)
+	- USER STORY partially completed 			- TODO (under progress)
+	- user story classic VS API-REST-specification doc	- FINALISED => API-REST SPEC
+	- API-REST-specification doc				- TODO (regular update needed)
+
+
+QUESTIONS DURING PROGRESS (RECTRO inputs)
+-----------------------------------------
+	- Rectrospective document 				- TODO (regular update needed)
+	- Notion - KANBAN					- TODO (under progress)
+	- Gradle VS MAVEN					- Gradle decided
+	- Cloud ecosystems DISCOVERY SERVICES
+		Eureka ecosystem				- TO CHOICE LATER
+		Kubernetes					- TO CHOICE LATER
+	- Frontend
+		HTML, CSS, bootstrap				- TODO
+		REACT						- TO CHOICE LATER
+		ANGULAR						- TO CHOICE LATER
+-----------------------------------------------------------------
+
+
