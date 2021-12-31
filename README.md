@@ -110,8 +110,30 @@ gradlew test or ./gradlew test or gradlew clean test
 
 All endpoints are documented with POSTMAN and can be accessed launched with the below link to POSTMAN:
 
-[POSTMAN - Mediscreen APIs](TODO)<br><br><br>
+[POSTMAN - Mediscreen APIs](#)<br><br><br>
 
+
+
+## SPRINT Backlog documentation (KANBAN @notion.io)
+
+All SPRINT progress are documented with Notion.io and reported in the link below:
+
+[SPRINT progress documentation for this project](readme_docs/kanban_progressline_report/kanban_readme.md)
+
+
+## SPRINT Retrospective documentation
+
+All SPRINT Retrospectives are documented reported here in the link below:
+
+[SPRINT progress documentation for this project](https://github.com/selvaradjousk/Mediscreen/tree/develop/readme_docs/retrospectives)
+
+
+
+## SPRINT Tasks timeline progress documentation
+
+All Tasks timeline progress are documented and reported here in the link below:
+
+[Tasks Timeline progress documentation](https://github.com/selvaradjousk/Mediscreen/commits/develop/readme_docs/project_progress_tracker.txt)
 
 
 
