@@ -24,7 +24,7 @@ import com.patient.controller.PatientController;
 import com.patient.dto.PatientDTO;
 import com.patient.service.IPatientService;
 
-@DisplayName("UNIT TESTS - Controller - Delete Patient By Id")
+@DisplayName("UNIT TESTS - Controller - Delete Patient")
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(PatientController.class)
 class PatientControllerDeletePatientTest {
