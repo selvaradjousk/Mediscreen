@@ -131,5 +131,12 @@ public class PatientController {
 
   	// *******************************************************************
 
+    @GetMapping({"/delete/{id}"})
+    public String deletePatient(@PathVariable("id") final Integer patientId) {
+
+        this.patientProxy.deletePatient(patientId);
+
+        return "redirect:/patient/list";
+    }
 
 }

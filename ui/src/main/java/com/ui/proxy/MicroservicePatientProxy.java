@@ -18,13 +18,13 @@ public interface MicroservicePatientProxy {
 
     @GetMapping({"/list"})
     List<PatientDTO> getPatientList(
-    		@RequestParam(value = "keyword", required = false) final String keyword);
+    		@RequestParam(value = "keyword", required = false) String keyword);
 
 
     @PostMapping({"/update/{id}"})
     PatientDTO updatePatient(
     		@PathVariable("id") final Integer patientId,
-    		final PatientDTO patientDTO);
+    		PatientDTO patientDTO);
 
 
     @GetMapping({"/get/{id}"})
@@ -34,7 +34,9 @@ public interface MicroservicePatientProxy {
 
     @PostMapping({"/add"})
     PatientDTO addPatient(
-    		final PatientDTO patientDTO);
+    		PatientDTO patientDTO);
 
-
+    @GetMapping({"/delete/{id}"})
+    void deletePatient(
+    		@PathVariable("id") Integer patientId);
 }
