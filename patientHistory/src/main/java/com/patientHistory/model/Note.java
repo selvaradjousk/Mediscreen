@@ -31,6 +31,11 @@ public class Note {
     private String note;
 
 
+
+  	// *******************************************************************
+
+
+
     public Note(
     		final Integer patId,
     		final LocalDate date,
@@ -39,4 +44,10 @@ public class Note {
         this.date = date;
         this.note = note;
     }
+
+
+  	// *******************************************************************
+
+
+
 }
