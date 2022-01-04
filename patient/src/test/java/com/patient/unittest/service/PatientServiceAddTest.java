@@ -74,7 +74,7 @@ class PatientServiceAddTest {
         patientToAddDTO = new PatientDTO("Rees", "Pippa",
                 LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 		
-        lenient().when(patientRepository.findByLastNameFirstNameBirthDate(anyString(), anyString(), any(LocalDate.class))).thenReturn(null);
+        lenient().when(patientRepository.findByLastNameAndFirstNameAndBirthDate(anyString(), anyString(), any(LocalDate.class))).thenReturn(null);
         when(patientMapper.toPatient(any(PatientDTO.class))).thenReturn(new Patient(
         		"Rees", "Pippa", LocalDate.of(1952, 11, 11), "F", "111 EAST Valley Farms Drive", "111-423-0993"));
         lenient().when(patientRepository.save(any(Patient.class))).thenReturn(patientToAdd);
@@ -104,7 +104,7 @@ class PatientServiceAddTest {
 	  @Test
 	  public void testAddPatientNotExistsThrowsException(){
 	
-		when(patientRepository.findByLastNameFirstNameBirthDate(anyString(), anyString(), any(LocalDate.class))).thenReturn(patient1);
+		when(patientRepository.findByLastNameAndFirstNameAndBirthDate(anyString(), anyString(), any(LocalDate.class))).thenReturn(patient1);
 
 		assertThrows(DataAlreadyRegisteredException.class, ()
 		     		  -> patientService.addPatient(patient1DTO));

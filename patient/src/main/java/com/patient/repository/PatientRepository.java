@@ -16,7 +16,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     List<Patient> findByKeyword(String keyword);
 
 
-    Patient findByLastNameFirstNameBirthDate(
+    Patient findByLastNameAndFirstNameAndBirthDate(
     		final String lastName,
     		final String firstName,
             final LocalDate birthDate);

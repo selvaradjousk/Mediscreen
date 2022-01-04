@@ -104,5 +104,32 @@ public class PatientController {
 
   	// *******************************************************************
 
+    @GetMapping({"/add"})
+    public String addPatientForm(final Model model) {
+
+        model.addAttribute("patientDTO", new PatientDTO());
+
+        return "patient/add";
+    }
+
+
+  	// *******************************************************************
+
+    @PostMapping({"/validate"})
+    public String validate(
+    		@Valid final PatientDTO patientDTO,
+    		final BindingResult result) {
+
+        if (result.hasErrors()) {
+            return "patient/add";
+        } else {
+            this.patientProxy.addPatient(patientDTO);
+            return "redirect:/patient/list";
+        }
+    }
+
+
+  	// *******************************************************************
+
 
 }

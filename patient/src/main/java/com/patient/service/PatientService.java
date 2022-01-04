@@ -109,7 +109,7 @@ public class PatientService implements IPatientService {
     public PatientDTO addPatient(final PatientDTO patientDTO) {
 
         Patient patientFound = patientRepository
-        		.findByLastNameFirstNameBirthDate(
+        		.findByLastNameAndFirstNameAndBirthDate(
         				patientDTO.getLastName(),
         				patientDTO.getFirstName(),
         				patientDTO.getBirthDate());

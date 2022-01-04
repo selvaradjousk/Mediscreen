@@ -32,4 +32,9 @@ public interface MicroservicePatientProxy {
     		(@PathVariable("id") final Integer patientId);
 
 
+    @PostMapping({"/add"})
+    PatientDTO addPatient(
+    		final PatientDTO patientDTO);
+
+
 }
