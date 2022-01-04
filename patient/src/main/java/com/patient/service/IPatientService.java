@@ -12,5 +12,8 @@ public interface IPatientService {
 
     PatientDTO getPatientById(int patientId);
 
+    PatientDTO addPatient(final PatientDTO patientDTO);
+
+
 
 }

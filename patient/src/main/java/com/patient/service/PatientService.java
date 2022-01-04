@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 
 import com.patient.dto.PatientDTO;
+import com.patient.exception.DataAlreadyRegisteredException;
 import com.patient.exception.ResourceNotFoundException;
 import com.patient.model.Patient;
 import com.patient.repository.PatientRepository;
@@ -105,6 +106,28 @@ public class PatientService implements IPatientService {
 
   	// *******************************************************************
 
+    public PatientDTO addPatient(final PatientDTO patientDTO) {
+
+        Patient patientFound = patientRepository
+        		.findByLastNameFirstNameBirthDate(
+        				patientDTO.getLastName(),
+        				patientDTO.getFirstName(),
+        				patientDTO.getBirthDate());
+
+        if (patientFound != null) {
+            throw new DataAlreadyRegisteredException(
+            		"The patient data already exists");
+        }
+        Patient patientSaved = patientRepository
+        		.save(patientMapper.toPatient(patientDTO));
+
+        return patientMapper.toPatientDTO(patientSaved);
+    }
+
+
+
+
+  	// *******************************************************************
 
 
 

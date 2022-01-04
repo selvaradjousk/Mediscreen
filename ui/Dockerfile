@@ -15,7 +15,9 @@ WORKDIR /app/
 
 RUN gradle wrapper
 
-RUN ./gradlew clean bootJar --no-daemon -DskipTests
+#RUN ./gradlew clean bootJar --no-daemon -DskipTests
+
+RUN ./gradlew bootJar --no-daemon -DskipTests
 
 FROM adoptopenjdk/openjdk11:latest
 # FROM adoptopenjdk:11-jre-hotspot
