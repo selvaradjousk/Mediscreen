@@ -14,6 +14,6 @@ public interface IPatientService {
 
     PatientDTO addPatient(final PatientDTO patientDTO);
 
-
+    void deletePatient(final int patientId);
 
 }

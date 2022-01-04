@@ -129,7 +129,17 @@ public class PatientService implements IPatientService {
 
   	// *******************************************************************
 
+    public void deletePatient(final int patientId) {
+
+        patientRepository.findById(patientId)
+        .orElseThrow(() ->
+                new ResourceNotFoundException("Patient does not exists"));
+
+        patientRepository.deleteById(patientId);
+    }
 
 
+
+  	// *******************************************************************
 
 }

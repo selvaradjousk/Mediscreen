@@ -104,6 +104,15 @@ public class PatientController {
 
   	// *******************************************************************
 
+    @GetMapping("/delete/{id}")
+    public void deletePatient(
+    		@PathVariable("id") final Integer patientId) {
 
+        patientService.deletePatient(patientId);
+
+    }
+
+
+  	// *******************************************************************
 
 }
