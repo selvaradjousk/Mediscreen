@@ -23,8 +23,8 @@ class PatientHistoryDtoTest {
 
 
 	// *******************************************************************	
-		
-	
+
+
 	@DisplayName("Get DTO values - "
 			+ "GIVEN DTO value "
 			+ "WHEN Requested DTO value"
