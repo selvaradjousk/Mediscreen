@@ -65,7 +65,8 @@ public class NoteService implements INoteService {
 
     public List<NoteDTO> getAllNote(final Integer patientId) {
 
-        List<Note> notes = noteRepository.findByPatientId(patientId);
+        List<Note> notes = noteRepository
+        		.findByPatientId(patientId);
 
         List<NoteDTO> allNote = notes.stream()
                 .map(note -> noteMapper.toNoteDTO(note))

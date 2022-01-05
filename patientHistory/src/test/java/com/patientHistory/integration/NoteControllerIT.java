@@ -47,6 +47,7 @@ class NoteControllerIT {
     
     private final static String NOTE_ADD_URL = "/note/add";
     private final static String NOTE_GET_URL = "/note/get/";
+    private final static String NOTE_LIST_URL = "/note/list/";
     
 
   	// *******************************************************************
@@ -72,5 +73,83 @@ class NoteControllerIT {
     
 
   	// *******************************************************************
+
+
+
+    @Test
+    @DisplayName("test GET GetNoteById - "
+    		+ " Given a Note id,"
+    		+ " when request for GetNoteById,"
+    		+ " then return as OK status")
+    public void testGetNoteById() throws Exception {
+
+        List<NoteDTO> notes = noteService.getAllNote(1);
+        String id = notes.get(0).getId();
+
+        ResponseEntity<NoteDTO> response = restTemplate
+        		.getForEntity("http://localhost:" + port +
+                NOTE_GET_URL + id, NoteDTO.class);
+
+        assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        assertThat(response.getBody())
+                .hasFieldOrPropertyWithValue("note", "note test")
+                .isNotNull();
+    }
+
+
+
+
+  	// *******************************************************************
+
+
+    @Test
+    @DisplayName("test GET GetNoteById invalid id - "
+    		+ " Given a Note id,"
+    		+ " when request for GetNoteById,"
+    		+ " then return as Not Found Status")
+    public void testGetNoteByIdInvalidId() throws Exception {
+
+        ResponseEntity<NoteDTO> response = restTemplate
+        		.getForEntity("http://localhost:" + port +
+                NOTE_GET_URL + 6, NoteDTO.class);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCodeValue());
+
+    }
+
+        
+
+      	// *******************************************************************
+
+
+    @Test
+    @DisplayName("test GET GetAllNotes - "
+    		+ " Given a Patient id,"
+    		+ " when request for GetAllNotes,"
+    		+ " then return as 200 OK Status")
+    public void testGetAllNotes() throws Exception {
+
+        ResponseEntity<Object> response = restTemplate
+        		.getForEntity("http://localhost:" + port +
+                NOTE_LIST_URL + 1, Object.class);
+
+        assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        assertThat(response.getBody())
+                .asList()
+                .asString()
+                .contains("note test");
+        
+        assertThat(response.getBody())
+        .asList()
+        .size().isGreaterThan(1)
+        .asString()
+        .isNotNull();
+    }
+
+        
+
+      	// *******************************************************************
+
+
 
 }
