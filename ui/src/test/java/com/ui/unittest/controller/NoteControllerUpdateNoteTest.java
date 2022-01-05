@@ -1,6 +1,7 @@
 package com.ui.unittest.controller;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
@@ -23,15 +24,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ui.controller.NoteController;
 import com.ui.dto.NoteDTO;
 import com.ui.proxy.MicroserviceNoteProxy;
 
-@DisplayName("UNIT TESTS - Controller - Add Note")
+@DisplayName("UNIT TESTS - Controller - Update Note")
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(NoteController.class)
-class NoteControllerAddNoteTest {
+class NoteControllerUpdateNoteTest {
 
 	
     @MockBean
@@ -42,15 +42,10 @@ class NoteControllerAddNoteTest {
 
     @Autowired
     private WebApplicationContext context;
-    
-    @Autowired
-    private ObjectMapper mapper;
 
-    private NoteDTO noteDTO, noteToAddDTO;
-    
 
-    private final static String NOTE_ADD_GET_URL = "/note/add/";
-    private final static String NOTE_ADD_POST_URL = "/note/validate";
+    private NoteDTO noteDTO, noteToUpdateDTO;
+    
 
     private LocalDate date = LocalDate.of(2021,12,31);
 
@@ -60,9 +55,10 @@ class NoteControllerAddNoteTest {
 
     @BeforeEach
     public void setup() {
-    	noteDTO = new NoteDTO("patId", 1, date, "note test");
+    	noteDTO = new NoteDTO("patId", 1, date, "note test1");
     	
-    	noteToAddDTO = new NoteDTO("patId", 1, date, "note test");
+    	
+    	noteToUpdateDTO = new NoteDTO("patId", 1, date, "note test2");
 
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
@@ -75,17 +71,20 @@ class NoteControllerAddNoteTest {
 
 
     @Test
-    @DisplayName("test GET addNoteForm - "
-    		+ " Given a Note to add,"
-    		+ " when request for GET addNoteForm,"
+    @DisplayName("test GET updateNoteForm - "
+    		+ " Given a Note to update,"
+    		+ " when request for GET updateNoteForm,"
     		+ " then return status 200 Ok")
-    public void testGETaddNoteForm() throws Exception {
+    public void testGETupdateNoteForm() throws Exception {
 
-    	mockMvc.perform(MockMvcRequestBuilders.get(NOTE_ADD_GET_URL + "1"))
-        .andExpect(model().attributeExists("noteDTO"))
-        .andExpect(view().name("note/add"))
-        .andExpect(status().isOk());
+        when(noteProxy.getNoteById("1")).thenReturn(noteDTO);
 
+        mockMvc.perform(MockMvcRequestBuilders.get("/note/update/1"))
+                .andExpect(model().attributeExists("noteDTO"))
+                .andExpect(view().name("note/update"))
+                .andExpect(status().isOk());
+
+        verify(noteProxy).getNoteById("1");
     }
 
 
@@ -93,28 +92,27 @@ class NoteControllerAddNoteTest {
 
 
     @Test
-    @DisplayName("test POST addNote - valid"
-    		+ " Given a Note to add,"
-    		+ " when request for addNote,"
-    		+ " then return status redirect note list page")
-    public void testAddNote() throws Exception {
+    @DisplayName("test POST updateNote - valid"
+    		+ " Given a Note to update,"
+    		+ " when request for updateNote,"
+    		+ " then return status 200 Ok")
+    public void testUpdateNote() throws Exception {
     	
-        when(noteProxy.addNote(any(NoteDTO.class))).thenReturn(noteToAddDTO);
+        when(noteProxy.updateNote(anyString(), any(NoteDTO.class))).thenReturn(noteDTO);
 
-        mockMvc.perform(MockMvcRequestBuilders.post(NOTE_ADD_POST_URL)
-                .sessionAttr("noteDTO", noteToAddDTO)
-                .param("patientId", noteToAddDTO.getPatientId().toString())
-                .param("date", noteToAddDTO.getDate().toString())
-                .param("note", noteToAddDTO.getNote()))
-                .andExpect(model().hasNoErrors())
+        mockMvc.perform(MockMvcRequestBuilders.post("/note/update/1")
+                .sessionAttr("noteDTO", noteToUpdateDTO)
+                .param("patientId", noteToUpdateDTO.getPatientId().toString())
+                .param("date", noteToUpdateDTO.getDate().toString())
+                .param("note", noteToUpdateDTO.getNote()))
                 .andExpect(redirectedUrl("/note/list/1"));
 
-        verify(noteProxy).addNote(any(NoteDTO.class));
+        verify(noteProxy).updateNote(anyString(), any(NoteDTO.class));
     }
 
 
   	// *******************************************************************
 
-     
+
 
 }

@@ -22,7 +22,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.patientHistory.dto.NoteDTO;
-import com.patientHistory.repository.NoteRepository;
 import com.patientHistory.service.NoteService;
 import com.patientHistory.util.NoteMapper;
 
@@ -35,8 +34,6 @@ class NoteControllerIT {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Autowired
-    private NoteRepository noteRespository;
     
     @Autowired
     private NoteService noteService;
