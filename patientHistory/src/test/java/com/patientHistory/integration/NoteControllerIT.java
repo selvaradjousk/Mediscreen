@@ -7,7 +7,10 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +28,7 @@ import com.patientHistory.util.NoteMapper;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ActiveProfiles("test")
 class NoteControllerIT {
 
@@ -48,12 +52,14 @@ class NoteControllerIT {
     private final static String NOTE_ADD_URL = "/note/add";
     private final static String NOTE_GET_URL = "/note/get/";
     private final static String NOTE_LIST_URL = "/note/list/";
+    private final static String NOTE_UPDATE_URL = "/note/update/";
     
 
   	// *******************************************************************
 
 
     @Test
+    @Order(1)
     @DisplayName("test POST addNote - "
     		+ " Given a Note to add,"
     		+ " when request for addNote,"
@@ -77,6 +83,7 @@ class NoteControllerIT {
 
 
     @Test
+    @Order(2)
     @DisplayName("test GET GetNoteById - "
     		+ " Given a Note id,"
     		+ " when request for GetNoteById,"
@@ -92,7 +99,7 @@ class NoteControllerIT {
 
         assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
         assertThat(response.getBody())
-                .hasFieldOrPropertyWithValue("note", "note test")
+                .hasFieldOrPropertyWithValue("note", "note updated")
                 .isNotNull();
     }
 
@@ -103,6 +110,7 @@ class NoteControllerIT {
 
 
     @Test
+    @Order(3)
     @DisplayName("test GET GetNoteById invalid id - "
     		+ " Given a Note id,"
     		+ " when request for GetNoteById,"
@@ -123,6 +131,7 @@ class NoteControllerIT {
 
 
     @Test
+    @Order(4)
     @DisplayName("test GET GetAllNotes - "
     		+ " Given a Patient id,"
     		+ " when request for GetAllNotes,"
@@ -137,7 +146,7 @@ class NoteControllerIT {
         assertThat(response.getBody())
                 .asList()
                 .asString()
-                .contains("note test");
+                .contains("note updated");
         
         assertThat(response.getBody())
         .asList()
@@ -149,6 +158,35 @@ class NoteControllerIT {
         
 
       	// *******************************************************************
+
+
+
+
+    @Test
+    @Order(5)
+    @DisplayName("test POST UpdateNote - "
+    		+ " Given a Note id,"
+    		+ " when request for UpdateNote,"
+    		+ " then return as OK status and update done")
+    public void testUpdateNote() throws Exception {
+
+        List<NoteDTO> notes = noteService.getAllNote(1);
+        String id = notes.get(0).getId();
+    	NoteDTO noteToUpdate = new NoteDTO("patId1", 1, date, "note updated");
+    	
+
+        ResponseEntity<NoteDTO> response = restTemplate
+        		.postForEntity("http://localhost:" + port + NOTE_UPDATE_URL + id,
+                noteToUpdate, NoteDTO.class);
+
+        assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        assertThat(response.getBody())
+                .hasFieldOrPropertyWithValue("note", "note updated")
+                .isNotNull();
+    }
+
+
+  	// *******************************************************************
 
 
 

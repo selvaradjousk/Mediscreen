@@ -1,6 +1,7 @@
 package com.patientHistory.unittest.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.when;
@@ -17,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.patientHistory.dto.NoteDTO;
+import com.patientHistory.exception.ResourceNotFoundException;
 import com.patientHistory.model.Note;
 import com.patientHistory.repository.NoteRepository;
 import com.patientHistory.service.NoteService;
@@ -107,6 +109,57 @@ class NoteServiceTest {
         inOrder.verify(noteMapper).toNoteDTO(any(Note.class));
 
     }
+
+
+
+  	// *******************************************************************
+
+
+    @Test
+    @DisplayName("test UpdateNote - "
+    		+ " Given a Note id,"
+    		+ " when request for UpdateNote,"
+    		+ " then return as expected")
+    public void testUpdateNote() {
+
+        Note noteUpdated = new Note("1", 1, date, "note updated");
+        NoteDTO noteUpdatedDTO = new NoteDTO("1", 1, date, "note updated");
+        when(noteRepository.findById("1")).thenReturn(java.util.Optional.ofNullable(note1));
+        when(noteMapper.toNote(any(NoteDTO.class))).thenReturn(new Note(1,
+                date, "note 1 updated"));
+        when(noteRepository.save(any(Note.class))).thenReturn(noteUpdated);
+        when(noteMapper.toNoteDTO(any(Note.class))).thenReturn(noteUpdatedDTO);
+
+        NoteDTO result = noteService.updateNote("1", new NoteDTO(1,
+                date, "note 1 updated"));
+
+        assertThat(result).isEqualTo(noteUpdatedDTO);
+        InOrder inOrder = inOrder(noteRepository, noteMapper);
+        inOrder.verify(noteRepository).findById("1");
+        inOrder.verify(noteMapper).toNote(any(NoteDTO.class));
+        inOrder.verify(noteRepository).save(any(Note.class));
+        inOrder.verify(noteMapper).toNoteDTO(any(Note.class));
+
+    }
+
+
+
+
+  	// *******************************************************************
+
+    @Test
+    @DisplayName("test UpdateNote invalid id - "
+    		+ " Given a Note id,"
+    		+ " when request for UpdateNote invalid id,"
+    		+ " then return exception resource not found")
+    public void testUpdateNoteInvalidId() {
+
+    	when(noteRepository.findById("1")).thenReturn(java.util.Optional.empty());
+
+    	assertThrows(ResourceNotFoundException.class, ()
+	     		  -> noteService.updateNote("1", note1DTO));
+    }
+
 
 
 

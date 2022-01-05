@@ -12,5 +12,7 @@ public interface INoteService {
 
     List<NoteDTO> getAllNote(Integer patientId);
 
+    NoteDTO updateNote(String noteId, NoteDTO noteDTO);
+
 
 }

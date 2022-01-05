@@ -1,6 +1,8 @@
 package com.patientHistory.unittest.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -52,6 +54,7 @@ class NoteControllerTest {
     private final static String NOTE_ADD_URL = "/note/add";
     private final static String NOTE_GET_URL = "/note/get/";
     private final static String NOTE_LIST_URL = "/note/list/";
+    private final static String NOTE_UPDATE_URL = "/note/update/";
 
     private LocalDate date = LocalDate.now();
     
@@ -144,6 +147,37 @@ class NoteControllerTest {
 
 
   	// *******************************************************************
+
+
+
+
+
+    @Test
+    @DisplayName("test POST UpdateNote - "
+    		+ " Given a Note id,"
+    		+ " when request for UpdateNote,"
+    		+ " then return as OK status and update done")
+    public void testUpdateNote() throws Exception {
+
+    	NoteDTO noteDTO = new NoteDTO("patId", 1, date, "note updated");
+        when(noteService.updateNote(anyString(), any(NoteDTO.class))).thenReturn(noteDTO);
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post(NOTE_UPDATE_URL + 1)
+                .content(mapper.writeValueAsString(noteDTO))
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+
+        assertThat(content).contains("note updated");
+        verify(noteService).updateNote(anyString(), any(NoteDTO.class));
+    }
+
+
+
+  	// *******************************************************************
+
 
 
 

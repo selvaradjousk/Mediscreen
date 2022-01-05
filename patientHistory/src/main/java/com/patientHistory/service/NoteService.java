@@ -79,7 +79,26 @@ public class NoteService implements INoteService {
 
   	// *******************************************************************
 
+    public NoteDTO updateNote(
+    		final String noteId,
+    		final NoteDTO noteDTO) {
 
+        noteRepository.findById(noteId)
+        .orElseThrow(() ->
+                new ResourceNotFoundException(
+                		"Not Id not found"));
+
+        Note noteToUpdate = noteMapper
+        		.toNote(noteDTO);
+        noteToUpdate.setId(noteId);
+        Note noteUpdated = noteRepository
+        		.save(noteToUpdate);
+
+        return noteMapper.toNoteDTO(noteUpdated);
+    }
+
+
+  	// *******************************************************************
 
 
 }

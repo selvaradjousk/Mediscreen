@@ -1,7 +1,6 @@
 package com.patientHistory.controller;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.patientHistory.dto.NoteDTO;
-import com.patientHistory.model.Note;
 import com.patientHistory.service.INoteService;
 
 @RestController
@@ -42,7 +40,8 @@ public class NoteController {
     public NoteDTO addNote(
     		@RequestBody final NoteDTO noteDTO) {
 
-        NoteDTO noteAdded = noteService.addNote(noteDTO);
+        NoteDTO noteAdded = noteService
+        		.addNote(noteDTO);
 
         return noteAdded;
     }
@@ -55,7 +54,8 @@ public class NoteController {
     public NoteDTO getNoteById(
     		@PathVariable("id") final String noteId) {
 
-        NoteDTO noteFound = noteService.getNoteById(noteId);
+        NoteDTO noteFound = noteService
+        		.getNoteById(noteId);
 
         return noteFound;
     }
@@ -77,6 +77,15 @@ public class NoteController {
 
   	// *******************************************************************
 
+    @PostMapping("/update/{id}")
+    public NoteDTO updateNote(
+    		@PathVariable("id") final String noteId,
+    		@RequestBody final NoteDTO noteDTO) {
 
+        NoteDTO noteUpdated = noteService
+        		.updateNote(noteId, noteDTO);
+
+        return noteUpdated;
+    }
 
 }
