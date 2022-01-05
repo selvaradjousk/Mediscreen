@@ -168,5 +168,35 @@ class NoteServiceTest {
 
 
 
+    @Test
+    @DisplayName("test DeleteNote - "
+    		+ " Given a Note id,"
+    		+ " when request for DeleteNote,"
+    		+ " then return as OK status")
+    public void testDeleteNote() throws Exception {
+
+        when(noteRepository.findById("1")).thenReturn(java.util.Optional.ofNullable(note1));
+
+        noteService.deleteNote("1");
+
+        InOrder inOrder = inOrder(noteRepository);
+        inOrder.verify(noteRepository).findById("1");
+        inOrder.verify(noteRepository).deleteById("1");
+        
+    }
+
+
+
+
+  	// *******************************************************************
+
+
+
+
+  	// *******************************************************************
+
+
+
+
 
 }

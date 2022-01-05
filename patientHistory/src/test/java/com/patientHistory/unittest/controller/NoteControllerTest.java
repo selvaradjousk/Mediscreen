@@ -14,6 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -29,6 +30,7 @@ import org.springframework.web.context.WebApplicationContext;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.patientHistory.controller.NoteController;
 import com.patientHistory.dto.NoteDTO;
+import com.patientHistory.repository.NoteRepository;
 import com.patientHistory.service.INoteService;
 
 @DisplayName("UNIT TESTS - CONTROLLER - PATIENT HISTORY")
@@ -40,6 +42,9 @@ class NoteControllerTest {
     @MockBean
     private INoteService noteService;
 
+    @Mock
+    private NoteRepository noteRepository;
+    
     @Autowired
     private MockMvc mockMvc;
 
@@ -55,6 +60,7 @@ class NoteControllerTest {
     private final static String NOTE_GET_URL = "/note/get/";
     private final static String NOTE_LIST_URL = "/note/list/";
     private final static String NOTE_UPDATE_URL = "/note/update/";
+    private final static String NOTE_DELETE_URL = "/note/delete/";
 
     private LocalDate date = LocalDate.now();
     
@@ -173,6 +179,27 @@ class NoteControllerTest {
         assertThat(content).contains("note updated");
         verify(noteService).updateNote(anyString(), any(NoteDTO.class));
     }
+
+
+
+  	// *******************************************************************
+
+
+    @Test
+    @DisplayName("test DeleteNote - "
+    		+ " Given a Note id,"
+    		+ " when request for DeleteNote,"
+    		+ " then return as OK status")
+    public void testDeleteNote() throws Exception {
+
+        mockMvc.perform(MockMvcRequestBuilders.get(NOTE_DELETE_URL + 1)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        verify(noteService).deleteNote("1");
+        
+    }
+
 
 
 

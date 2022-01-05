@@ -14,5 +14,5 @@ public interface INoteService {
 
     NoteDTO updateNote(String noteId, NoteDTO noteDTO);
 
-
+    void deleteNote(final String noteId);
 }

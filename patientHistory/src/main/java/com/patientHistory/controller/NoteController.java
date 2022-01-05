@@ -88,4 +88,17 @@ public class NoteController {
         return noteUpdated;
     }
 
+  	// *******************************************************************
+
+    @GetMapping("/delete/{id}")
+    public void deleteNote(
+    		@PathVariable("id") final String noteId) {
+
+        noteService.deleteNote(noteId);
+
+    }
+
+
+  	// *******************************************************************
+
 }

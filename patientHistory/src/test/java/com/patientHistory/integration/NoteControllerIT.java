@@ -53,6 +53,7 @@ class NoteControllerIT {
     private final static String NOTE_GET_URL = "/note/get/";
     private final static String NOTE_LIST_URL = "/note/list/";
     private final static String NOTE_UPDATE_URL = "/note/update/";
+    private final static String NOTE_DELETE_URL = "/note/delete/";
     
 
   	// *******************************************************************
@@ -187,6 +188,32 @@ class NoteControllerIT {
 
 
   	// *******************************************************************
+
+
+
+    @Test
+    @Order(6)
+    @DisplayName("test DeleteNote - "
+    		+ " Given a Note id,"
+    		+ " when request for DeleteNote,"
+    		+ " then return as OK status")
+    public void testDeleteNote() throws Exception {
+
+        List<NoteDTO> notes = noteService.getAllNote(1);
+        String id = notes.get(0).getId();
+        ResponseEntity<Void> response = restTemplate.getForEntity("http://localhost:" + port +
+                NOTE_DELETE_URL + id, Void.class);
+
+        assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        
+    }
+
+
+
+
+  	// *******************************************************************
+
+
 
 
 

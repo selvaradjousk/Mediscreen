@@ -52,7 +52,7 @@ public class NoteService implements INoteService {
         Note note = noteRepository.findById(noteId)
         		.orElseThrow(() ->
                 new ResourceNotFoundException(
-                		"Not with this id does not exists"));
+                		"Note with this id does not exists"));
 
         return noteMapper.toNoteDTO(note);
     }
@@ -100,5 +100,16 @@ public class NoteService implements INoteService {
 
   	// *******************************************************************
 
+    public void deleteNote(final String noteId) {
+
+        noteRepository.findById(noteId)
+        .orElseThrow(() ->
+                new ResourceNotFoundException("ID not found"));
+
+        noteRepository.deleteById(noteId);
+
+    }
+
+      	// *******************************************************************
 
 }
