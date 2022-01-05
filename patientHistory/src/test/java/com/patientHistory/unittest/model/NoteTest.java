@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.patientHistory.model.Note;
 
 @DisplayName("UNIT TESTS - MODEL - PATIENT HISTORY")
-class PatientHistoryTest {
+class NoteTest {
 
 	private Note note;
 	private LocalDate date = LocalDate.now();

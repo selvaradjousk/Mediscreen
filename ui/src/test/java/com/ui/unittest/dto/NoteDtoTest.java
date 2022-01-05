@@ -1,4 +1,4 @@
-package com.patientHistory.unittest.dto;
+package com.ui.unittest.dto;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,10 +8,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.patientHistory.dto.NoteDTO;
+import com.ui.dto.NoteDTO;
 
-@DisplayName("UNIT TESTS - MODEL - PATIENT HISTORY")
-class PatientHistoryDtoTest {
+@DisplayName("UNIT TESTS - DTO - PATIENT HISTORY")
+class NoteDtoTest {
 
 	private NoteDTO noteDto;
 	private LocalDate date = LocalDate.now();
