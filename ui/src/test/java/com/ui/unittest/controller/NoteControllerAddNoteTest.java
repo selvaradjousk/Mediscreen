@@ -42,9 +42,7 @@ class NoteControllerAddNoteTest {
 
     @Autowired
     private WebApplicationContext context;
-    
-    @Autowired
-    private ObjectMapper mapper;
+
 
     private NoteDTO noteDTO, noteToAddDTO;
     
