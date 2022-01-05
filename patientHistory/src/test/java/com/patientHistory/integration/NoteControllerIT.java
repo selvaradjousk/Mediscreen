@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -45,6 +46,7 @@ class NoteControllerIT {
     private LocalDate date = LocalDate.of(2021,12,31);
     
     private final static String NOTE_ADD_URL = "/note/add";
+    private final static String NOTE_GET_URL = "/note/get/";
     
 
   	// *******************************************************************
@@ -70,6 +72,5 @@ class NoteControllerIT {
     
 
   	// *******************************************************************
-
 
 }

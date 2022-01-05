@@ -1,6 +1,9 @@
 package com.patientHistory.unittest.controller;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.LocalDate;
 
@@ -14,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -45,6 +49,7 @@ class NoteControllerTest {
     private NoteDTO noteDTO;
 
     private final static String NOTE_ADD_URL = "/note/add";
+    private final static String NOTE_GET_URL = "/note/get/";
 
     private LocalDate date = LocalDate.now();
     
@@ -81,9 +86,32 @@ class NoteControllerTest {
 
   	// *******************************************************************
 
+    @Test
+    @DisplayName("test GET GetNoteById - "
+    		+ " Given a Note id,"
+    		+ " when request for GetNoteById,"
+    		+ " then return as OK status")
+    public void testGetNoteById() throws Exception {
+
+    	NoteDTO noteDTO = new NoteDTO("patId", 1, date, "note");
+        when(noteService.getNoteById("1")).thenReturn(noteDTO);
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+        		.get(NOTE_GET_URL + 1)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+
+        assertThat(content).contains("ote");
+        verify(noteService).getNoteById("1");
+    }
 
 
 
+
+  	// *******************************************************************
 
 
 }

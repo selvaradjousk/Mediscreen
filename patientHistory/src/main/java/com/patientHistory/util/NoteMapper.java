@@ -16,7 +16,7 @@ public class NoteMapper {
     public Note toNote(final NoteDTO noteDTO) {
 
         return new Note(
-        		noteDTO.getPatId(),
+        		noteDTO.getPatientId(),
         		noteDTO.getDate(),
         		noteDTO.getNote());
     }
@@ -31,7 +31,7 @@ public class NoteMapper {
 
         return new NoteDTO(
         		note.getId(),
-        		note.getPatId(),
+        		note.getPatientId(),
         		note.getDate(),
         		note.getNote());
     }

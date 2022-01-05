@@ -86,6 +86,33 @@ class NoteServiceTest {
 
   	// *******************************************************************
 
+    @Test
+    @DisplayName("test GET GetNoteById - "
+    		+ " Given a Note id,"
+    		+ " when request for GetNoteById,"
+    		+ " then return as expected")
+    public void testGetNoteById() {
+        when(noteRepository.findById("1")).thenReturn(java.util.Optional.ofNullable(note1));
+        when(noteMapper.toNoteDTO(any(Note.class))).thenReturn(note1DTO);
+
+        NoteDTO noteFound = noteService.getNoteById("1");
+
+
+        assertThat(noteFound).usingRecursiveComparison()
+        					.ignoringCollectionOrder()
+        					.isEqualTo(note1DTO);
+
+        InOrder inOrder = inOrder(noteRepository, noteMapper);
+        inOrder.verify(noteRepository).findById("1");
+        inOrder.verify(noteMapper).toNoteDTO(any(Note.class));
+
+    }
+
+
+
+  	// *******************************************************************
+
+
 
 
 

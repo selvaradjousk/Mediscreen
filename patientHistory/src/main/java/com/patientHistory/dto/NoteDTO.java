@@ -16,7 +16,7 @@ public class NoteDTO {
 
     private String id;
 
-    private Integer patId;
+    private Integer patientId;
 
     private LocalDate date;
 
@@ -24,10 +24,10 @@ public class NoteDTO {
 
 
     public NoteDTO(
-    		final Integer patId,
+    		final Integer patientId,
     		final LocalDate date,
     		final String note) {
-        this.patId = patId;
+        this.patientId = patientId;
         this.date = date;
         this.note = note;
     }

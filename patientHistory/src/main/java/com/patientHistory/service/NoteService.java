@@ -3,6 +3,7 @@ package com.patientHistory.service;
 import org.springframework.stereotype.Service;
 
 import com.patientHistory.dto.NoteDTO;
+import com.patientHistory.exception.ResourceNotFoundException;
 import com.patientHistory.model.Note;
 import com.patientHistory.repository.NoteRepository;
 import com.patientHistory.util.NoteMapper;
@@ -42,6 +43,20 @@ public class NoteService implements INoteService {
 
 
 	// *******************************************************************	
+
+    public NoteDTO getNoteById(final String noteId) {
+
+        Note note = noteRepository.findById(noteId)
+        		.orElseThrow(() ->
+                new ResourceNotFoundException(
+                		"Not with this id does not exists"));
+
+        return noteMapper.toNoteDTO(note);
+    }
+
+
+	// *******************************************************************	
+
 
 
 
