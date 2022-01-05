@@ -1,8 +1,11 @@
 package com.patientHistory.util;
 
+import org.springframework.stereotype.Component;
+
 import com.patientHistory.dto.NoteDTO;
 import com.patientHistory.model.Note;
 
+@Component
 public class NoteMapper {
 
 

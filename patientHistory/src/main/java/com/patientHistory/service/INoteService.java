@@ -4,7 +4,7 @@ import com.patientHistory.dto.NoteDTO;
 
 public interface INoteService {
 
-    NoteDTO addNote(final NoteDTO note);
+    NoteDTO addNote(NoteDTO note);
 
 
 }

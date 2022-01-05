@@ -1,8 +1,12 @@
 package com.patientHistory.repository;
 
-import com.patientHistory.model.Note;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 
-public interface NoteRepository extends MongoRepository<Note, String>  {
+import com.patientHistory.model.Note;
+
+
+@Repository
+public interface NoteRepository extends MongoRepository<Note, String> {
 
 }

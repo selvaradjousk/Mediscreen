@@ -1,10 +1,13 @@
 package com.patientHistory.service;
 
+import org.springframework.stereotype.Service;
+
 import com.patientHistory.dto.NoteDTO;
 import com.patientHistory.model.Note;
 import com.patientHistory.repository.NoteRepository;
 import com.patientHistory.util.NoteMapper;
 
+@Service
 public class NoteService implements INoteService {
 
 

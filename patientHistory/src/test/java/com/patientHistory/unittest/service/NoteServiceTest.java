@@ -61,8 +61,8 @@ class NoteServiceTest {
     @DisplayName("test POST addNote - "
     		+ " Given a Note to add,"
     		+ " when request for addNote,"
-    		+ " then return status 200 Ok")
-    public void givenANoteToAdd_whenAddNote_thenNoteShouldBeSavedCorrectly() {
+    		+ " then return as expected")
+    public void testAddNote() {
         NoteDTO noteToAddDTO = new NoteDTO("patId", 1, date, "note");
         Note noteToAdd = new Note("patId", 1, date, "note");
         when(noteMapper.toNote(any(NoteDTO.class))).thenReturn(noteToAdd);
