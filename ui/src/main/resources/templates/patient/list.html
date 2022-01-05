@@ -76,6 +76,8 @@
                 <div class="btn-toolbar">
                     <a th:href="@{/patient/update/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light">Edit</button></a>
                     <a th:href="@{/patient/delete/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm bg-danger mr-2 mb-2 font-weight-bold btn btn-outline-light">Delete</button></a>
+                    <a th:href="@{/note/list/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm bg-success mr-2 mb-2 font-weight-bold btn btn-outline-light">Notes</button></a>
+                    <a th:href="@{/assess/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm mr-2 mb-2 font-weight-bold btn btn-outline-light">Report</button></a>
                     </div>
                 </td>
             </tr>

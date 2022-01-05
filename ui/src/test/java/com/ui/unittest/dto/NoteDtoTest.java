@@ -31,7 +31,7 @@ class NoteDtoTest {
 			+ "THEN returns expected DTO values")
 	@Test
 	void testGetPatientHistoryDTOValues() {
-		assertEquals(1, noteDto.getPatId());
+		assertEquals(1, noteDto.getPatientId());
 		assertEquals("patId", noteDto.getId());
 		assertEquals(date, noteDto.getDate());
 		assertEquals("note", noteDto.getNote());
@@ -49,7 +49,7 @@ class NoteDtoTest {
 	@Test
 	void testSetPatientHistoryDTOValues() {
 
-		assertEquals(1, noteDto.getPatId());
+		assertEquals(1, noteDto.getPatientId());
 		assertEquals("patId", noteDto.getId());
 		assertEquals(date, noteDto.getDate());
 		assertEquals("note", noteDto.getNote());
@@ -57,12 +57,12 @@ class NoteDtoTest {
 		LocalDate newDate = LocalDate.of(2021,12,31);
 
 		noteDto.setId("newId");
-		noteDto.setPatId(3);
+		noteDto.setPatientId(3);
 		noteDto.setDate(newDate);
 		noteDto.setNote("newNote");
 
 
-		assertEquals(3, noteDto.getPatId());
+		assertEquals(3, noteDto.getPatientId());
 		assertEquals("newId", noteDto.getId());
 		assertEquals(newDate, noteDto.getDate());
 		assertEquals("newNote", noteDto.getNote());
