@@ -1,5 +1,8 @@
 package com.patientHistory.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 
 import com.patientHistory.dto.NoteDTO;
@@ -56,6 +59,24 @@ public class NoteService implements INoteService {
 
 
 	// *******************************************************************	
+
+
+
+
+    public List<NoteDTO> getAllNote(final Integer patientId) {
+
+        List<Note> notes = noteRepository.findByPatientId(patientId);
+
+        List<NoteDTO> allNote = notes.stream()
+                .map(note -> noteMapper.toNoteDTO(note))
+                .collect(Collectors.toList());
+
+        return allNote;
+    }
+
+
+
+  	// *******************************************************************
 
 
 

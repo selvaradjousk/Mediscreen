@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -50,6 +51,7 @@ class NoteControllerTest {
 
     private final static String NOTE_ADD_URL = "/note/add";
     private final static String NOTE_GET_URL = "/note/get/";
+    private final static String NOTE_LIST_URL = "/note/list/";
 
     private LocalDate date = LocalDate.now();
     
@@ -112,6 +114,37 @@ class NoteControllerTest {
 
 
   	// *******************************************************************
+
+
+
+    @Test
+    @DisplayName("test GET GetAllNote - "
+    		+ " Given a Note id,"
+    		+ " when request for GetAllNote,"
+    		+ " then return as OK status")
+    public void testGetAllNote() throws Exception {
+
+    	NoteDTO noteDTO1 = new NoteDTO("patId1", 1, date, "note1");
+    	NoteDTO noteDTO2 = new NoteDTO("patId2", 1, date, "note2");
+    	
+        when(noteService.getAllNote(1)).thenReturn(Arrays
+        		.asList(noteDTO1, noteDTO2));
+
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders
+        		.get(NOTE_LIST_URL + 1)
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+
+        verify(noteService).getAllNote(1);
+        assertThat(content).contains("note1", "note2");
+    }
+
+
+  	// *******************************************************************
+
 
 
 }

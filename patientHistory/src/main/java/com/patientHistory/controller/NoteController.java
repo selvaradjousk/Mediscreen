@@ -1,5 +1,8 @@
 package com.patientHistory.controller;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.patientHistory.dto.NoteDTO;
+import com.patientHistory.model.Note;
 import com.patientHistory.service.INoteService;
 
 @RestController
@@ -55,6 +59,24 @@ public class NoteController {
 
         return noteFound;
     }
+
+
+
+  	// *******************************************************************
+
+    @GetMapping("/list/{id}")
+    public List<NoteDTO> getNoteList(
+    		@PathVariable("id") final Integer patientId) {
+
+        List<NoteDTO> allNote = noteService
+        		.getAllNote(patientId);
+
+        return allNote;
+    }
+
+
+  	// *******************************************************************
+
 
 
 }
