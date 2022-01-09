@@ -43,7 +43,7 @@ Mediscreen application is composed of primarily 3 microservices:
 
 ## Application Run configuration
 
-## Gradle 
+<img src="https://img.shields.io/badge/gradle-%23ED8B00.svg?&style=for-the-badge&logo=gradle&logoColor=white"/> <br/>
 ```
 gradle bootRun or ./gradle bootRun
 ```
@@ -51,7 +51,7 @@ gradle bootRun or ./gradle bootRun
 gradle bootWar or ./gradle bootWar or ./gradle bootJar
 ```
 
-## Docker
+<img src="https://img.shields.io/badge/docker%20-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white"/> <br/>
 
 ### Building Docker images
 
@@ -120,6 +120,9 @@ All SPRINT progress are documented with Notion.io and reported in the link below
 
 [SPRINT progress documentation for this project](readme_docs/kanban_progressline_report/kanban_readme.md)
 
+[NOTION - Backlog Online - Link](https://www.notion.so/411c45a75ebd41848f20816d5a1b023d?v=4fbc0f2adb024e93aea0306e875a9419)
+
+
 
 ## SPRINT Retrospective documentation
 
@@ -127,7 +130,7 @@ All SPRINT Retrospectives are documented reported here in the link below:
 
 [SPRINT Retrospectives documentation for this project](https://github.com/selvaradjousk/Mediscreen/tree/develop/readme_docs/retrospectives)<br>
 <br>
-[SPRINT 1 Retrospectives readme documentation for this project](https://github.com/selvaradjousk/Mediscreen/blob/develop/readme_docs/retrospectives/retro_readme.md)<br>
+[SPRINT Retrospectives readme documentation for this project](https://github.com/selvaradjousk/Mediscreen/blob/develop/readme_docs/retrospectives/retro_readme.md)<br>
 <br>
 
 

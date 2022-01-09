@@ -7,7 +7,13 @@
 <br>
 <br>
 
- ### Progress status: 31-12-2021
+ ### Progress status: 09-01-2022 - SPRINT 2
+
+![SPRINT PROGRESS 09-01-2022](../images/20220109_sprint_update.PNG "SPRINT PROGRESS 09-01-2022")<br />
+
+<br>
+
+ ### Progress status: 31-12-2021 - SPRINT 1
 
 ![SPRINT PROGRESS 31-12-2021](../images/20211230_sprint_update.PNG "SPRINT PROGRESS 31-12-2021")<br />
 

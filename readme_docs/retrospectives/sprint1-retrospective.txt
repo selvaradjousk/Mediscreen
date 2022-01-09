@@ -1,4 +1,3 @@
-
 Rétrospectif (Retrospective)
 
 Goals: SPRINT 1
@@ -116,5 +115,3 @@ What still puzzles me?
 	NoSQL DB config, implementation & integration needed for the following sprint 2
 
 	Curl test data does not match with parameter naming provided in doc Vs described for model input list
-
-

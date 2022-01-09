@@ -1,26 +1,57 @@
 
-Rétrospectif 
+Rétrospectif (Retrospective)
+
+Goals: [SPRINT 2] 
+	- NoSQL DB intial config, Microservice MongoDB integration initial tests, UI conception, Patient History (Note) microservice implementation initiation, Docker implementation
+	  Testing with test data, data & input validation, sprint workflows (Notion.so)
+
+
  
-Ce qui s’est bien passé : (What went well)
- 
+Ce qui s’est bien passé : (What went well?)
+---------------------------------------------
+ 	- better Progress (able to develop a better and fast progress in this sprint facilitated from already established SPRINT 1 infrastructure implementation & integration)
   
+	- Frontend-Backend integration was relatively more easier following Sprint 1 progress
+
+	- Top up to the previous SPRINT 1 stages enhanced the build progress speed
+	- (Modules developed in previous sprint improved the reusability of functionalities as were well developed with SOLID principles)
+	- No SQL DB setup to Docker network implementation were initially challenging & interesting. 
+	- Follow-up on Agile Method - Sprint WorkFlow Integration was very usefull for development process
+	- API specification documentation - good & clean approach for user stories development, testing & reporting
+	- Parallel documentation on the progress of tasks is motivating process & fastens the process of software development
+
+ 
+
+
+Ce qui s’est pas bien passé & solution trouvé: (What didn’t go so well? & solution found)
+--------------------------------------------------------------------------------------------
+
+	- Docker + NoSql (MongoDB) integration bit confusing at the initial stages
+(had issues in the new notes configuration & integration in docker container for accessing data storage and data flow for data manipulation & persistence issues)
+[solution: fixed with the help of stackoverflow internet information sources]
+
+	- Angular update functionality is bit difficult to implement as of present
 
 
 
- 
-Ce qui s’est pas bien passé & solution trouvé: (What went wrong & solution found)
- 
-   
- 
- 
- 
 Ce qui aurait pu aller mieux : (What can be done better)
+----------------------------------------------------------
 
- 
- 
- 
- 
- 
- 
-  
+	- EXTERNALISATION of environmental variables to the maximum possible for better accessibiliy and security concerns
+
+
 Ce que j’aimerais faire différemment : (what can be done differently)
+-------------------------------------------------------------------
+
+	- integrating docker AUTOMATION in gradle.build configuration
+
+
+What have I learned?
+----------------------
+
+	Docker networking with MongoDB NoSQL integrated microservices
+
+	Gradle NoSQL implementation
+
+	Progressive documentation integration development process (CI & CD basics)
+
