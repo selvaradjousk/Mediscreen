@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS MEDISCREENDB
+-- DROP DATABASE IF EXISTS MEDISCREENDB
 
 /** PRODUCTION DB **/
 
 -- CREATE Database
-    CREATE DATABASE IF NOT EXISTS MEDISCREENDB;
+CREATE DATABASE IF NOT EXISTS `MEDISCREENDB`;
 	USE `MEDISCREENDB`;
     SET autocommit=1;
 
@@ -22,7 +22,7 @@ engine INNODB
 AUTO_INCREMENT=0;
 
 -- INSERT data
-    LOCK TABLES patients WRITE;
+LOCK TABLES patients WRITE;
     
 INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `phone_number`, `sex`) VALUES ('1202 Bumble Dr', '1959-06-28', 'Piers', 'Bailey', '747-815-0557', 'M');
 INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `phone_number`, `sex`) VALUES ('12 Beechwood Road', '1964-06-18', 'Natalie', 'Clark', '241-467-9197', 'F') ;
@@ -35,4 +35,4 @@ INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `
 INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `phone_number`, `sex`) VALUES ('745 West Valley Farms Drive', '1952-09-27', 'Pippa', 'Rees', '628-423-0993', 'F') ;
 INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `phone_number`, `sex`) VALUES ('2 Warren Street', '2021-06-22', 'Lucas', 'Ferguson', '387-866-1399', 'M') ;
 
-  UNLOCK TABLES;
+UNLOCK TABLES;

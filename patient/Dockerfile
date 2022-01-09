@@ -1,6 +1,6 @@
 
 # FROM openjdk:11
-# EXPOSE 9091
+# EXPOSE 8081
 # ADD build/libs/patient-1.0.0.jar patient.jar
 # ENTRYPOINT ["java", "-jar", "patient.jar"]
 
@@ -22,7 +22,7 @@ RUN ./gradlew bootJar --no-daemon -DskipTests
 
 FROM adoptopenjdk/openjdk11:latest
 # FROM adoptopenjdk:11-jre-hotspot
-EXPOSE 9090
+EXPOSE 8081
 COPY --from=build /app/build/libs/patient-1.0.0.jar patient.jar
 
 

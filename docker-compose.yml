@@ -14,7 +14,7 @@ services:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_PASSWORD: password
     ports:
-      - 3307:3306
+      - 3306:3306
     networks:
       - web-server
     restart: always
@@ -26,7 +26,7 @@ services:
       context: ./patient/
       dockerfile: Dockerfile
     ports:
-      - 9091:9091
+      - 8081:8081
     environment:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql_db:3306/mediscreendb?serverTimezone=Europe/Paris
       - SPRING_DATASOURCE_USERNAME=mediuser
@@ -44,11 +44,41 @@ services:
       context: ./ui/
       dockerfile: Dockerfile
     environment:
-      - PROXY_PATIENT=http://patient:9091/patient
+      - PROXY_PATIENT=http://patient:8081/patient
+      - PROXY_NOTE=http://note:8082/note
     ports:
-      - 9090:9090
+      - 8080:8080
     networks:
       - web-server
+    restart: always
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./docker_db/mongodb/mongod.conf:/etc/mongod.conf
+      - ./docker_db/mongodb/data/db/:/data/db/
+    networks:
+      - web-server
+    restart: always
+
+  patientHistory:
+    image: note
+    container_name: note
+    build:
+      context: ./patientHistory/
+      dockerfile: Dockerfile
+    environment:
+      - SPRING_DATA_MONGODB_HOST=mongodb
+      - SPRING_DATA_MONGODB_PORT=27017
+    ports:
+      - 8082:8082
+    networks:
+      - web-server
+    depends_on:
+      - mongodb
     restart: always
 
 networks:

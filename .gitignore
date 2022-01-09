@@ -12,6 +12,15 @@ mediscreen_mysql
 *.pem
 
 ##############################
+## MongoDb
+##############################
+mongodb/data/db
+*mongodb/data/db*
+**/mongodb/data/db
+
+
+
+##############################
 ## Maven
 ##############################
 target
