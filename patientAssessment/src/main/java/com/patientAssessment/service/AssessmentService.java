@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.patientAssessment.constant.DiabetesTrigger;
+import com.patientAssessment.constant.RiskLevels;
 import com.patientAssessment.dto.NoteDTO;
 import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
@@ -120,6 +121,48 @@ public class AssessmentService {
 
   	// *******************************************************************
 
+
+    public String getDiabetesRiskLevel(
+    		final int triggers,
+    		final int patientAge,
+    		final String sex) {
+
+        String diabetesAssessment = RiskLevels.NONE.getRiskLevel();
+
+        if ((((
+        		sex.equals("F"))
+        		&& patientAge < 30
+        		&& triggers >= 7)
+        		|| ((sex.equals("M"))
+        				&& patientAge < 30
+        				&& triggers >= 5))
+        		|| (patientAge >= 30
+        		&& triggers >= 8)) {
+            diabetesAssessment = RiskLevels.EARLY_ONSET.getRiskLevel();
+
+        } else if ((
+        		sex.equals("M")
+        		&& patientAge < 30
+        		&& triggers >= 3)
+        		|| ((sex.equals("F"))
+        				&& patientAge < 30
+        				&& triggers >= 4)
+        		|| (patientAge >= 30
+        		&& triggers >= 6)) {
+            diabetesAssessment = RiskLevels.IN_DANGER.getRiskLevel();
+
+        } else if ((
+        		patientAge >= 30
+        		&& triggers >= 2)) {
+            diabetesAssessment = RiskLevels.BORDERLINE.getRiskLevel();
+        }
+
+        return diabetesAssessment;
+    }
+
+
+
+  	// *******************************************************************
 
 
 }
