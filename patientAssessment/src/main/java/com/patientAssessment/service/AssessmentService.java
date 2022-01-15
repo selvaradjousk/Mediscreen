@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.patientAssessment.constant.DiabetesTrigger;
 import com.patientAssessment.constant.RiskLevels;
+import com.patientAssessment.dto.AssessmentDTO;
 import com.patientAssessment.dto.NoteDTO;
 import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
@@ -48,6 +49,37 @@ public class AssessmentService {
 
 
   	// *******************************************************************
+
+
+	public AssessmentDTO getPatientAssessment(
+    		final Integer patientId) {
+
+        PatientDTO patient = getPatient(patientId);
+
+        int patientAge = getAge(patient.getBirthDate());
+
+        List<NoteDTO> patientNotes = getPatientNotes(patientId);
+        int patientTriggers = getPatientTriggers(patientNotes);
+
+        String diabetesRiskLevel = getDiabetesRiskLevel(
+        		patientTriggers,
+        		patientAge,
+        		patient.getSex());
+
+        return new AssessmentDTO(
+        		patient,
+        		diabetesRiskLevel);
+
+    }
+
+
+
+
+  	// *******************************************************************
+
+
+
+
 
 	//	- What age? (calculate age from birth date)
     public int getAge(final LocalDate birthDate) {
@@ -96,7 +128,7 @@ public class AssessmentService {
 
   	// *******************************************************************
 
-
+    // How many Triggers (count number of triggers in all notes of patient)
     public int getPatientTriggers(final List<NoteDTO> notes) {
 
         EnumSet<DiabetesTrigger> diabetesTriggers = EnumSet
@@ -121,7 +153,7 @@ public class AssessmentService {
 
   	// *******************************************************************
 
-
+    // Probability of Risk Level (SEX, AGE, TRIGGER_COUNT)
     public String getDiabetesRiskLevel(
     		final int triggers,
     		final int patientAge,

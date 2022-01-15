@@ -1,6 +1,7 @@
 package com.patientAssessment.unitest.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -13,15 +14,16 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.patientAssessment.dto.AssessmentDTO;
 import com.patientAssessment.dto.NoteDTO;
 import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 import com.patientAssessment.service.AssessmentService;
 
-@DisplayName("UNIT TESTS - Service - PatientAssessment getDiabetesRiskLevel")
+@DisplayName("UNIT TESTS - Service - PatientAssessment GetPatientAssessment")
 @ExtendWith(MockitoExtension.class)
-class GetDiabetesRiskLevelTest {
+class GetPatientAssessmentTest {
 
 
     @InjectMocks
@@ -38,12 +40,12 @@ class GetDiabetesRiskLevelTest {
 	// *******************************************************************	
 	
 
-	@DisplayName("getDiabetesRiskLevel: FergusonAsBorderline - "
+	@DisplayName("getPatientAssessment: FergusonAsBorderline - "
 			+ "GIVEN a patient Ferguson "
-			+ "WHEN getDiabetesRiskLevel"
-			+ "THEN returns expected DiabetesRiskLevel of the Ferguson As Borderline")
+			+ "WHEN getPatientAssessment"
+			+ "THEN returns expected PatientAssessment of the Ferguson As Borderline")
     @Test
-    public void GetDiabetesRiskLevelForFergusonAsBorderlineTest() {
+    public void GetPatientAssessmentForFergusonAsBorderlineTest() {
 
 
 		PatientDTO patientDTO = new PatientDTO(1, "Ferguson", "Lucas",
@@ -52,13 +54,13 @@ class GetDiabetesRiskLevelTest {
         NoteDTO note2DTO = new NoteDTO("2", 1, LocalDate.of(1991,01,01), "Patient reports feeling tired during the day He also complains of muscle aches Laboratory tests indicating high microalbumin ");
         NoteDTO note3DTO = new NoteDTO("3", 1, LocalDate.of(1990,01,01), "Patient says he doesn't feel that tired Smoker, quit within past 12 months Lab tests showing antibodies are high ");
         List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO, note3DTO);
+        when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
+        when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
-        		assessmentService.getPatientTriggers(noteslist),
-        		assessmentService.getAge(patientDTO.getBirthDate()),
-        		patientDTO.getSex());
+        AssessmentDTO assessmentDTO = assessmentService.getPatientAssessment(1);
 
-        assertEquals("Borderline", diabetesRiskLevel);
+        assertEquals("Borderline", assessmentDTO.getDiabetesRiskLevel());
+
 
     }
 
@@ -68,12 +70,12 @@ class GetDiabetesRiskLevelTest {
 
 	
 
-	@DisplayName("getDiabetesRiskLevel: ReesAsBorderline - "
+	@DisplayName("GetPatientAssessment: ReesAsBorderline - "
 			+ "GIVEN a patient Rees "
-			+ "WHEN getDiabetesRiskLevel"
-			+ "THEN returns expected DiabetesRiskLevel of the Rees As xxxx")
+			+ "WHEN getPatientAssessment"
+			+ "THEN returns expected PatientAssessment of the Rees As Borderline")
     @Test
-    public void GetDiabetesRiskLevelForReesAsBorderlineTest() {
+    public void GetPatientAssessmentForReesAsBorderlineTest() {
 
 
 		PatientDTO patientDTO = new PatientDTO(1, "Rees", "Pippa",
@@ -83,13 +85,13 @@ class GetDiabetesRiskLevelTest {
         NoteDTO note3DTO = new NoteDTO("3", 1, LocalDate.of(1990,01,01), "Laboratory tests indicating high microalbumin");
         NoteDTO note4DTO = new NoteDTO("4", 1, LocalDate.of(1990,01,01), "The patient declares that everything seems to be going well Lab reports hemoglobin A1C exceeds recommended level The patient declares that he has smoked for a long time ");
         List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO, note3DTO, note4DTO);
+        when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
+        when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
-        		assessmentService.getPatientTriggers(noteslist),
-        		assessmentService.getAge(patientDTO.getBirthDate()),
-        		patientDTO.getSex());
+        AssessmentDTO assessmentDTO = assessmentService.getPatientAssessment(1);
 
-        assertEquals("Borderline", diabetesRiskLevel);
+        assertEquals("Borderline", assessmentDTO.getDiabetesRiskLevel());
+
 
     }
 
@@ -100,12 +102,12 @@ class GetDiabetesRiskLevelTest {
 
 	
 
-	@DisplayName("getDiabetesRiskLevel: PatientTestNone - "
+	@DisplayName("GetPatientAssessment: PatientTestNone - "
 			+ "GIVEN a patient TestNone "
-			+ "WHEN getDiabetesRiskLevel"
-			+ "THEN returns expected DiabetesRiskLevel of the PatientTestNone as None")
+			+ "WHEN getPatientAssessment"
+			+ "THEN returns expected PatientAssessment of the PatientTestNone as None")
     @Test
-    public void GetDiabetesRiskLevelForPatientTestNoneTest() {
+    public void GetPatientAssessmentForPatientTestNoneTest() {
 
 
 		PatientDTO patientDTO = new PatientDTO(1, "TestNone", "Test",
@@ -113,13 +115,13 @@ class GetDiabetesRiskLevelTest {
         NoteDTO note1DTO = new NoteDTO("1", 1, LocalDate.of(1966,01,01), " Patient states that they are feeling terrific Weight at or below recommended level");
        
         List<NoteDTO> noteslist = Arrays.asList(note1DTO);
+        when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
+        when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
-        		assessmentService.getPatientTriggers(noteslist),
-        		assessmentService.getAge(patientDTO.getBirthDate()),
-        		patientDTO.getSex());
+        AssessmentDTO assessmentDTO = assessmentService.getPatientAssessment(1);
 
-        assertEquals("None", diabetesRiskLevel);
+        assertEquals("None", assessmentDTO.getDiabetesRiskLevel());
+
 
     }
 
@@ -128,12 +130,12 @@ class GetDiabetesRiskLevelTest {
 	// *******************************************************************	
 
 
-	@DisplayName("getDiabetesRiskLevel: PatientTestBorderline - "
+	@DisplayName("GetPatientAssessment: PatientTestBorderline - "
 			+ "GIVEN a patient TestBorderline "
-			+ "WHEN getDiabetesRiskLevel"
-			+ "THEN returns expected DiabetesRiskLevel of the Patient TestBorderline as Borderline")
+			+ "WHEN getPatientAssessment"
+			+ "THEN returns expected PatientAssessment of the Patient TestBorderline as Borderline")
     @Test
-    public void GetDiabetesRiskLevelForPatientTestBorderlineTest() {
+    public void GetPatientAssessmentForPatientTestBorderlineTest() {
 
 
 		PatientDTO patientDTO = new PatientDTO(1, "TestBorderline", "Test",
@@ -142,13 +144,13 @@ class GetDiabetesRiskLevelTest {
         NoteDTO note2DTO = new NoteDTO("2", 1, LocalDate.of(1966,01,01), "Patient states that they have had a Reaction to medication within last 3 months Patient also complains that their hearing continues to be problematic");
        
         List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO);
+        when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
+        when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
-        		assessmentService.getPatientTriggers(noteslist),
-        		assessmentService.getAge(patientDTO.getBirthDate()),
-        		patientDTO.getSex());
+        AssessmentDTO assessmentDTO = assessmentService.getPatientAssessment(1);
 
-        assertEquals("Borderline", diabetesRiskLevel);
+        assertEquals("Borderline", assessmentDTO.getDiabetesRiskLevel());
+
 
     }
 
@@ -157,12 +159,12 @@ class GetDiabetesRiskLevelTest {
 	// *******************************************************************	
 
 
-	@DisplayName("getDiabetesRiskLevel: Patient TestInDanger - "
+	@DisplayName("GetPatientAssessment: Patient TestInDanger - "
 			+ "GIVEN a patient TestInDanger "
-			+ "WHEN getDiabetesRiskLevel"
-			+ "THEN returns expected DiabetesRiskLevel of the Patient TestInDanger as In danger")
+			+ "WHEN getPatientAssessment"
+			+ "THEN returns expected PatientAssessment of the Patient TestInDanger as In danger")
     @Test
-    public void GetDiabetesRiskLevelForPatientTestInDangerTest() {
+    public void GetPatientAssessmentForPatientTestInDangerTest() {
 
 
 		PatientDTO patientDTO = new PatientDTO(1, "TestInDanger", "Test",
@@ -172,12 +174,12 @@ class GetDiabetesRiskLevelTest {
        
         List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO);
 
-        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
-        		assessmentService.getPatientTriggers(noteslist),
-        		assessmentService.getAge(patientDTO.getBirthDate()),
-        		patientDTO.getSex());
+        when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
+        when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        assertEquals("In danger", diabetesRiskLevel);
+        AssessmentDTO assessmentDTO = assessmentService.getPatientAssessment(1);
+
+        assertEquals("In danger", assessmentDTO.getDiabetesRiskLevel());
 
     }
 
@@ -186,12 +188,12 @@ class GetDiabetesRiskLevelTest {
 	// *******************************************************************	
 
 
-	@DisplayName("getDiabetesRiskLevel: Patient TestEarlyOnset - "
+	@DisplayName("GetPatientAssessment: Patient TestEarlyOnset - "
 			+ "GIVEN a patient TestEarlyOnset "
-			+ "WHEN getDiabetesRiskLevel"
-			+ "THEN returns expected DiabetesRiskLevel of the Patient TestEarlyOnset as Early onset")
+			+ "WHEN getPatientAssessment"
+			+ "THEN returns expected PatientAssessment of the Patient TestEarlyOnset as Early onset")
     @Test
-    public void GetDiabetesRiskLevelForPatientTestEarlyOnsetTest() {
+    public void GetPatientAssessmentForPatientTestEarlyOnsetTest() {
 
 
 		PatientDTO patientDTO = new PatientDTO(1, "TestEarlyOnset", "Test",
@@ -202,13 +204,14 @@ class GetDiabetesRiskLevelTest {
         NoteDTO note4DTO = new NoteDTO("4", 1, LocalDate.of(1966,01,01), "Patient states that Body Height, Body Weight, Cholesterol, Dizziness and Reaction");
        
         List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO, note3DTO, note4DTO);
+        when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
+        when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
-        		assessmentService.getPatientTriggers(noteslist),
-        		assessmentService.getAge(patientDTO.getBirthDate()),
-        		patientDTO.getSex());
+        AssessmentDTO assessmentDTO = assessmentService.getPatientAssessment(1);
 
-        assertEquals("Early onset", diabetesRiskLevel);
+        assertEquals("Early onset", assessmentDTO.getDiabetesRiskLevel());
+
+
 
     }
 
