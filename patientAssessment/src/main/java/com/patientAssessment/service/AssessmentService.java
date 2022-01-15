@@ -18,7 +18,7 @@ import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 
 @Service
-public class AssessmentService {
+public class AssessmentService implements IAssessmentService {
 
 
 	private final MicroserviceNoteProxy microserviceNoteProxy;
@@ -51,6 +51,7 @@ public class AssessmentService {
   	// *******************************************************************
 
 
+	@Override
 	public AssessmentDTO getPatientAssessment(
     		final Integer patientId) {
 

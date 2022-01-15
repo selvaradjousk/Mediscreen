@@ -68,7 +68,7 @@ class GetPatientAssessmentTest {
 
 	// *******************************************************************	
 
-	
+
 
 	@DisplayName("GetPatientAssessment: ReesAsBorderline - "
 			+ "GIVEN a patient Rees "
