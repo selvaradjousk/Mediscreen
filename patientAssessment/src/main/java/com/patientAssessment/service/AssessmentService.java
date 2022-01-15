@@ -2,10 +2,14 @@ package com.patientAssessment.service;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
+import com.patientAssessment.constant.DiabetesTrigger;
 import com.patientAssessment.dto.NoteDTO;
 import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
@@ -92,7 +96,29 @@ public class AssessmentService {
   	// *******************************************************************
 
 
+    public int getPatientTriggers(final List<NoteDTO> notes) {
 
+        EnumSet<DiabetesTrigger> diabetesTriggers = EnumSet
+        		.allOf(DiabetesTrigger.class);
+
+        List<DiabetesTrigger> patientTriggers = new ArrayList();
+        diabetesTriggers.forEach(diabetesTrigger -> {
+            notes.forEach(note -> {
+                if (StringUtils.containsIgnoreCase(
+                		note.getNote(),
+                		diabetesTrigger.getTrigger()) &&
+                        !patientTriggers.contains(diabetesTrigger)) {
+                    patientTriggers.add(diabetesTrigger);
+                }
+            });
+        });
+
+        return patientTriggers.size();
+    }
+
+
+
+  	// *******************************************************************
 
 
 

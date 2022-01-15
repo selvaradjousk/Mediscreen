@@ -1,7 +1,7 @@
 package com.patientAssessment.unitest.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.lenient;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -15,14 +15,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.patientAssessment.dto.NoteDTO;
-import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 import com.patientAssessment.service.AssessmentService;
 
-@DisplayName("UNIT TESTS - Service - PatientAssessment getPatient")
+@DisplayName("UNIT TESTS - Service - PatientAssessment getPatientTriggers")
 @ExtendWith(MockitoExtension.class)
-class GetPatientTest {
+class GetPatientTriggersTest {
 
 
     @InjectMocks
@@ -39,32 +38,27 @@ class GetPatientTest {
 	// *******************************************************************	
 	
 
-	@DisplayName("getPatient - "
-			+ "GIVEN a patient "
-			+ "WHEN getPatient"
-			+ "THEN returns expected patient")
+	@DisplayName("getPatientTriggers - "
+			+ "GIVEN all notes of patient "
+			+ "WHEN getPatientTriggers"
+			+ "THEN returns expected all Trigger Count")
     @Test
-    public void testGetPatient() {
+    public void testGetPatientTriggers() {
 
-		PatientDTO patientDTO = new PatientDTO(1, "LastName1", "FirstName1",
-                LocalDate.of(1991,8,1), "M", "Address1", "1111111111");
 
-		when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
+        NoteDTO note1DTO = new NoteDTO("1", 1, LocalDate.of(1990,01,01), "Smoker");
+        NoteDTO note2DTO = new NoteDTO("2", 1, LocalDate.of(1991,01,01), "Cholesterol");
+        List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO);
+        lenient().when(microserviceNoteProxy.getAllNote(1)).thenReturn(noteslist);
 
-        PatientDTO result = assessmentService.getPatient(1);
+        int triggerCount = assessmentService.getPatientTriggers(noteslist);
 
-        assertEquals("FirstName1", result.getFirstName());
-        assertEquals("LastName1", result.getLastName());
+        assertEquals(2, triggerCount);
 
     }
 
 
 
 	// *******************************************************************	
-
-
-
-
-
 
 }
