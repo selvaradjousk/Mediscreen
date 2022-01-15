@@ -46,6 +46,7 @@ services:
     environment:
       - PROXY_PATIENT=http://patient:8081/patient
       - PROXY_NOTE=http://note:8082/note
+      - PROXY_ASSESS=assess:8083/assess
     ports:
       - 8080:8080
     networks:
@@ -80,6 +81,21 @@ services:
     depends_on:
       - mongodb
     restart: always
+
+patientAssessment:
+  image: assess
+  container_name: assess
+  build:
+    context: ./patientAssessment/
+    dockerfile: Dockerfile
+  environment:
+    - PROXY_PATIENT=patient:8081/patient
+    - PROXY_NOTE=note:8082/note
+  ports:
+    - 8083:8083
+  networks:
+    - web-server
+  restart: always
 
 networks:
   web-server:
