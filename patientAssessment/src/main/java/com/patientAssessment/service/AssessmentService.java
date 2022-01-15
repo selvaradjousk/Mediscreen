@@ -69,6 +69,7 @@ public class AssessmentService implements IAssessmentService {
 
         return new AssessmentDTO(
         		patient,
+        		patientAge,
         		diabetesRiskLevel);
 
     }

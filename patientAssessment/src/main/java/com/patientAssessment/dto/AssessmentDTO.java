@@ -12,6 +12,8 @@ import lombok.Setter;
 public class AssessmentDTO {
 
     private PatientDTO patientDTO;
+    
+    private int patientAge;
 
     private String diabetesRiskLevel;
 }
