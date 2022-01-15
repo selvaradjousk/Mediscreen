@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.patientAssessment.dto.NoteDTO;
+import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 
@@ -61,6 +62,19 @@ public class AssessmentService {
 
 
 
+  	// *******************************************************************
+
+
+    // Get the patient by Id
+	public PatientDTO getPatient(final Integer patientId) {
+		
+		PatientDTO patient = microservicePatientProxy
+				.getPatientById(patientId);
+
+		return patient;
+	}
+
+
 
   	// *******************************************************************
 
@@ -72,7 +86,6 @@ public class AssessmentService {
 
 		return patientNotes;
 	}
-
 
 
 

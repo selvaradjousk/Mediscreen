@@ -15,13 +15,14 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.patientAssessment.dto.NoteDTO;
+import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 import com.patientAssessment.service.AssessmentService;
 
-@DisplayName("UNIT TESTS - Service - PatientAssessment getPatientNotes")
+@DisplayName("UNIT TESTS - Service - PatientAssessment getPatient")
 @ExtendWith(MockitoExtension.class)
-class GetPatientNotesTest {
+class GetPatientTest {
 
 
     @InjectMocks
@@ -38,23 +39,22 @@ class GetPatientNotesTest {
 	// *******************************************************************	
 	
 
-	@DisplayName("getPatientsNotes - "
-			+ "GIVEN all notes of patient "
-			+ "WHEN getPatientsNotes"
-			+ "THEN returns expected all notes")
+	@DisplayName("getPatient - "
+			+ "GIVEN a patient "
+			+ "WHEN getPatient"
+			+ "THEN returns expected patient")
     @Test
-    public void testGetPatientsNotes() {
+    public void testGetPatient() {
 
-//		PatientDTO patientDTO = new PatientDTO(1, "LastName1", "FirstName1",
-//                LocalDate.of(1991,8,1), "M", "Address1", "1111111111");
-        NoteDTO note1DTO = new NoteDTO("1", 1, LocalDate.of(1990,01,01), "note1");
-        NoteDTO note2DTO = new NoteDTO("2", 1, LocalDate.of(1991,01,01), "note2");
-        when(microserviceNoteProxy.getAllNote(1)).thenReturn(Arrays.asList(note1DTO, note2DTO));
+		PatientDTO patientDTO = new PatientDTO(1, "LastName1", "FirstName1",
+                LocalDate.of(1991,8,1), "M", "Address1", "1111111111");
 
-        List<NoteDTO> patientNotesDTO = assessmentService.getPatientNotes(1);
+		when(microservicePatientProxy.getPatientById(1)).thenReturn(patientDTO);
 
-        assertEquals("note1", patientNotesDTO.get(0).getNote());
-        assertEquals("note2", patientNotesDTO.get(1).getNote());
+        PatientDTO result = assessmentService.getPatient(1);
+
+        assertEquals("FirstName1", result.getFirstName());
+        assertEquals("LastName1", result.getLastName());
 
     }
 
