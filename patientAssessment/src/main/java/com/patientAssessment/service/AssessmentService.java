@@ -2,9 +2,11 @@ package com.patientAssessment.service;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.patientAssessment.dto.NoteDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 
@@ -62,7 +64,14 @@ public class AssessmentService {
 
   	// *******************************************************************
 
+    // Get the patients notes through proxy
+    public List<NoteDTO> getPatientNotes(final Integer patientId) {
 
+		List<NoteDTO> patientNotes = microserviceNoteProxy
+				.getAllNote(patientId);
+
+		return patientNotes;
+	}
 
 
 
