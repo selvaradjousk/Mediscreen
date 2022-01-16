@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.patient.dto.PatientDTO;
 import com.patient.exception.DataAlreadyRegisteredException;
+import com.patient.exception.MultiplePatientsLastNameException;
 import com.patient.exception.ResourceNotFoundException;
 import com.patient.model.Patient;
 import com.patient.repository.PatientRepository;
@@ -103,6 +104,25 @@ public class PatientService implements IPatientService {
     }
 
 
+
+  	// *******************************************************************
+
+    @Override
+    public PatientDTO getPatient(String lastName) {
+      int lastNameOccurences = patientRepository.countByLastName(lastName);
+      if (lastNameOccurences == 0) {
+
+        throw new ResourceNotFoundException(
+            "Patient not found");
+      }
+      if (lastNameOccurences > 1) {
+
+        throw new MultiplePatientsLastNameException(
+            "There are several patients with this Last name, search by patient id");
+      }
+      Patient patient = patientRepository.findByLastName(lastName);
+      return patientMapper.toPatientDTO(patient);
+    }
 
   	// *******************************************************************
 

@@ -16,4 +16,6 @@ public interface IPatientService {
 
     void deletePatient(final int patientId);
 
+    PatientDTO getPatient(String lastName);
+
 }

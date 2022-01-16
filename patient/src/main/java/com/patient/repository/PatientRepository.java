@@ -21,4 +21,7 @@ public interface PatientRepository extends JpaRepository<Patient, Integer> {
     		final String firstName,
             final LocalDate birthDate);
 
+    Patient findByLastName(String LastName);
+
+    int countByLastName(String lastName);
 }

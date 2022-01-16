@@ -88,6 +88,16 @@ public class PatientController {
 
   	// *******************************************************************
 
+    @GetMapping("/getByFamilyName")
+    public PatientDTO getPatient(@RequestParam String lastName) {
+
+    	PatientDTO patient = patientService.getPatient(lastName);
+
+      return patient;
+    }
+
+  	// *******************************************************************
+
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
     public PatientDTO addPatient(

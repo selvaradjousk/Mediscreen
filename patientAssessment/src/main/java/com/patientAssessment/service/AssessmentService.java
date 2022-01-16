@@ -114,6 +114,17 @@ public class AssessmentService implements IAssessmentService {
 	}
 
 
+  	// *******************************************************************
+
+    // Get the patient by LastName
+	public PatientDTO getPatient(final String lastName) {
+		
+		PatientDTO patient = microservicePatientProxy
+				.getPatient(lastName);
+
+		return patient;
+	}
+	
 
   	// *******************************************************************
 

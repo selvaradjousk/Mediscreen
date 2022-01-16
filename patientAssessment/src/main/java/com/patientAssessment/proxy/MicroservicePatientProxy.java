@@ -3,6 +3,7 @@ package com.patientAssessment.proxy;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.patientAssessment.dto.PatientDTO;
 
@@ -15,5 +16,9 @@ public interface MicroservicePatientProxy {
     @GetMapping({"/get/{id}"})
     PatientDTO getPatientById
     		(@PathVariable("id") final Integer patientId);
+
+
+    @GetMapping("/getByFamilyName")
+	PatientDTO getPatient(@RequestParam("lastName") String lastName);
 
 }
