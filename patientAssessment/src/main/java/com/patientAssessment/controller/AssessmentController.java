@@ -1,6 +1,7 @@
 package com.patientAssessment.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,7 @@ import com.patientAssessment.dto.AssessmentDTO;
 import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.service.IAssessmentService;
 
+@CrossOrigin(origins = "*")
 @RequestMapping("/assess")
 @RestController
 public class AssessmentController {

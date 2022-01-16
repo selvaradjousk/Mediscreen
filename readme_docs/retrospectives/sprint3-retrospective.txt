@@ -1,26 +1,68 @@
 
-Rétrospectif 
+Rétrospectif (Retrospective)
+
+Goals: [SPRINT 3] 
+En tant que praticien, je veux pouvoir générer un rapport d'évaluation du diabète pour un patient afin de le prévenir si sa santé est potentiellement en danger.
+- [x]  Create a Microservice assessment
+- [x]  create the service to calculate the level of risk to diabetics to the patient based on his personal information and his information on historical medical records
+- [x]  Patient History (Note) microservice implementation initiation
+- [x]  UI conception - affichage des assessment reports pour le patient
+- [x]  Docker implementation
+- [x]  Testing with test data
+- [x]  sprint workflows follow-up (Notion.so)
+- [x]  Créer les spécifications de l'API
+- [x]  Curl - report-based on lastname additional implementaion
+
+
  
-Ce qui s’est bien passé : (What went well)
- 
+Ce qui s’est bien passé : (What went well?)
+---------------------------------------------
+ 	- Improvement in progress forward: better rapid Progress
+(able to develop a better and fast progress in this sprint facilitated from already established SPRINT 1 & 2 infrastructure implementation & integration)
   
+	- Frontend-Backend integration was more easier: [SPRINT 2] Frontend-Backend (thymeleaf-springboot) integration was relatively more easier following Sprint 1& 2 progress
+
+	- Development Build speed enhanced: 
+		- Top up to the previous SPRINT 1 & 2 stages enhanced the build progress speed
+		- (Modules (featuress + tests) developed in previous sprints improved the reusability of functionalities as were well developed with SOLID principles)
+
+	- Easy Automation integration with docker-compose
+ 
+	- Follow-up on Agile Method - Sprint WorkFlow Integration was very usefull for development process
+	- API specification documentation - good & clean approach for user stories development, testing & reporting
+	- Parallel documentation on the progress of tasks is motivating process & fastens the process of software development
+
+ 
+
+
+Ce qui s’est pas bien passé & solution trouvé: (What didn’t go so well? & solution found)
+--------------------------------------------------------------------------------------------
+
+	- React & Angular frontend update functionality is bit difficult to implement as of present:
+		Since being a totally new frontend frameworks of JS, demands more training, understanding & efforts relative to Thymeleaf finish. 
+
+		Good interesting & fruiteful challenge to take ahead !
 
 
 
- 
-Ce qui s’est pas bien passé & solution trouvé: (What went wrong & solution found)
- 
-   
- 
- 
- 
 Ce qui aurait pu aller mieux : (What can be done better)
+----------------------------------------------------------
 
- 
- 
- 
- 
- 
- 
-  
+	- EXTERNALISATION of environmental variables to the maximum possible for better accessibiliy and security concerns
+
+
 Ce que j’aimerais faire différemment : (what can be done differently)
+-------------------------------------------------------------------
+
+	- integrating docker AUTOMATION in gradle.build configuration
+
+
+What have I learned?
+----------------------
+
+	Cross-interaction processing among microservices: Tasks as a API consumer & producer on REST API workflow 
+
+	Progressive documentation integration development process (CI & CD basics)
+
+	Curl - report-based on lastname additional implementaion
+
