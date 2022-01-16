@@ -122,6 +122,9 @@ All SPRINT progress are documented with Notion.io and reported in the link below
 
 [NOTION - Backlog Online - Link](https://www.notion.so/411c45a75ebd41848f20816d5a1b023d?v=4fbc0f2adb024e93aea0306e875a9419)
 
+<br>
+
+<a href="https://www.notion.so/411c45a75ebd41848f20816d5a1b023d?v=4fbc0f2adb024e93aea0306e875a9419"><img width="98%" src="readme_docs/images/notion.PNG" alt="notion BANNER"></a><br>
 
 
 ## SPRINT Retrospective documentation
@@ -134,6 +137,8 @@ All SPRINT Retrospectives are documented reported here in the link below:
 <br>
 
 
+
+<a href="https://www.notion.so/45e050d53f5d4e658660aef938390baf?v=38e546393141444596b10d2bcb8f7d82"><img width="98%" src="readme_docs/images/retro_banner.PNG" alt="retrospective BANNER"></a><br>
 
 ## SPRINT Tasks timeline progress documentation
 
