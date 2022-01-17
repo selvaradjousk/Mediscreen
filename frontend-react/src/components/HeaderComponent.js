@@ -12,22 +12,24 @@ class HeaderComponent extends Component {
 
     render() {
         return (
-                            <div>
-        <div className="container"></div>
-                <header>
+       
 
-                <nav className="navbar navbar-light bg-light justify-content-between">
 
-                <img src={mediscreenLogo} width="240" height="60" alt="Site logo"/>
-                <form className="form-inline">
-  
+<div className="container">
 
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search"/>
-                        <button className="btn btn-outline-success my-2 my-sm-0" type="button"><i className="fas fa-search">🔎︎</i></button>
-                    </form>
-                    </nav>
-                </header>
-            </div>
+   <header>
+      <nav className="navbar navbar-light bg-light justify-content-between">
+         <img src={mediscreenLogo} width="240" height="60" alt="Site logo"/>
+         <form className="form-inline">
+            <input className="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search"/>
+            <button className="btn btn-outline-success my-2 my-sm-0" type="button"><i className="fas fa-search">🔎︎</i></button>
+         </form>
+      </nav>
+   </header>
+</div>
+
+
+
         )
     }
 }

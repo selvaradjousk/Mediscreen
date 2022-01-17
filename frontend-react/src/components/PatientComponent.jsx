@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import patientService from '../services/PatientService';
+//import noteService from '../services/NoteService';
 
 
 
@@ -43,30 +44,33 @@ class PatientComponent extends Component {
       this.props.history.push(`/view-patient/${id}`);
     }
 
+    notePatient(id) {
+      this.props.history.push(`/list-note/${id}`);
+     }
+
+     reportPatient(id) {
+      this.props.history.push(`/assess/${id}`);
+     }
+
 
 
 render(){
 
-  /*  const {patients, isLoading} = this.state;
-
-
-    if (isLoading) {
-        return <p>Loading...</p>;
-      }*/
-  
+   
 
     return(
 
-<div className="App">
-                    <div className="container">
-          <div className="row">
-            <nav className="col navbar navbar-expand-lg navbar-dark bg-info font-weight-bold">
 
-              <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon" />
-              </button>
-              <div id="navbarContent" className="collapse navbar-collapse w-100 order-3 dual-collapse2">
-                <ul className="navbar-nav ml-auto">
+
+<div className="App">
+   <div className="container">
+      <div className="row">
+         <nav className="col navbar navbar-expand-lg navbar-dark bg-info font-weight-bold">
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon" />
+            </button>
+            <div id="navbarContent" className="collapse navbar-collapse w-100 order-3 dual-collapse2">
+               <ul className="navbar-nav ml-auto">
                   <li  className="nav-item"><a className="nav-link" href="/">Home</a>
                   </li>
                   <li  className="nav-item"><a className="nav-link" href="#">About</a>
@@ -77,73 +81,62 @@ render(){
                   </li>
                   <li className="nav-item"><a className="nav-link" href="#">News Blog</a>
                   </li>
-                </ul>
-              </div>
-            </nav>
-          </div>
-        </div>
-            <div className="row mt-4"><h2 className="text-info">Patient List</h2></div>
+               </ul>
+            </div>
+         </nav>
+      </div>
+   </div>
+   <br/><br/>  
+   <div className="row mt-4">
+      <h2 className="text-info">Patient List</h2>
+   </div>
 
-            <br/><br/>
- <form data-th-action="@{/patient/list}">
-        Filter: <input type="text" name="keyword" id="keyword" size="50" data-th-value="${keyword}" required />
-        &nbsp;
-        <input type="submit" value="Search" />
-        &nbsp;
-        <input type="button" value="Clear" id="btnClear" onClick="clearSearch()" />
-    </form>
-    <br/><br/>
-        <div className="App-intro">
-  
-          </div>
-          <button onClick={this.addPatient}  className="btn btn-primary btn-lg bg-info font-weight-bold "> + Add New Patient</button>
-
-          <table className = "table table-striped">
-                  <thead>
-                    <tr>
-                      <th>Id</th>
-                      <th>Last Name</th>
-                      <th>First Name</th>
-                      <th>Date of birth</th>
-                      <th>Sex</th>
-                      <th>Address</th>
-                      <th>Phone</th>
-                      <th>Action</th>
-                    </tr>
-                  </thead>
-        
-            <tbody>
-                        {
-                            this.state.patients.map(
-                                patient =>
-                                <tr key = {patient.id}>
-                                    <td style={{width: "1%"}}>{patient.id}</td>
-                                    <td style={{width: "8%"}}>{patient.firstName}</td>
-                                    <td style={{width: "8%"}}>{patient.lastName}</td>
-                                    <td style={{width: "5%"}}>{patient.birthDate}</td>
-                                    <td style={{width: "1%"}}>{patient.sex}</td>
-                                    <td style={{width: "18%"}}>{patient.address}</td>
-                                    <td style={{width: "5%"}}>{patient.phoneNumber}</td>
-                                    <td style= {{width: "60%"}} class="text-center">
-                    <div className="btn-toolbar">
-                    <button onClick={ () => this.editPatient(patient.id)} className="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light">Edit</button>
-                    <button style={{marginLeft: "10px"}}  onClick={ () => this.notePatient(patient.id)} className="btn btn-primary btn-sm bg-success mr-2 mb-2 font-weight-bold btn btn-outline-light">Notes</button>
-                    <button style={{marginLeft: "10px"}}  onClick={ () => this.reportPatient(patient.id)} className="btn btn-primary btn-sm mr-2 mb-2 font-weight-bold btn btn-outline-light">Report</button>
-                        <button style={{marginLeft: "10px"}}  onClick={ () => this.deletePatient(patient.id)} className="btn btn-primary btn-sm bg-danger mr-2 mb-2 font-weight-bold btn btn-outline-light">Delete</button>
-                    </div>
-
-
+   
+   <br/><br/>
+   <div className="App-intro">
+   </div>
+   <button onClick={this.addPatient}  className="btn btn-primary btn-lg bg-info font-weight-bold "> + Add New Patient</button>
+   <table className = "table table-striped">
+      <thead>
+         <tr>
+            <th>Id</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of birth</th>
+            <th>Sex</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Action</th>
+         </tr>
+      </thead>
+      <tbody>
+         {
+         this.state.patients.map(
+         patient =>
+         <tr key = {patient.id}>
+            <td style={{width: "1%"}}>{patient.id}</td>
+            <td style={{width: "8%"}}>{patient.firstName}</td>
+            <td style={{width: "8%"}}>{patient.lastName}</td>
+            <td style={{width: "5%"}}>{patient.birthDate}</td>
+            <td style={{width: "1%"}}>{patient.sex}</td>
+            <td style={{width: "18%"}}>{patient.address}</td>
+            <td style={{width: "5%"}}>{patient.phoneNumber}</td>
+            <td style= {{width: "60%"}} class="text-center">
+            <div className="btn-toolbar">
+               <button onClick={ () => this.editPatient(patient.id)} className="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light">Edit</button>
+               <button style={{marginLeft: "10px"}}  onClick={ () => this.notePatient(patient.id)} className="btn btn-primary btn-sm bg-success mr-2 mb-2 font-weight-bold btn btn-outline-light">Notes</button>
+               <button style={{marginLeft: "10px"}}  onClick={ () => this.reportPatient(patient.id)} className="btn btn-primary btn-sm mr-2 mb-2 font-weight-bold btn btn-outline-light">Report</button>
+               <button style={{marginLeft: "10px"}}  onClick={ () => this.deletePatient(patient.id)} className="btn btn-primary btn-sm bg-danger mr-2 mb-2 font-weight-bold btn btn-outline-light">Delete</button>
+            </div>
+            </td>
+         </tr>
+         )
+         }
+      </tbody>
+   </table>
+</div>
 
 
-
-                </td>
-                                </tr>
-                            )
-                            }
-                    </tbody>
-      </table>
-
-        </div>
     )
 
 }

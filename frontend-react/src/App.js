@@ -8,6 +8,10 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import CreatePatientComponent from './components/CreatePatientComponent';
 import UpdatePatientComponent from './components/UpdatePatientComponent';
+import NoteComponent from './components/NoteComponent';
+import UpdateNoteComponent from './components/UpdateNoteComponent';
+import CreateNoteComponent from './components/CreateNoteComponent';
+import AssessComponent from './components/AssessComponent';
 
 
 
@@ -23,6 +27,10 @@ class App extends Component {
                           <Route path = "/patient/list" exact component = {PatientComponent}></Route>
                           <Route path = "/add-patient" exact component = {CreatePatientComponent}></Route>
                           <Route path = "/edit-patient/:id" exact component = {UpdatePatientComponent}></Route>
+                          <Route path = "/list-note/:id" exact component = {NoteComponent}></Route>
+                          <Route path = "/edit-note/:patientId/:noteId" exact component = {UpdateNoteComponent}></Route>
+                          <Route path = "/add-note/:patientId" exact component = {CreateNoteComponent}></Route>
+                          <Route path = "/assess/:id" exact component = {AssessComponent}></Route>
                           
                     </Switch>
                 </div>

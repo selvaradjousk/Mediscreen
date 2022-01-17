@@ -19,36 +19,4 @@ export class AssessmentService {
     console.log('generate report called for id: ' + id);
     return this.httpClient.get(this.baseUrl + '/assess/' + id);
   }
-
-  addPatient(newPatient: Patient): Observable<boolean> {
-    console.log(
-      'add patient called for patient: ' +
-        newPatient.lastName +
-        ' ' +
-        newPatient.firstName
-    );
-    return this.httpClient
-      .post<boolean>(this.baseUrl + '/patient/add/', newPatient)
-      .catch(this.handleError);
-  }
-
-  updatePatient(id: number, editedPatient: Patient): Observable<boolean> {
-    console.log(
-      'add patient called for patient: ' +
-        editedPatient.lastName +
-        ' ' +
-        editedPatient.firstName
-    );
-    return this.httpClient
-      .post<boolean>(this.baseUrl + '/patient/update/' + id, editedPatient)
-      .catch(this.handleError);
-  }
-
-  handleError(error: Response) {
-    if (error.status == 500 || error.status == 400) {
-      return Observable.throw('emptyFields');
-    } else {
-      return Observable.throw(error);
-    }
-  }
 }

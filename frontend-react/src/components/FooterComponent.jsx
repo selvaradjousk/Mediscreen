@@ -11,17 +11,20 @@ class FooterComponent extends Component {
 
     render() {
         return (
-            <div className="container bg-info text-dark">
-			<div className="row pt-2 pb-0">
+
+                <div className="container bg-info text-dark">
+                <div className="row pt-2 pb-0">
+                    { /*
+                    <div>
+                        <footer className = "footer">
+                            <span className="text-muted">All Rights Reserved 2022 @OpenClassrooms</span>
+                        </footer>
+                    </div>
+                    */}
+                </div>
+                </div>
 
 
-           { /*<div>
-                <footer className = "footer">
-                    <span className="text-muted">All Rights Reserved 2022 @OpenClassrooms</span>
-                </footer>
-           </div>*/}
-            </div>
-		</div>
         )
     }
 }
