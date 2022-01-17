@@ -1,92 +1,70 @@
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-            <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Patient assessment</title>
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../css/custom.css">
-</head>
-<body>
-
-
-
-<div class="container mt-4">
-
-<nav class="navbar navbar-light bg-light justify-content-between">
-
-<img src="/img/mediscreen-logo.png" width="240" height="60" alt="Site logo">
-  <form class="form-inline">
-  
-  <!-- Search form -->
-    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search">🔎︎</i></button>
-  </form>
-</nav>
-
-
-					</div>
-
-
-	<!-- Navigation -->
-	<div th:replace="fragments/general.html :: navigation"></div>
-
-
-
-
-<div class="container">
-
-<br/>
-    <div class="row mt-4">
-        <div class="col-6">
-        </div>
-        <div class="col-6 text-right">
-            <a href="/patient/list"><button type="button" class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light"> ☛ Return to Patient List</button></a>
-             
-        </div>
-    </div>
-    
-    <div class="row mt-4">
-        <h2 class="text-info">Diabetes assessment</h2></div>
-    <br/><br/>
-    <div class="row">
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Age</th>
-                <th>Diabetes assessment is:</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:object="${assessmentDTO}">
-                <td th:text="${assessmentDTO.patientDTO.lastName}"></td>
-                <td th:text="${assessmentDTO.patientDTO.firstName}"></td>
-                <td th:text="${assessmentDTO.patientAge}"></td>
-                <td th:text="${assessmentDTO.diabetesRiskLevel}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-
-
-
-<div class="container mt-4 md-4">
-	<!-- Footer -->
-	<div th:replace="fragments/general.html :: footer"></div>
-
-
-	<script src="/webjars/jquery/3.6.0/jquery.slim.min.js"></script>
-	<script type="text/javascript"
-		src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
- </div>
-
-
-
-</body>
+   xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Patient assessment</title>
+      <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../css/custom.css">
+   </head>
+   <body>
+      <div class="container mt-4">
+         <nav class="navbar navbar-light bg-light justify-content-between">
+            <img src="/img/mediscreen-logo.png" width="240" height="60" alt="Site logo">
+            <form class="form-inline">
+               <!-- Search form -->
+               <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+               <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search">🔎︎</i></button>
+            </form>
+         </nav>
+      </div>
+      <!-- Navigation -->
+      <div th:replace="fragments/general.html :: navigation"></div>
+      <div class="container">
+         <br/>
+         <div class="row mt-4">
+            <div class="col-6">
+            </div>
+            <div class="col-6 text-right">
+               <a href="/patient/list"><button type="button" class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light"> ☛ Return to Patient List</button></a>
+            </div>
+         </div>
+         <div class="row mt-4">
+            <h2 class="text-info">Diabetes assessment</h2>
+         </div>
+         <br/><br/>
+         <div class="row">
+            <table class="table table-bordered">
+               <thead>
+                  <tr>
+                     <th>Last Name</th>
+                     <th>First Name</th>
+                     <th>Age</th>
+                     <th>Diabetes assessment is:</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr th:object="${assessmentDTO}">
+                     <td th:text="${assessmentDTO.patientDTO.lastName}"></td>
+                     <td th:text="${assessmentDTO.patientDTO.firstName}"></td>
+                     <td th:text="${assessmentDTO.patientAge}"></td>
+                     <td th:text="${assessmentDTO.diabetesRiskLevel}"></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <div class="container mt-4 md-4">
+         <!-- Footer -->
+         <div th:replace="fragments/general.html :: footer"></div>
+         <script src="/webjars/jquery/3.6.0/jquery.slim.min.js"></script>
+         <script type="text/javascript"
+            src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script>
+      </div>
+   </body>
 </html>
+

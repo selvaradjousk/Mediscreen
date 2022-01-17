@@ -1,109 +1,96 @@
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Home</title>
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/custom.css">
-    <!-- <link rel="icon" type="image/png" href="/img/favicon.ico" /> -->
-</head>
-<body>
-
-<div class="container mt-4">
-
-<nav class="navbar navbar-light bg-light justify-content-between">
-
-<img src="/img/mediscreen-logo.png" width="240" height="60" alt="Site logo">
-  <form class="form-inline">
-  
-  <!-- Search form -->
-    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search">🔎︎</i></button>
-  </form>
-</nav>
-
-
-					</div>
-
-
-	<!-- Navigation -->
-	<div th:replace="fragments/general.html :: navigation"></div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-6">
-        </div>
-
-    </div>
-    <div class="row mt-4"><h2 class="text-info">Patient List</h2></div>
-    <br/><br/>
-    <form th:action="@{/patient/list}">
-        Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
-        &nbsp;
-        <input type="submit" value="Search" />
-        &nbsp;
-        <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
-    </form>
-    <br/><br/>
-    <div class="row">
-        <a href="/patient/add" class="btn btn-primary btn-lg bg-info font-weight-bold "> + Add New Patient</a>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Last Name</th>
-                <th>First Name</th>
-                <th>Date of birth</th>
-                <th>Sex</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="patient : ${patients}">
-                <td style="width: 3%" th:text="${patient.id}"></td>
-                <td style="width: 10%" th:text="${patient.lastName}"></td>
-                <td style="width: 10%" th:text="${patient.firstName}"></td>
-                <td style="width: 5%" th:text="${patient.birthDate}"></td>
-                <td style="width: 1%" th:text="${patient.sex}"></td>
-                <td style="width: 10%" th:text="${patient.address}"></td>
-                <td style="width: 5%" th:text="${patient.phoneNumber}"></td>
-                <td style="width: 20%" class="text-center">
-                <div class="btn-toolbar">
-                    <a th:href="@{/patient/update/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light">Edit</button></a>
-                    <a th:href="@{/patient/delete/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm bg-danger mr-2 mb-2 font-weight-bold btn btn-outline-light">Delete</button></a>
-                    <a th:href="@{/note/list/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm bg-success mr-2 mb-2 font-weight-bold btn btn-outline-light">Notes</button></a>
-                    <a th:href="@{/assess/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm mr-2 mb-2 font-weight-bold btn btn-outline-light">Report</button></a>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-
-
-<script type="text/javascript">
-	function clearSearch() {
-		window.location = "[[@{/patient/list}]]";
-	}
-</script>
-
-
-<div class="container mt-4 md-4">
-	<!-- Footer -->
-	<div th:replace="fragments/general.html :: footer"></div>
-
-
-<!-- 	<script src="/webjars/jquery/3.6.0/jquery.slim.min.js"></script>
-	<script type="text/javascript"
-		src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script> -->
- </div>
-
-
-</body>
+   xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Patient List</title>
+      <link rel="stylesheet" href="../../css/bootstrap.min.css">
+      <link rel="stylesheet" href="../../css/custom.css">
+      <!-- <link rel="icon" type="image/png" href="/img/favicon.ico" /> -->
+   </head>
+   <body>
+      <div class="container mt-4">
+         <nav class="navbar navbar-light bg-light justify-content-between">
+            <img src="/img/mediscreen-logo.png" width="240" height="60" alt="Site logo">
+            <form class="form-inline">
+               <!-- Search form -->
+               <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+               <button class="btn btn-outline-success my-2 my-sm-0" type="button"><i class="fas fa-search">🔎︎</i></button>
+            </form>
+         </nav>
+      </div>
+      <!-- Navigation -->
+      <div th:replace="fragments/general.html :: navigation"></div>
+      <div class="container">
+         <div class="row">
+            <div class="col-6">
+            </div>
+         </div>
+         <div class="row mt-4">
+            <h2 class="text-info">Patient List</h2>
+         </div>
+         <br/><br/>
+         <form th:action="@{/patient/list}">
+            Filter: <input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required />
+            &nbsp;
+            <input type="submit" value="Search" />
+            &nbsp;
+            <input type="button" value="Clear" id="btnClear" onclick="clearSearch()" />
+         </form>
+         <br/><br/>
+         <div class="row">
+            <a href="/patient/add" class="btn btn-primary btn-lg bg-info font-weight-bold "> + Add New Patient</a>
+            <table class="table table-bordered">
+               <thead>
+                  <tr>
+                     <th>Id</th>
+                     <th>Last Name</th>
+                     <th>First Name</th>
+                     <th>Date of birth</th>
+                     <th>Sex</th>
+                     <th>Address</th>
+                     <th>Phone</th>
+                     <th>Action</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr th:each="patient : ${patients}">
+                     <td style="width: 3%" th:text="${patient.id}"></td>
+                     <td style="width: 10%" th:text="${patient.lastName}"></td>
+                     <td style="width: 10%" th:text="${patient.firstName}"></td>
+                     <td style="width: 5%" th:text="${patient.birthDate}"></td>
+                     <td style="width: 1%" th:text="${patient.sex}"></td>
+                     <td style="width: 10%" th:text="${patient.address}"></td>
+                     <td style="width: 5%" th:text="${patient.phoneNumber}"></td>
+                     <td style="width: 20%" class="text-center">
+                        <div class="btn-toolbar">
+                           <a th:href="@{/patient/update/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light">Edit</button></a>
+                           <a th:href="@{/patient/delete/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm bg-danger mr-2 mb-2 font-weight-bold btn btn-outline-light">Delete</button></a>
+                           <a th:href="@{/note/list/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm bg-success mr-2 mb-2 font-weight-bold btn btn-outline-light">Notes</button></a>
+                           <a th:href="@{/assess/{id}(id=${patient.id})}"><button type="button" class="btn btn-primary btn-sm mr-2 mb-2 font-weight-bold btn btn-outline-light">Report</button></a>
+                        </div>
+                     </td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+      </div>
+      <script type="text/javascript">
+         function clearSearch() {
+         	window.location = "[[@{/patient/list}]]";
+         }
+      </script>
+      <div class="container mt-4 md-4">
+         <!-- Footer -->
+         <div th:replace="fragments/general.html :: footer"></div>
+         <!-- 	<script src="/webjars/jquery/3.6.0/jquery.slim.min.js"></script>
+            <script type="text/javascript"
+            	src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js"></script> -->
+      </div>
+   </body>
 </html>
+
