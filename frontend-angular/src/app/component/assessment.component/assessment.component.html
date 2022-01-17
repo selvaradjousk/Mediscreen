@@ -1,0 +1,39 @@
+
+<div class="container">
+  <br /><br /><br />
+  <div class="row mt-4">
+     <div class="col-6">
+     </div>
+     <div class="col-6 text-right">
+        <br /> <br /> <br /> <br />
+        <a href="/patients"><button type="button"
+           class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light"> ☛ Return
+        to Patient List</button></a>
+     </div>
+  </div>
+  <div class="row mt-4">
+     <h2 class="text-info">Diabete risk possibility assessment report</h2>
+  </div>
+</div>
+<br /><br /><br />
+<div class="row ">
+  <table class="table table-bordered">
+     <thead>
+        <tr>
+           <th class="text-center">Last name </th>
+           <th class="text-center">First name</th>
+           <th class="text-center">Age</th>
+           <th class="text-center">Diabetes assessment is:</th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr >
+           <td style="width: 10%" class="col-sm-9" [ngStyle]="{backgroundColor: getRiskLevelColor()}"> {{report.patientDTO.lastName}}</td>
+           <td style="width: 10%" class="col-sm-9" [ngStyle]="{backgroundColor: getRiskLevelColor()}"> {{report.patientDTO.firstName}}</td>
+           <td style="width: 5%" class="col-sm-9" [ngStyle]="{backgroundColor: getRiskLevelColor()}"> {{report.patientAge}}</td>
+           <td style="width: 25%" class="col-sm-9" [ngStyle]="{backgroundColor: getRiskLevelColor()}"> {{report.diabetesRiskLevel}}</td>
+        </tr>
+     </tbody>
+  </table>
+</div>
+

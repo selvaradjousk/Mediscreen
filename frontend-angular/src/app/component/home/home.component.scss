@@ -1,0 +1,33 @@
+h2 {
+  font-size: 50px;
+}
+
+ul,
+li,
+p {
+  font-size: 22px;
+}
+
+.banner-card {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 20px auto;
+  padding: 10px 30px;
+  box-shadow: lightgray 4px 4px 20px;
+}
+.banner-card img {
+  width: 100%;
+}
+.banner-card h2 {
+  margin-bottom: 0;
+}
+.banner-card p {
+  font-weight: 300;
+  font-size: 16px;
+}
+
+span {
+  margin: 4px auto;
+  text-align: justify;
+  box-shadow: lightgray 4px 4px 20px;
+}

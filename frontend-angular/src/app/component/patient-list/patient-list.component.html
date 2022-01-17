@@ -1,0 +1,50 @@
+
+
+<div class="container">
+  <br /><br /><br /><br /><br /><br />
+  <div class="row mt-4">
+     <div class="row mt-4 ">
+        <h2 class="text-info">Patient List</h2>
+     </div>
+     <div class="row ">
+        <a routerLink="/add-patient" role="button" class="btn btn-primary btn-lg bg-info font-weight-bold  ">Add New Patient</a>
+        <table class="table table-bordered ">
+           <thead>
+              <tr>
+                 <th class="text-center">Last name</th>
+                 <th class="text-center">First name</th>
+                 <th class="text-center">Birthdate</th>
+                 <th class="text-center">Sex</th>
+                 <th class="text-center">Address</th>
+                 <th class="text-center">Phone number</th>
+                 <th class="text-center">Action</th>
+                 <th class="text-center">Notes/reports</th>
+              </tr>
+           </thead>
+           <tbody>
+              <tr *ngFor="let patient of patients;" >
+                 <!-- <td style="width: 3%">{{patient.id}}</td>--> 
+                 <td style="width: 7%"> {{patient.lastName}}</td>
+                 <td style="width: 7%"> {{patient.firstName}}</td>
+                 <td style="width: 7%"> {{patient.birthDate}}</td>
+                 <td style="width: 1%"> {{patient.sex}}</td>
+                 <td style="width: 10%"> {{patient.address}}</td>
+                 <td style="width: 10%" > {{patient.phoneNumber}}</td>
+                 <td class="text-center" style="width: 13%">
+                    <button class="btn btn-success btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light" (click)="goToEdit(patient.id)">Edit</button>
+                    &nbsp;
+                    <button class="btn btn-primary btn-sm bg-danger mr-2 mb-2 font-weight-bold btn btn-outline-light"
+                       (click)="goToDelete(patient.id)">Delete</button>
+                 </td>
+                 <td class="text-center " style="width: 25%">
+                    <button (click)="goToNotes(patient.id)">See notes ✍ </button>
+                    &nbsp;
+                    <button (click)="goToReport(patient.id)">See report 🕮 </button>
+                 </td>
+              </tr>
+           </tbody>
+        </table>
+     </div>
+  </div>
+</div>
+

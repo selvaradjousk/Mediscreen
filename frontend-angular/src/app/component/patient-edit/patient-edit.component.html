@@ -1,0 +1,82 @@
+
+
+<div class="container">
+  <br /><br /><br />
+  <div class="row mt-4">
+     <div class="col-6">
+     </div>
+     <div class="col-6 text-right">
+        <br /> <br /> <br /> <br />
+        <a href="/patients"><button type="button"
+           class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light"> ☛ Return
+        to Patient List</button></a>
+     </div>
+  </div>
+  <div class="row mt-4">
+     <h2 class="text-info">Update a patient</h2>
+  </div>
+  <br />
+  <div class="row">
+     <form *ngIf="patient" [formGroup]="patientEditForm" (ngSubmit)="onSubmitForm()" #localForm="ngForm" class="form-horizontal" style="width: 100%">
+     <div class="form-group">
+        <label for="lastName" class="col-sm-2 control-label required">Last Name</label>
+        <div class="col-sm-10">
+           <input type="text" class="form-control" formControlName="lastName" id="lastName" placeholder="Last name" class="col-4">
+           <div *ngIf="localForm.submitted && patientEditForm.get('lastName')?.invalid" class="text-danger">
+              Last name is required
+           </div>
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="firstName" class="col-sm-2 control-label required">First Name</label>
+        <div class="col-sm-10">
+           <input type="text" class="form-control" formControlName="firstName" id="firstName" placeholder="First name" class="col-4">
+           <div *ngIf="localForm.submitted && patientEditForm.get('firstName')?.invalid" class="text-danger">
+              First name is required
+           </div>
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="birthDate" class="col-sm-2 control-label required">Birthdate</label>
+        <div class="col-sm-10">
+           <input type="text" class="form-control" formControlName="birthDate" id="birthDate" placeholder="yyyy-mm-dd" class="col-4">
+           <div *ngIf="localForm.submitted && patientEditForm.get('birthDate')?.invalid" class="text-danger">
+              The correct format of the birthdate has to be in yyyy-mm-dd.
+           </div>
+        </div>
+     </div>
+     <div class="form-group">
+        <label class="col-sm-2 control-label required">Sex</label>
+        <div class="col-sm-10">
+           <label class="checkbox-inline"><input type="radio" formControlName="sex" value="F">Female</label>
+           <label class="checkbox-inline"><input type="radio" formControlName="sex" value="M">Male</label>
+           <div *ngIf="localForm.submitted && patientEditForm.get('sex')?.invalid" class="text-danger">
+              Sex is required
+           </div>
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="address" class="col-sm-2 control-label">Postal address</label>
+        <div class="col-sm-10">
+           <input type="text" class="form-control" formControlName="address" id="address" placeholder="Postal Address" class="col-4">
+        </div>
+     </div>
+     <div class="form-group">
+        <label for="phoneNumber" class="col-sm-2 control-label">Phone number</label>
+        <div class="col-sm-10">
+           <input type="text" class="form-control" formControlName="phoneNumber" id="phoneNumber" placeholder="Phone number" class="col-4">
+        </div>
+     </div>
+     <div *ngIf="patientAlreadySaved" class="text-danger">
+        This patient already exists.
+     </div>
+     <div class="form-group">
+        <div class="col-sm-12 btn-toolbar">
+           <a class="btn btn-danger btn-sm font-weight-bold " routerLink="/patients">Cancel</a>
+           <input class="btn btn-primary btn-sm font-weight-bold " type="submit" value="Update patient">
+        </div>
+     </div>
+     </form>
+  </div>
+</div>
+

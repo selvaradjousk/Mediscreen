@@ -1,0 +1,46 @@
+
+
+<div class="container">
+  <br /><br /><br />
+  <div class="row mt-4">
+     <div class="col-6">
+     </div>
+     <div class="col-6 text-right">
+        <br /> <br /> <br /> <br />
+        <a href="/patients"><button type="button"
+           class="btn btn-primary bg-warning btn-sm mr-2 mb-2 font-weight-bold text-dark btn btn-outline-light"> ☛ Return
+        to Patient List</button></a>
+     </div>
+  </div>
+  <div class="row mt-4">
+     <h2 class="text-info">Note List</h2>
+  </div>
+</div>
+<br /><br /><br />
+<div class="row ">
+  <td class="text-center font-weight-bold text-dark  btn-toolbarbtn-back">
+     <button (click)="addNote()">Add New Note ✍ </button>
+  </td>
+  <table *ngIf="!emptyList" class="table table-bordered">
+     <thead>
+        <tr>
+           <th>Date</th>
+           <th>Note</th>
+           <th>Actions</th>
+        </tr>
+     </thead>
+     <tbody>
+        <tr *ngFor="let note of notes;">
+           <td style="width: 10%">{{ note.date }}</td>
+           <td style="width: 50%">{{ note.note }}</td>
+           <td class="text-center" style="width: 15%">
+              <button class="btn btn-edit btn-success" (click)="goToEdit(note.id,note.patientId)">edit</button>
+              &nbsp;
+              <button class="btn btn-danger" (click)="goToDelete(note.id)">delete</button>
+           </td>
+        </tr>
+     </tbody>
+  </table>
+  <p *ngIf="emptyList"><br>There is no note yet.</p>
+</div>
+
