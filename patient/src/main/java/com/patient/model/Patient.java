@@ -15,6 +15,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * The Class Patient.
+ */
 @Entity
 @Table(name = "patients")
 @Getter
@@ -24,33 +27,50 @@ import lombok.Setter;
 public class Patient {
 
 
+    /** The id of the patient. */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
+    /** The last name of the patient. */
     @Column(name = "last_name")
     private String lastName;
 
 
+    /** The first name of the patient. */
     @Column(name = "first_name")
     private String firstName;
 
 
+    /** The birth date of the patient. */
     @Column(name = "date_of_birth")
     private LocalDate birthDate;
 
 
+    /** The sex of the patient. */
     private String sex;
 
 
+    /** The address of the patient. */
     private String address;
 
 
+    /** The phone number of the patient. */
     @Column(name = "phone_number")
     private String phoneNumber;
 
 
+    /**
+     * Instantiates a new patient.
+     *
+     * @param lastName the last name
+     * @param firstName the first name
+     * @param birthDate the birth date
+     * @param sex the sex
+     * @param address the address
+     * @param phoneNumber the phone number
+     */
     public Patient(
     		final String lastName,
     		final String firstName,

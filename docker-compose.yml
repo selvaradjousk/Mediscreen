@@ -46,7 +46,7 @@ services:
     environment:
       - PROXY_PATIENT=http://patient:8081/patient
       - PROXY_NOTE=http://note:8082/note
-      - PROXY_ASSESS=assess:8083/assess
+      - PROXY_ASSESS=http://assess:8083/assess
     ports:
       - 8080:8080
     networks:
@@ -82,20 +82,38 @@ services:
       - mongodb
     restart: always
 
-patientAssessment:
-  image: assess
-  container_name: assess
-  build:
-    context: ./patientAssessment/
-    dockerfile: Dockerfile
-  environment:
-    - PROXY_PATIENT=patient:8081/patient
-    - PROXY_NOTE=note:8082/note
-  ports:
-    - 8083:8083
-  networks:
-    - web-server
-  restart: always
+  patientAssessment:
+    image: assess
+    container_name: assess
+    build:
+      context: ./patientAssessment/
+      dockerfile: Dockerfile
+    environment:
+      - PROXY_PATIENT=http://patient:8081/patient
+      - PROXY_NOTE=http://note:8082/note
+    ports:
+      - 8083:8083
+    networks:
+      - web-server
+    restart: always
+   
+#  frontend-angular:
+#    image: frontend-angular
+#   container_name: frontend-angular
+#    build:
+#      context: ./frontend-angular/
+#      dockerfile: Dockerfile
+#    environment:
+#      - apiUrlPatient=http://patient:8081/patient
+#      - apiUrlNote=http://note:8082/note
+#      - apiUrlReport=http://assess:8083/assess
+#    ports:
+#      - 4200:4200
+#    networks:
+#      - web-server
+#    restart: always
+
+
 
 networks:
   web-server:

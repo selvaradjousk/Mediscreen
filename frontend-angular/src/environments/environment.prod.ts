@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrlPatient: 'http://localhost:8081',
-  apiUrlNote: 'http://localhost:8082',
-  apiUrlReport: 'http://localhost:8083',
+  apiUrlPatient: 'http://patient:8081',
+  apiUrlNote: 'http://note:8082',
+  apiUrlReport: 'http://assess:8083',
 };
