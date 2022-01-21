@@ -64,18 +64,13 @@ class PatientControllerGetPatientByIdIT {
     	patientDTO1 = new PatientDTO(1, "Rees1", "Pippa",
                 LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 
-    	patientDTO2 = new PatientDTO(1, "Rees2", "Pippa",
+    	patientDTO2 = new PatientDTO(2, "Rees2", "Pippa",
                 LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 
     	listPatient = new ArrayList<>();
 		listPatient.add(patientDTO1);
 		listPatient.add(patientDTO2);
 
-		restTemplate.postForEntity("http://localhost:" + port + PATIENT_ADD_URL,
-        		patientDTO1, PatientDTO.class);	
-		
-		restTemplate.postForEntity("http://localhost:" + port + PATIENT_ADD_URL,
-        		patientDTO2, PatientDTO.class);	
 		
     }
     
@@ -93,6 +88,13 @@ class PatientControllerGetPatientByIdIT {
     		+ " then return status 200 Ok")
     public void testGetPatientById() throws Exception {
 
+
+		restTemplate.postForEntity("http://localhost:" + port + PATIENT_ADD_URL,
+        		patientDTO1, PatientDTO.class);	
+		
+		restTemplate.postForEntity("http://localhost:" + port + PATIENT_ADD_URL,
+        		patientDTO2, PatientDTO.class);	
+    	
     	MvcResult response =  mockMvc
 				.perform(get("http://localhost:" + port +
                 PATIENT_GET_URL + "1"))

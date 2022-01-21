@@ -9,21 +9,34 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * The Class NoteDTO.
+ */
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class NoteDTO {
 
+    /** The id. */
     private String id;
 
+    /** The patient id. */
     private Integer patientId;
 
+    /** The date. */
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
 
+    /** The note. */
     private String note;
 
+    /**
+     * Instantiates a new note DTO.
+     *
+     * @param date the date
+     * @param note the note
+     */
     public NoteDTO(
     		final LocalDate date,
     		final String note) {
@@ -31,6 +44,13 @@ public class NoteDTO {
         this.note = note;
     }
 
+    /**
+     * Instantiates a new note DTO.
+     *
+     * @param patientId the patient id
+     * @param date the date
+     * @param note the note
+     */
     public NoteDTO(
     		final Integer patientId,
     		final LocalDate date,

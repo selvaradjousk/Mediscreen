@@ -63,6 +63,31 @@ class GetPatientTest {
 	// *******************************************************************	
 
 
+	@DisplayName("getPatient by lastName- "
+			+ "GIVEN a patient lastName"
+			+ "WHEN getPatient"
+			+ "THEN returns expected patient")
+    @Test
+    public void testGetPatientByLastName() {
+
+		PatientDTO patientDTO = new PatientDTO(1, "LastName1", "FirstName1",
+                LocalDate.of(1991,8,1), "M", "Address1", "1111111111");
+
+		when(microservicePatientProxy.getPatient("LastName1")).thenReturn(patientDTO);
+
+        PatientDTO result = assessmentService.getPatient("LastName1");
+
+        assertEquals("FirstName1", result.getFirstName());
+        assertEquals("LastName1", result.getLastName());
+
+    }
+
+
+
+	// *******************************************************************	
+
+
+
 
 
 

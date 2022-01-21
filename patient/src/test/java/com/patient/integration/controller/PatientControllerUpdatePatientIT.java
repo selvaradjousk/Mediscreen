@@ -63,9 +63,7 @@ class PatientControllerUpdatePatientIT {
     	patientDTO = new PatientDTO(1, "Rees", "Pippa",
                 LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 
-    	
-    	restTemplate.postForEntity("http://localhost:" + port + PATIENT_ADD_URL,
-        		patientDTO, PatientDTO.class);
+
     }
     
 
@@ -82,6 +80,10 @@ class PatientControllerUpdatePatientIT {
     		+ " then return status 200 Ok")
     public void testUpdatePatient() throws Exception {
 
+    	
+    	restTemplate.postForEntity("http://localhost:" + port + PATIENT_ADD_URL,
+        		patientDTO, PatientDTO.class);
+    	
     	PatientDTO patientupdateDTO = new PatientDTO(
     			1, "Rees1", "Pippa1", LocalDate.of(1952, 11, 11), "F", "745 West Valley Farms Drive", "628-423-0993");
 

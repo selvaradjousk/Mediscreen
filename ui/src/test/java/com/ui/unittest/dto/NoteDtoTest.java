@@ -13,12 +13,13 @@ import com.ui.dto.NoteDTO;
 @DisplayName("UNIT TESTS - DTO - PATIENT HISTORY")
 class NoteDtoTest {
 
-	private NoteDTO noteDto;
+	private NoteDTO noteDto, noteDto2;
 	private LocalDate date = LocalDate.now();
 
 	@BeforeEach
 	void init_test() {
 		noteDto = new NoteDTO("patId", 1, date, "note");
+		noteDto2 = new NoteDTO(date, "note");
 	}
 
 
@@ -35,6 +36,8 @@ class NoteDtoTest {
 		assertEquals("patId", noteDto.getId());
 		assertEquals(date, noteDto.getDate());
 		assertEquals("note", noteDto.getNote());
+		assertEquals(date, noteDto2.getDate());
+		assertEquals("note", noteDto2.getNote());
 
 	}
 
@@ -53,6 +56,8 @@ class NoteDtoTest {
 		assertEquals("patId", noteDto.getId());
 		assertEquals(date, noteDto.getDate());
 		assertEquals("note", noteDto.getNote());
+		assertEquals(date, noteDto2.getDate());
+		assertEquals("note", noteDto2.getNote());
 
 		LocalDate newDate = LocalDate.of(2021,12,31);
 
@@ -60,12 +65,16 @@ class NoteDtoTest {
 		noteDto.setPatientId(3);
 		noteDto.setDate(newDate);
 		noteDto.setNote("newNote");
+		noteDto2.setDate(newDate);
+		noteDto2.setNote("newNote");
 
 
 		assertEquals(3, noteDto.getPatientId());
 		assertEquals("newId", noteDto.getId());
 		assertEquals(newDate, noteDto.getDate());
 		assertEquals("newNote", noteDto.getNote());
+		assertEquals(newDate, noteDto2.getDate());
+		assertEquals("newNote", noteDto2.getNote());
 	}
 
 

@@ -55,7 +55,7 @@ public class AssessmentController {
 
 
     @GetMapping("/getByFamilyName")
-    public AssessmentDTO getPatient(@RequestParam String lastName) {
+    public AssessmentDTO getPatientAssessmentByFailyName(@RequestParam String lastName) {
 
     	PatientDTO patient = assessmentService.getPatient(lastName);
 

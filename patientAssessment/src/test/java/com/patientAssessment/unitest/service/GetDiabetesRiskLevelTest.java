@@ -216,4 +216,34 @@ class GetDiabetesRiskLevelTest {
 
 	// *******************************************************************	
 
+	@DisplayName("getDiabetesRiskLevel: Patient TestEarlyOnset - "
+			+ "GIVEN a patient TestEarlyOnset "
+			+ "WHEN getDiabetesRiskLevel"
+			+ "THEN returns expected DiabetesRiskLevel of the Patient TestEarlyOnset as Early onset")
+    @Test
+    public void GetDiabetesRiskLevelForPatientTestEarlyOnsetLessThan30AgeTest() {
+
+
+		PatientDTO patientDTO = new PatientDTO(1, "TestEarlyOnset", "Test",
+                LocalDate.of(2002,06,28), "F", "4 Valley Dr&phone=", "400-555-6666");
+        NoteDTO note1DTO = new NoteDTO("1", 1, LocalDate.of(1999,01,01), "Patient states that walking up stairs has become difficult Patient also complains that they are having shortness of breath Lab results indicate Antibodies present elevated Reaction to medication");
+        NoteDTO note2DTO = new NoteDTO("2", 1, LocalDate.of(1999,01,01), "Patient states that they are experiencing back pain when seated for a long time");
+        NoteDTO note3DTO = new NoteDTO("3", 1, LocalDate.of(1999,01,01), "Patient states that they are a short term Smoker Hemoglobin A1C above recommended level");
+        NoteDTO note4DTO = new NoteDTO("4", 1, LocalDate.of(1988,01,01), "Patient states that Body Height, Body Weight, Cholesterol, Dizziness and Reaction");
+       
+        List<NoteDTO> noteslist = Arrays.asList(note1DTO, note2DTO, note3DTO, note4DTO);
+
+        String diabetesRiskLevel = assessmentService.getDiabetesRiskLevel(
+        		assessmentService.getPatientTriggers(noteslist),
+        		assessmentService.getAge(patientDTO.getBirthDate()),
+        		patientDTO.getSex());
+
+        assertEquals("Early onset", diabetesRiskLevel);
+
+    }
+
+
+
+	// *******************************************************************	
+
 }

@@ -14,17 +14,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.ui.dto.NoteDTO;
 import com.ui.proxy.MicroserviceNoteProxy;
 
+/**
+ * The Class NoteController.
+ */
 @Controller
 @RequestMapping({"/note"})
 public class NoteController {
 
+    /** The microservice note proxy. */
     private final MicroserviceNoteProxy microserviceNoteProxy;
 
 
 
   	// *******************************************************************
 
-    @Autowired
+    /**
+	   * Instantiates a new note controller.
+	   *
+	   * @param microserviceNoteProxy the microservice note proxy
+	   */
+	  @Autowired
     public NoteController(
     		final MicroserviceNoteProxy microserviceNoteProxy) {
         this.microserviceNoteProxy = microserviceNoteProxy;
@@ -33,7 +42,14 @@ public class NoteController {
 
   	// *******************************************************************
 
-    @GetMapping({"/add/{id}"})
+    /**
+	   * Adds the note form.
+	   *
+	   * @param patientId the patient id
+	   * @param model the model
+	   * @return the string
+	   */
+	  @GetMapping({"/add/{id}"})
     public String addNoteForm(
     		@PathVariable("id") final Integer patientId,
     		final Model model) {
@@ -49,7 +65,14 @@ public class NoteController {
 
   	// *******************************************************************
 
-    @PostMapping({"/validate"})
+    /**
+	   * Validate.
+	   *
+	   * @param noteDTO the note DTO
+	   * @param result the result
+	   * @return the string
+	   */
+	  @PostMapping({"/validate"})
     public String validate(
     		@Valid final NoteDTO noteDTO,
     		final BindingResult result) {
@@ -68,7 +91,14 @@ public class NoteController {
 
   	// *******************************************************************
 
-    @GetMapping({"/update/{id}"})
+    /**
+	   * Show update form.
+	   *
+	   * @param noteId the note id
+	   * @param model the model
+	   * @return the string
+	   */
+	  @GetMapping({"/update/{id}"})
     public String showUpdateForm(
     		@PathVariable("id") final String noteId,
     		final Model model) {
@@ -83,7 +113,15 @@ public class NoteController {
 
   	// *******************************************************************
 
-    @PostMapping({"/update/{id}"})
+    /**
+	   * Update note.
+	   *
+	   * @param noteId the note id
+	   * @param noteDTO the note DTO
+	   * @param result the result
+	   * @return the string
+	   */
+	  @PostMapping({"/update/{id}"})
     public String updateNote(
     		@PathVariable("id") final String noteId,
     		@Valid final NoteDTO noteDTO,
@@ -103,7 +141,14 @@ public class NoteController {
 
   	// *******************************************************************
 
-    @GetMapping({"/list/{id}"})
+    /**
+	   * Show note list.
+	   *
+	   * @param patientId the patient id
+	   * @param model the model
+	   * @return the string
+	   */
+	  @GetMapping({"/list/{id}"})
     public String showNoteList(
     		@PathVariable("id") final Integer patientId,
     		final Model model) {
@@ -118,7 +163,14 @@ public class NoteController {
 
   	// *******************************************************************
 
-    @GetMapping({"/delete/{id}/{patientId}"})
+    /**
+	   * Delete note.
+	   *
+	   * @param noteId the note id
+	   * @param patientId the patient id
+	   * @return the string
+	   */
+	  @GetMapping({"/delete/{id}/{patientId}"})
     public String deleteNote(
     		@PathVariable("id") final String noteId,
     		@PathVariable("patientId") final Integer patientId) {

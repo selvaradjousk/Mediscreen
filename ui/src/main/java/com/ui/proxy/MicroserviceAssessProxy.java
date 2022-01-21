@@ -6,6 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ui.dto.AssessmentDTO;
 
+/**
+ * The Interface MicroserviceAssessProxy.
+ */
 @FeignClient(value = "assess-microservice", url = "${PROXY_ASSESS:http://localhost:8083/assess}") // this URL FeignClient is for docker
 //@FeignClient(value = "assess-microservice", url = "${proxy.assess}")
 public interface MicroserviceAssessProxy {

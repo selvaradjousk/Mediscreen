@@ -97,7 +97,7 @@ class NoteControllerIT {
 
         assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
         assertThat(response.getBody())
-                .hasFieldOrPropertyWithValue("note", "note updated")
+                .hasFieldOrPropertyWithValue("note", "note test")
                 .isNotNull();
     }
 
@@ -144,7 +144,7 @@ class NoteControllerIT {
         assertThat(response.getBody())
                 .asList()
                 .asString()
-                .contains("note updated");
+                .contains("note test");
         
         assertThat(response.getBody())
         .asList()
@@ -202,6 +202,30 @@ class NoteControllerIT {
                 NOTE_DELETE_URL + id, Void.class);
 
         assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+        
+    }
+
+
+
+
+  	// *******************************************************************
+
+
+
+    @Test
+    @Order(6)
+    @DisplayName("test DeleteNote - Not found "
+    		+ " Given a Note id,"
+    		+ " when request for DeleteNote  Not found,"
+    		+ " then throws exception")
+    public void testDeleteNoteNotFound() throws Exception {
+
+//        List<NoteDTO> notes = noteService.getAllNote(1);
+//        String id = notes.get(0).getId();
+        ResponseEntity<Void> response = restTemplate.getForEntity("http://localhost:" + port +
+                NOTE_DELETE_URL + "shdlkshdkfhskdfh", Void.class);
+
+        assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCodeValue());
         
     }
 

@@ -141,7 +141,48 @@ class AssessmentControllerIT {
 	// *******************************************************************	
 	
 
+	@DisplayName("getPatientAssessmentByFamilyName: TestNone - "
+			+ "GIVEN a patient TestNone "
+			+ "WHEN PatientAssessmentByFamilyName"
+			+ "THEN returns expected PatientAssessment of the TestNone As None")
+	@Test
+    public void testGetPatientAssessmentByFamilyNameTestNone() throws Exception {
+
+        ResponseEntity<AssessmentDTO> response = restTemplate.getForEntity("http://localhost:" + port +
+                ASSESS_GET_URL + "getByFamilyName?lastName=TestNone", AssessmentDTO.class);
+
+        assertEquals(HttpStatus.OK.value(), response.getStatusCodeValue());
+
+        String content = response.getBody().getDiabetesRiskLevel();
+
+        assertThat(content).contains("None");
+    }
+
+
+	// *******************************************************************	
+	
 					
 			
 
+
+	@DisplayName("getPatientAssessmentByFamilyName: NotFoundException- "
+			+ "GIVEN a patient NotFound "
+			+ "WHEN PatientAssessmentByFamilyName"
+			+ "THEN returns Exception")
+	@Test
+    public void testGetPatientAssessmentNotFound() throws Exception {
+
+        ResponseEntity<AssessmentDTO> response = restTemplate.getForEntity("http://localhost:" + port +
+                ASSESS_GET_URL + "getByFamilyName?lastName=TTTTTTestNone", AssessmentDTO.class);
+
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.getStatusCodeValue());
+
+
+    }
+
+
+	// *******************************************************************	
+	
+					
+		
 }

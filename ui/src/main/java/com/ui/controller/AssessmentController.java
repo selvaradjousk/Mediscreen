@@ -9,10 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ui.proxy.MicroserviceAssessProxy;
 
+/**
+ * The Class AssessmentController.
+ */
 @RequestMapping("/assess")
 @Controller
 public class AssessmentController {
 
+	/** The microservice assess proxy. */
 	private MicroserviceAssessProxy microserviceAssessProxy;
 
 
@@ -21,7 +25,12 @@ public class AssessmentController {
 
 
 
-    @Autowired
+    /**
+	 * Instantiates a new assessment controller.
+	 *
+	 * @param microserviceAssessProxy the microservice assess proxy
+	 */
+	@Autowired
     public AssessmentController(
     		final MicroserviceAssessProxy microserviceAssessProxy) {
         this.microserviceAssessProxy = microserviceAssessProxy;
@@ -33,7 +42,14 @@ public class AssessmentController {
 
 
 
-    @GetMapping({"/{id}"})
+    /**
+	 * Gets the patient assessment.
+	 *
+	 * @param patientId the patient id
+	 * @param model the model
+	 * @return the patient assessment
+	 */
+	@GetMapping({"/{id}"})
     public String getPatientAssessment(
     		@PathVariable("id") final Integer patientId,
     		final Model model) {
