@@ -17,12 +17,17 @@ import com.patientAssessment.dto.PatientDTO;
 import com.patientAssessment.proxy.MicroserviceNoteProxy;
 import com.patientAssessment.proxy.MicroservicePatientProxy;
 
+/**
+ * The Class AssessmentService.
+ */
 @Service
 public class AssessmentService implements IAssessmentService {
 
 
+	/** The microservice note proxy. */
 	private final MicroserviceNoteProxy microserviceNoteProxy;
 
+	/** The microservice patient proxy. */
 	private final MicroservicePatientProxy microservicePatientProxy;
 
 
@@ -30,7 +35,13 @@ public class AssessmentService implements IAssessmentService {
   	// *******************************************************************
 
 
-	public AssessmentService(MicroserviceNoteProxy microserviceNoteProxy,
+	/**
+	   * Instantiates a new assessment service.
+	   *
+	   * @param microserviceNoteProxy the microservice note proxy
+	   * @param microservicePatientProxy the microservice patient proxy
+	   */
+	  public AssessmentService(MicroserviceNoteProxy microserviceNoteProxy,
 			MicroservicePatientProxy microservicePatientProxy) {
 		super();
 		this.microserviceNoteProxy = microserviceNoteProxy;
@@ -51,7 +62,13 @@ public class AssessmentService implements IAssessmentService {
   	// *******************************************************************
 
 
-	@Override
+	/**
+	   * Gets the patient assessment.
+	   *
+	   * @param patientId the patient id
+	   * @return the patient assessment
+	   */
+	  @Override
 	public AssessmentDTO getPatientAssessment(
     		final Integer patientId) {
 
@@ -83,7 +100,13 @@ public class AssessmentService implements IAssessmentService {
 
 
 
-	//	- What age? (calculate age from birth date)
+	/**
+	   * Gets the age.
+	   *
+	   * @param birthDate the birth date
+	   * @return the age
+	   */
+	  //	- What age? (calculate age from birth date)
     public int getAge(final LocalDate birthDate) {
 
         LocalDate currentDate = LocalDate.now();
@@ -104,7 +127,13 @@ public class AssessmentService implements IAssessmentService {
   	// *******************************************************************
 
 
-    // Get the patient by Id
+    /**
+	   * Gets the patient.
+	   *
+	   * @param patientId the patient id
+	   * @return the patient
+	   */
+	  // Get the patient by Id
 	public PatientDTO getPatient(final Integer patientId) {
 		
 		PatientDTO patient = microservicePatientProxy
@@ -116,7 +145,13 @@ public class AssessmentService implements IAssessmentService {
 
   	// *******************************************************************
 
-    // Get the patient by LastName
+    /**
+	   * Gets the patient.
+	   *
+	   * @param lastName the last name
+	   * @return the patient
+	   */
+	  // Get the patient by LastName
 	public PatientDTO getPatient(final String lastName) {
 		
 		PatientDTO patient = microservicePatientProxy
@@ -128,7 +163,13 @@ public class AssessmentService implements IAssessmentService {
 
   	// *******************************************************************
 
-    // Get the patients notes through proxy
+    /**
+	   * Gets the patient notes.
+	   *
+	   * @param patientId the patient id
+	   * @return the patient notes
+	   */
+	  // Get the patients notes through proxy
     public List<NoteDTO> getPatientNotes(final Integer patientId) {
 
 		List<NoteDTO> patientNotes = microserviceNoteProxy
@@ -141,7 +182,13 @@ public class AssessmentService implements IAssessmentService {
 
   	// *******************************************************************
 
-    // How many Triggers (count number of triggers in all notes of patient)
+    /**
+	   * Gets the patient triggers.
+	   *
+	   * @param notes the notes
+	   * @return the patient triggers
+	   */
+	  // How many Triggers (count number of triggers in all notes of patient)
     public int getPatientTriggers(final List<NoteDTO> notes) {
 
         EnumSet<DiabetesTrigger> diabetesTriggers = EnumSet
@@ -166,7 +213,15 @@ public class AssessmentService implements IAssessmentService {
 
   	// *******************************************************************
 
-    // Probability of Risk Level (SEX, AGE, TRIGGER_COUNT)
+    /**
+	   * Gets the diabetes risk level.
+	   *
+	   * @param triggers the triggers
+	   * @param patientAge the patient age
+	   * @param sex the sex
+	   * @return the diabetes risk level
+	   */
+	  // Probability of Risk Level (SEX, AGE, TRIGGER_COUNT)
     public String getDiabetesRiskLevel(
     		final int triggers,
     		final int patientAge,

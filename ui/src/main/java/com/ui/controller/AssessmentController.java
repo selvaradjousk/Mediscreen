@@ -1,5 +1,7 @@
 package com.ui.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,13 @@ import com.ui.proxy.MicroserviceAssessProxy;
 @RequestMapping("/assess")
 @Controller
 public class AssessmentController {
+
+	/** The logger. */
+	private Logger logger = LoggerFactory
+			.getLogger(AssessmentController.class);
+
+
+	// ##############################################################
 
 	/** The microservice assess proxy. */
 	private MicroserviceAssessProxy microserviceAssessProxy;
@@ -54,10 +63,14 @@ public class AssessmentController {
     		@PathVariable("id") final Integer patientId,
     		final Model model) {
 
+	    logger.debug(" *** UI - GET /assess/{id} called");
+
         model.addAttribute("patientId", patientId);
         model.addAttribute("assessmentDTO",
         		this.microserviceAssessProxy
         		.getPatientAssessment(patientId));
+
+	    logger.debug(" *** UI - assessment report returned successfully");
 
         return "assessment/assess";
     }

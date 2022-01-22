@@ -2,6 +2,8 @@ package com.ui.controller;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,12 @@ import com.ui.proxy.MicroserviceNoteProxy;
 @RequestMapping({"/note"})
 public class NoteController {
 
+	/** The logger. */
+	private Logger logger = LoggerFactory
+			.getLogger(NoteController.class);
+
+
+	// ##############################################################
     /** The microservice note proxy. */
     private final MicroserviceNoteProxy microserviceNoteProxy;
 
@@ -54,9 +62,13 @@ public class NoteController {
     		@PathVariable("id") final Integer patientId,
     		final Model model) {
 
+		    logger.debug(" *** UI -GET /note/add/{id} called");
+
         NoteDTO note = new NoteDTO();
         note.setPatientId(patientId);
         model.addAttribute("noteDTO", note);
+
+        logger.info(" *** UI - note add page displyaed successfully");
 
         return "note/add";
     }
@@ -77,11 +89,15 @@ public class NoteController {
     		@Valid final NoteDTO noteDTO,
     		final BindingResult result) {
 
+		    logger.debug(" *** UI - POST /note/validate requested");
+
         if (result.hasErrors()) {
             return "note/add";
         } else {
             this.microserviceNoteProxy
             .addNote(noteDTO);
+
+            logger.info(" *** UI - note added successfully");
 
             return "redirect:/note/list/" + noteDTO
             		.getPatientId();
@@ -103,9 +119,13 @@ public class NoteController {
     		@PathVariable("id") final String noteId,
     		final Model model) {
 
+		    logger.debug(" *** UI - GET /note/update/{id} requested");
+
         NoteDTO note = this.microserviceNoteProxy
         		.getNoteById(noteId);
         model.addAttribute("noteDTO", note);
+
+        logger.info(" *** UI - note update page displyaed successfully");
 
         return "note/update";
     }
@@ -127,11 +147,15 @@ public class NoteController {
     		@Valid final NoteDTO noteDTO,
             final BindingResult result) {
 
+		    logger.debug(" *** UI - POST /note/update/{id} requested");
+
         if (result.hasErrors()) {
             return "note/update";
         } else {
             this.microserviceNoteProxy
             .updateNote(noteId, noteDTO);
+
+            logger.info(" *** UI - note update successfully");
 
             return "redirect:/note/list/" + noteDTO
             		.getPatientId();
@@ -153,9 +177,13 @@ public class NoteController {
     		@PathVariable("id") final Integer patientId,
     		final Model model) {
 
+		    logger.debug(" *** UI - GET /note/list/{id} - called");
+
         model.addAttribute("patientId", patientId);
         model.addAttribute("notes", this.microserviceNoteProxy
         		.getAllNote(patientId));
+
+        logger.info(" *** UI - note list returned successfully");
 
         return "note/list";
     }
@@ -175,10 +203,15 @@ public class NoteController {
     		@PathVariable("id") final String noteId,
     		@PathVariable("patientId") final Integer patientId) {
 
+		logger.debug("GET /note/delete/{id}/{patientId} called");
+
         this.microserviceNoteProxy.deleteNote(noteId);
 
+        logger.info(" *** UI - nnote deleted successfully");
+        
         return "redirect:/note/list/" + patientId;
-    }
+
+	  }
 
 
   	// *******************************************************************

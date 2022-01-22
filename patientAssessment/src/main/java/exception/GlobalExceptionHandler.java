@@ -10,10 +10,20 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * The Class GlobalExceptionHandler.
+ */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
+    /**
+     * Handle type mismatch.
+     *
+     * @param ex the ex
+     * @param request the request
+     * @return the response entity
+     */
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
     public ResponseEntity handleTypeMismatch(
     		final MethodArgumentTypeMismatchException ex,
@@ -30,6 +40,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
+    /**
+     * Handle not found.
+     *
+     * @param ex the ex
+     * @param request the request
+     * @return the response entity
+     */
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity handleNotFound(
     		final ResourceNotFoundException ex,

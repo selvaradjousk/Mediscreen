@@ -11,19 +11,30 @@ import com.patientHistory.model.Note;
 import com.patientHistory.repository.NoteRepository;
 import com.patientHistory.util.NoteMapper;
 
+/**
+ * The Class NoteService.
+ */
 @Service
 public class NoteService implements INoteService {
 
 
+	/** The note repository. */
 	private final NoteRepository noteRepository;
 
+    /** The note mapper. */
     private final NoteMapper noteMapper;
 
 
 	// *******************************************************************	
 
 
-    public NoteService(
+    /**
+	 * Instantiates a new note service.
+	 *
+	 * @param noteRepository the note repository
+	 * @param noteMapper the note mapper
+	 */
+	public NoteService(
     		final NoteRepository noteRepository,
     		final NoteMapper noteMapper) {
 
@@ -35,7 +46,13 @@ public class NoteService implements INoteService {
 	// *******************************************************************	
 
 
-    public NoteDTO addNote(final NoteDTO noteDTO) {
+    /**
+	 * Adds the note.
+	 *
+	 * @param noteDTO the note DTO
+	 * @return the note DTO
+	 */
+	public NoteDTO addNote(final NoteDTO noteDTO) {
 
         Note noteAdded = noteRepository
         		.save(noteMapper.toNote(noteDTO));
@@ -47,7 +64,13 @@ public class NoteService implements INoteService {
 
 	// *******************************************************************	
 
-    public NoteDTO getNoteById(final String noteId) {
+    /**
+	 * Gets the note by id.
+	 *
+	 * @param noteId the note id
+	 * @return the note by id
+	 */
+	public NoteDTO getNoteById(final String noteId) {
 
         Note note = noteRepository.findById(noteId)
         		.orElseThrow(() ->
@@ -63,7 +86,13 @@ public class NoteService implements INoteService {
 
 
 
-    public List<NoteDTO> getAllNote(final Integer patientId) {
+    /**
+	 * Gets the all note.
+	 *
+	 * @param patientId the patient id
+	 * @return the all note
+	 */
+	public List<NoteDTO> getAllNote(final Integer patientId) {
 
         List<Note> notes = noteRepository
         		.findByPatientId(patientId);
@@ -79,7 +108,14 @@ public class NoteService implements INoteService {
 
   	// *******************************************************************
 
-    public NoteDTO updateNote(
+    /**
+	   * Update note.
+	   *
+	   * @param noteId the note id
+	   * @param noteDTO the note DTO
+	   * @return the note DTO
+	   */
+	  public NoteDTO updateNote(
     		final String noteId,
     		final NoteDTO noteDTO) {
 
@@ -100,7 +136,12 @@ public class NoteService implements INoteService {
 
   	// *******************************************************************
 
-    public void deleteNote(final String noteId) {
+    /**
+	   * Delete note.
+	   *
+	   * @param noteId the note id
+	   */
+	  public void deleteNote(final String noteId) {
 
         noteRepository.findById(noteId)
         .orElseThrow(() ->
