@@ -1,16 +1,19 @@
 <img src="https://img.shields.io/badge/java-%23ED8B00.svg?&style=for-the-badge&logo=java&logoColor=white"/> *** <img src="https://img.shields.io/badge/spring%20-%236DB33F.svg?&style=for-the-badge&logo=spring&logoColor=white"/> *** <img src="https://img.shields.io/badge/docker%20-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white"/> *** <img src="https://img.shields.io/badge/gradle-%23ED8B00.svg?&style=for-the-badge&logo=gradle&logoColor=white"/>
+<br><br><br>
+<h1 align="center">Mediscreen - Patient Microservice</h1><br><br>
 
-<h1 align="center">Mediscreen - Patient Microservice</h1>
-
-**Mediscreen - Patient Microservice** is developed with _Spring Boot adopting  _MVA_ design pattern and Test Design Approach (TDD).
+**Mediscreen - Patient Microservice** is developed with _Spring Boot adopting  _MVA_ design pattern and Test Design Approach (TDD).<br><br>
 <br>
 
 <a href="#"><img width="98%" src="../readme_docs/images/ui_thymleaf_patient_home.PNG" alt="MEDISCREEN BANNER"></a><br>
+<br><br>
 
- ### Sprint I - goals:
-- Develop (**CRUD functionalities**) to the patient microservice to establish up the records on the fundamental personal information of the patients for the application serving the patient management requirements of clinics and health centers.
+### SPRINT I - goals:
 
- ### SPRINT I - tasks
+- Develop (**CRUD functionalities**) to the patient microservice to establish up the records on the fundamental personal information of the patients for the application serving the patient management requirements of clinics and health centers.<br><br>
+
+### SPRINT I - tasks
+
 - :heavy_check_mark: Implement CRUD functions (PATIENTS) - GET LIST, GET by ID,  GET LIST by keyword (search), ADD, UPDATE, DELETE;
 - :heavy_check_mark: Implement validation for CRUD functions.
 - :heavy_check_mark: Implement Mysql database & establish connection configurations to the microservice.
@@ -20,7 +23,7 @@
 - :heavy_check_mark: Integration of backend with basic frontend like Thymeleaf.
 - :heavy_check_mark: Agile KANBAN update of the sprint progress tracking (start date, anticipated deadline, completion date, tasks, task status...)
 - :heavy_check_mark: Retrospective update at the end of each SPRINT
-
+<br><br>
 
 ## Technological Spec & Run Prerequisites
 
@@ -28,20 +31,21 @@
 - Gradle 7.3
 - Docker 
 - Mysql DB
+<br><br><br>
 
 ## Architectural Spec - Microservice - Patient:
 
 ### Schema MVC
 
 <a href="#"><img width="70%" src="../readme_docs/images/mvc_patient_microservice.PNG" alt="MVC patient microservice"></a><br>
-<br>
+<br><br><br>
 
 
 
 ### Schema MCD
 
 <a href="#"><img width="70%" src="../readme_docs/images/mcd_patient_microservice.PNG" alt="MVC patient microservice"></a><br>
-<br>
+<br><br><br>
 
 
 
@@ -52,12 +56,15 @@
 ## Application Run configuration
 
 <img src="https://img.shields.io/badge/gradle-%23ED8B00.svg?&style=for-the-badge&logo=gradle&logoColor=white"/> <br/>
+
 ```
 gradle bootRun or ./gradle bootRun
 ```
 ```
 gradle bootWar or ./gradle bootWar or ./gradle bootJar
 ```
+
+<br><br>
 
 <img src="https://img.shields.io/badge/docker%20-%230db7ed.svg?&style=for-the-badge&logo=docker&logoColor=white"/> <br/>
 
@@ -66,6 +73,7 @@ gradle bootWar or ./gradle bootWar or ./gradle bootJar
 Use the **Dockerfile** on the package roots containing individual 4 services to build docker images
 
 SYNTAX:
+
 ```
 docker build . -f Dockerfile -t imageNameToBeCreated
 ```
@@ -75,6 +83,7 @@ docker build . -f Dockerfile -t imageNameToBeCreated
 Use the  **DockerImage** created above & run a Docker image using the command below
 
 SYNTAX:
+
 ```
 docker run -d -p HostPort:InternalAppPort --name dockerContainerNameToBeCreated -d DockerImageName
 ```
@@ -86,16 +95,18 @@ In case, if want to use an automated multi-container workflow with docker-compos
 To deploy all Mediscreen microservices in a single go, use the **docker-compose.yml** on the package root containing all services that will orchestrate multiple containers wherein it will make it to work together based on the defined configuration in it. (Feel free to change the configuration settings for you required workflow)
 
 SYNTAX:
+
 ```
 docker-compose up -d
 ```
+<br><br>
 
 ### Trouble shooting - MySql configuration inside Docker container
 
 In case of problems in the configuration of entrypoint injection of DB creation and data insertion in Mysql container
 
 ```
-# Execute the container for mysql and follow the steps below:
+-- Execute the container for mysql and follow the steps below:
 sudo docker exec -it mysql_db /bin/bash
 ```
 
@@ -149,9 +160,8 @@ INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `
 INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `phone_number`, `sex`) VALUES ('745 West Valley Farms Drive', '1952-09-27', 'Pippa', 'Rees', '628-423-0993', 'F') ;
 INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `phone_number`, `sex`) VALUES ('2 Warren Street', '2021-06-22', 'Lucas', 'Ferguson', '387-866-1399', 'M') ;
 
-
 ```
-`
+<br><br>
 
 
 
@@ -160,6 +170,7 @@ INSERT INTO `patients` (`address`, `date_of_birth`, `first_name`, `last_name`, `
 Gradle, Junit (Unit & Integration Tests). <br/>
 
 SYNTAX:
+
 ```
 gradlew test or ./gradlew test or gradlew clean test
 ```
@@ -258,10 +269,7 @@ curl --location --request POST 'http://localhost:8081/patient/update/1' --header
 <br>
 
 
-
-```
-
-```
+<br>
 
 ### JaCoCo coverage
 
@@ -302,38 +310,38 @@ curl --location --request POST 'http://localhost:8081/patient/update/1' --header
 ### Patients listing - GET http://localhost:8081/patient/list
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_thymleaf_patient_list.PNG" alt="SPRINT I - ui_thymleaf_patient_list"></a><br>
-<br>
+<br><br>
 
 
 ### Patients list search keyword - GET http://localhost:8080/patient/list?keyword=testNone
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_thymleaf_patient_list_serach_keyword.PNG" alt="SPRINT I - ui_thymleaf_patient_list_serach_keyword"></a><br>
-<br>
+<br><br>
 
 
 ### Patients add - GET http://localhost:8080/patient/add
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_thymleaf_patient_add_patient.PNG" alt="SPRINT I - ui_thymleaf_patient_add_patient"></a><br>
-<br>
+<br><br>
 
 
 ### Patients POST validate - POST http://localhost:8080/patient/validate
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_thymleaf_patient_add_patient_validation.PNG" alt="SPRINT I - ui_thymleaf_patient_add_patient_validation"></a><br>
-<br>
+<br><br>
 
 
 
 ### Patients POST update - POST http://localhost:8081/patient/update
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_thymleaf_patient_update_patient.PNG" alt="SPRINT I - ui_thymleaf_patient_update_patient"></a><br>
-<br>
+<br><br>
 
 
 ### Patients POST update validation - POST http://localhost:8080/patient/update
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_thymleaf_patient_update_patient_validation.PNG" alt="SPRINT I - ui_thymleaf_patient_update_patient_validation"></a><br>
-<br>
+<br><br>
 
 
 
@@ -343,19 +351,19 @@ curl --location --request POST 'http://localhost:8081/patient/update/1' --header
 ### Patients Home - GET http://localhost:4200/
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_angular_patient_home.PNG" alt="SPRINT I - ui_angular_patient_home"></a><br>
-<br>
+<br><br>
 
 
 ### Patients listing - GET http://localhost:4200/patients
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_angular_patient_list.PNG" alt="SPRINT I - ui_angular_patient_list"></a><br>
-<br>
+<br><br>
 
 
 ### Patients add - http://localhost:4200/add-patient
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_angular_patient_add_patient.PNG" alt="SPRINT I - ui_angular_patient_add_patient"></a><br>
-<br>
+<br><br>
 
 
 
@@ -365,19 +373,19 @@ curl --location --request POST 'http://localhost:8081/patient/update/1' --header
 ### Patients Home - GET http://localhost:3000/
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_react_patient_home.PNG" alt="SPRINT I - ui_react_patient_home"></a><br>
-<br>
+<br><br>
 
 
 ### Patients listing - http://localhost:3000/patient/list
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_react_patient_list.PNG" alt="SPRINT I - ui_react_patient_list"></a><br>
-<br>
+<br><br>
 
 
 ### Patients add - http://localhost:3000/add-patient
 
 <a href="#"><img width="70%" src="../readme_docs/images/ui_react_patient_add_patient.PNG" alt="SPRINT I - ui_react_patient_add_patient"></a><br>
-<br>
+<br><br>
 
 
 
@@ -396,19 +404,19 @@ All SPRINT progress are documented with Notion.io and reported in the link below
 ### SPRINT I - startline
 
 <a href="#"><img width="70%" src="../readme_docs/images/20211228_sprint_update.PNG" alt="SPRINT I - startline"></a><br>
-<br>
+<br><br>
 
 ### SPRINT I - completion
 
 <a href="#"><img width="70%" src="../readme_docs/images/20211230_sprint_update.PNG" alt="SPRINT I - completion"></a><br>
-<br>
+<br><br>
 
 
 [SPRINT progress documentation for this project](readme_docs/kanban_progressline_report/kanban_readme.md)
 
 [NOTION - Backlog Online - Link](https://www.notion.so/411c45a75ebd41848f20816d5a1b023d?v=4fbc0f2adb024e93aea0306e875a9419)
 
-<br>
+<br><br>
 
 <a href="https://www.notion.so/411c45a75ebd41848f20816d5a1b023d?v=4fbc0f2adb024e93aea0306e875a9419"><img width="98%" src="../readme_docs/images/notion.PNG" alt="notion BANNER"></a><br>
 
@@ -418,14 +426,14 @@ All SPRINT progress are documented with Notion.io and reported in the link below
 All SPRINT Retrospectives are documented reported here in the link below:
 
 [SPRINT Retrospectives documentation for this project](https://github.com/selvaradjousk/Mediscreen/tree/develop/readme_docs/retrospectives)<br>
-<br>
+<br><br>
 [SPRINT Retrospectives readme documentation for this project](https://github.com/selvaradjousk/Mediscreen/blob/develop/readme_docs/retrospectives/retro_readme.md)<br>
-<br>
+<br><br>
 
 ### SPRINT I - Retrospective
 
 <a href="#"><img width="70%" src="../readme_docs/images/sprint1.PNG" alt="SPRINT I - Retrospective"></a><br>
-<br>
+<br><br>
 
 
 ### SPRINT on Project Completion - Link below
@@ -439,7 +447,7 @@ All SPRINT Retrospectives are documented reported here in the link below:
 All Tasks timeline progress are documented and reported here in the link below:
 
 [Tasks Timeline progress documentation](https://github.com/selvaradjousk/Mediscreen/commits/develop/readme_docs/project_progress_tracker.txt)<br>
-
+<br><br>
 
 ### Authors
 Mentee:  🡆   @Senthil<br>
@@ -456,7 +464,7 @@ Version:  🡆 1.0<br><br>
 ### License
 @OpenClassrooms & @Mediscreen<br><br>
 <a href="https://openclassrooms.com"><img width="20%" src="../readme_docs/images/openclassrooms_logo.PNG" alt="OPENCLASSROOMS LOGO"></a><br>
-<br>
+<br><br>
 
 
 Reference Documentation
@@ -469,6 +477,7 @@ For further reference, consider the following sections:
 * [Gradle User Manual](https://docs.gradle.org/current/userguide/userguide.html)
 * [STAN DOCUMENTATION WHITE PAPER](http://stan4j.com/papers/stan-whitepaper.pdf) 
 
+<br><br>
 
 Reference Guides
 ===
