@@ -1,0 +1,199 @@
+[
+ 	{
+ 		"patientId" : 1,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they are 'feeling terrific' Weight at or below recommended level",
+	},
+ 	{
+ 		"patientId" : 2,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they are feeling a great deal of stress at work Patient also complains that their hearing seems Abnormal as of late",
+	},
+ 	{
+ 		"patientId" : 2,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they have had a Reaction to medication within last 3 months Patient also complains that their hearing continues to be problematic",
+	},
+ 	{
+ 		"patientId" : 3,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they are short term Smoker",
+	},
+ 	{
+ 		"patientId" : 3,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they quit within last year Patient also complains that of Abnormal breathing spells Lab reports Cholesterol LDL high",
+	},
+ 	{
+ 		"patientId" : 4,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that walking up stairs has become difficult Patient also complains that they are having shortness of breath Lab results indicate Antibodies present elevated Reaction to medication",
+	},
+ 	{
+ 		"patientId" : 4,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they are experiencing back pain when seated for a long time",
+	},
+ 	{
+ 		"patientId" : 4,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that they are a short term Smoker Hemoglobin A1C above recommended level",
+	},
+ 	{
+ 		"patientId" : 4,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient states that Body Height, Body Weight, Cholesterol, Dizziness and Reaction",
+	},
+ 	{
+ 		"patientId" : 6,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he has no problem",
+	},
+ 	{
+ 		"patientId" : 6,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he has no problem. Size included in the relevant range. Hemoglobin A1C above recommended level",
+	},	
+ 	{
+ 		"patientId" : 6,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he has no problem. Body weight above recommended weight. Patient has reported multiple episodes of vertigo since last visit ",
+	},	
+ 	{
+ 		"patientId" : 6,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he has no problem. Laboratory tests indicating high microalbumin ",
+	},	
+ 	{
+ 		"patientId" : 7,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient reports difficulty concentrating on homework. Hemoglobin A1C above recommended level ",
+	},	
+ 	{
+ 		"patientId" : 7,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports that he becomes impatient easily in the event of a prolonged wait. It also reports that the vending machine products are not good. Laboratory tests indicating abnormal levels of blood cells ",
+	},	
+ 	{
+ 		"patientId" : 7,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient reports being easily irritated by trifles. He also states that the neighbours' vacuum cleaner is too noisy. Lab tests showing antibodies are high ",
+	},	
+ 	{
+ 		"patientId" : 8,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Lab tests show antibodies are high. Hemoglobin A1C above recommended level ",
+	},	
+ 	{
+ 		"patientId" : 9,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports that he often wakes up with joint stiffness. He also complains of difficulty falling asleep. Body weight above recommended weight. Laboratory tests indicating high LDL cholesterol ",
+	},	
+ 	{
+ 		"patientId" : 10,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he feels well. Body weight above recommended weight ",
+	},	
+ 	{
+ 		"patientId" : 10,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he feels well",
+	},	
+ 	{
+ 		"patientId" : 11,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient reports occasional neck pain. Patient also notices that some foods taste different. Apparent drug reaction. Body weight above recommended weight ",
+	},	
+ 	{
+ 		"patientId" : 11,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports having had several episodes of dizziness since the last visit. Size included in the relevant range ",
+	},	
+ 	{
+ 		"patientId" : 11,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient states that he still suffers from occasional neck pain. Laboratory tests indicating high microalbumin. Smoker, quit within past 12 months ",
+	},	
+ 	{
+ 		"patientId" : 11,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports having had several episodes of vertigo since the last visit. Lab tests showing antibodies are high ",
+	},	
+ 	{
+ 		"patientId" : 12,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports that it has become difficult for him to climb stairs. He also complains of being short of breath. Lab tests showing antibodies are high. Drug reaction ",
+	},	
+ 	{
+ 		"patientId" : 12,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports that he has back pain when sitting for a long time ",
+	},	
+ 	{
+ 		"patientId" : 12,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares having recently started smoking. Hemoglobin A1C above recommended level ",
+	},	
+ 	{
+ 		"patientId" : 13,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he has recently smoked ",
+	},	
+ 	{
+ 		"patientId" : 13,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Laboratory tests indicating high microalbumin ",
+	},	
+ 	{
+ 		"patientId" : 13,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that he is a smoker and that he quit smoking within the last year. He also complains of abnormal respiratory apnea attacks. Laboratory tests indicating high LDL cholesterol ",
+	},	
+ 	{
+ 		"patientId" : 13,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Laboratory tests indicating high LDL cholesterol ",
+	},	
+ 	{
+ 		"patientId" : 14,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports that he feels a lot of stress at work. He also complains that his hearing is abnormal lately. ",
+	},	
+ 	{
+ 		"patientId" : 14,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient reports having had a reaction to medication in the last 3 months. He also notices that his hearing continues to be abnormal. ",
+	},	
+ 	{
+ 		"patientId" : 14,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Laboratory tests indicating high microalbumin",
+	},	
+ 	{
+ 		"patientId" : 14,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient declares that everything seems to be going well. Lab reports hemoglobin A1C exceeds recommended level. The patient declares that he has smoked for a long time ",
+	},	
+ 	{
+ 		"patientId" : 15,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "The patient reports that he feels very well. Weight equal to or less than the recommended weight",
+	},	
+ 	{
+ 		"patientId" : 15,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient reports feeling tired during the day. He also complains of muscle aches. Laboratory tests indicating high microalbumin ",
+	},	
+ 	{
+ 		"patientId" : 15,
+		"date" : "12-12-2021 01:01:01",
+		"note" : "Patient says he doesn't feel that tired. Smoker, quit within past 12 months. Lab tests showing antibodies are high ",
+	},	
+	
+
+]
+
+
+
+
+

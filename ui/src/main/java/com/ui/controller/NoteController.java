@@ -66,6 +66,7 @@ public class NoteController {
 
         NoteDTO note = new NoteDTO();
         note.setPatientId(patientId);
+//        model.addAttribute("date", LocalDate.now());
         model.addAttribute("noteDTO", note);
 
         logger.info(" *** UI - note add page displyaed successfully");

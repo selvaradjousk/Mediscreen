@@ -13,11 +13,11 @@ DEVELOPMENT - DOCUMENTATION:
 - *** SPRINT 3  ***  (Tasks: ASSESSMENT MS + UI MS)
 	- USER STORY => API-REST-specification doc	- COMPLETED (16-01-2022)
 
-- *** SPRINT 4  ***  (Tasks: FrontEnd ANGULAR)		- UNDER PROGRESS (80% complete)
+- *** SPRINT 4  ***  (Tasks: FrontEnd ANGULAR)		- COMPLETED (16-01-2022)
 
-- *** SPRINT 5  ***  (Tasks: FrontEnd REACT)		- UNDER PROGRESS (40% complete)
+- *** SPRINT 5  ***  (Tasks: FrontEnd REACT)		- COMPLETED (16-01-2022)
 
-- *** SPRINT 6  ***  (Tasks: DISCOVERY SERVICE - EUREKA, ZUUL ..)- TODO
+- *** SPRINT 6  ***  (Tasks: DISCOVERY SERVICE - EUREKA, ZUUL ..)- TASK DROPPED
 
 DEVELOPMENT - CODING
 ---------------------------
@@ -45,7 +45,7 @@ DEVELOPMENT - CODING
 		- CURL tests @4 test data		- COMPLETED (04-01-2022)
 
 		API-REST-specification doc		- COMPLETED (31-12-2021)
-		Rectrospective doc			- COMPLETED (16-01-2022)
+		Rectrospective doc			- COMPLETED (04-01-2022)
 		NOTION - KANBAN				- COMPLETED (31-12-2021)
 
 
@@ -86,7 +86,7 @@ DEVELOPMENT - CODING
 
 - *** SPRINT 3  ***  (Tasks: ASSESSMENT MS)
 
-	DB (SQL) connection & configuration		- COMPLETED (14-01-2022)
+	proxy configuration				- COMPLETED (14-01-2022)
 	MICROSERVICE - Assessment
 		- MVC structure implementation		- COMPLETED (15-01-2022)
 		- Demographic data inserted in DB

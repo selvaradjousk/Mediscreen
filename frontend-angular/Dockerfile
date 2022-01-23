@@ -1,31 +1,21 @@
 
-# Stage 1: Compile and Build angular codebase
-
-# Use official node image as the base image
-FROM node:latest as builder
-
-# Set the working directory
-RUN mkdir -p /app
-WORKDIR /app
-
-RUN npm install -g @angular/cli
-
-# Add the source code to app
-# COPY . .
-COPY ./ /app/
-
-# Install all the dependencies
-RUN npm install
-
-# Generate the build of the application
-RUN npm run build --prod
-
-# Stage 2: Serve app with nginx server
-
-# Use official nginx image as the base image
-#FROM nginx:latest
-
-# Copy the build output to replace the default nginx contents.
-#COPY --from=build /app/dist/demo /usr/share/nginx/html
-
-CMD ["npm", "start"]
+    FROM node:14.17.0-alpine as build-step
+    RUN mkdir -p /app
+    WORKDIR /app
+    COPY package.json /app
+    RUN npm install
+    COPY . /app
+    RUN npm run build
+	
+	FROM nginx:1.20.1
+	#COPY default.conf /etc/nginx/conf.d/default.conf
+    COPY --from=build-step /app/dist/mediscreen-angular-ui /usr/share/nginx/html
+	EXPOSE 4200:4200
+	CMD ["npm start"]
+	
+	#CMD ng serve --host 0.0.0.0
+	# CMD ["ng", "serve", "--port=81"]
+	
+	# docker run -p 4200:4200  frontend-angular:latest
+	
+	# curl localhost:4200
