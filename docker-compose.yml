@@ -2,13 +2,12 @@ version: '3.3'
 
 services:
 
-# MySQL
+  # MySQL
   mysql_db:
     image: mysql:latest
     container_name: mysql_db
     volumes:
-      - "./docker_db/mysql/db_prod.sql:/docker-entrypoint-initdb.d/0_init\
-        .sql"
+      - "./docker_db/mysql/db_prod.sql:/docker-entrypoint-initdb.d/0_init.sql"
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
@@ -21,7 +20,7 @@ services:
       - web-server
     restart: always
 
-# patient microservice
+  # patient microservice
   patient:
     image: patient
     container_name: patient
@@ -40,7 +39,7 @@ services:
       - mysql_db
     restart: always
 
-# ui service - frontend
+  # ui service - frontend
   ui:
     image: ui
     container_name: ui
@@ -57,42 +56,43 @@ services:
       - web-server
     restart: always
 
-# MongoDB
+  # MongoDB
   mongodb:
     image: mongo
     hostname: mongodb
     container_name: mongodb
     ports:
       - 27017:27017
-    
+
     volumes:
       - ./docker_db/mongodb/mongod.conf:/etc/mongod.conf
-     # - ./docker_db/mongodb/initdb.d/:/docker-entrypoint-initdb.d/
+      # - ./docker_db/mongodb/initdb.d/:/docker-entrypoint-initdb.d/
       - ./docker_db/mongodb/data/db/:/data/db/
-     # - ./docker_db/mongodb/data/log/:/var/log/mongodb/
+    # - ./docker_db/mongodb/data/log/:/var/log/mongodb/
     #environment:
-     # MONGO_INITDB_ROOT_USERNAME: root
-     # MONGO_INITDB_ROOT_PASSWORD: password
+    # MONGO_INITDB_ROOT_USERNAME: root
+    # MONGO_INITDB_ROOT_PASSWORD: password
     #command: ["-f", "/etc/mongod.conf"]  
     networks:
       - web-server
     restart: always
 
-# MongoDB - Data
-  #mongodb_data:
-   # image: mongo
+
+    # MongoDB - Data
+    #mongodb_data:
+    # image: mongo
     #container_name: mongodb_data
     #volumes:
-      #- ./docker_db/mongodb/init/:/src/data/
+    #- ./docker_db/mongodb/init/:/src/data/
     #command: ./src/data/import.sh 
     #depends_on:
-      #- mongodb
-   # networks:
-     # - web-server   
+    #- mongodb
+    # networks:
+    # - web-server   
 
 
 
-# patient history microservice
+    # patient history microservice
   patientHistory:
     image: note
     container_name: note
@@ -110,7 +110,7 @@ services:
       - mongodb
     restart: always
 
-# patient assessment report Microservice
+  # patient assessment report Microservice
   patientAssessment:
     image: assess
     container_name: assess
@@ -125,23 +125,24 @@ services:
     networks:
       - web-server
     restart: always
-   
-  frontend-angular:
-    image: frontend-angular
-    container_name: frontend-angular
-    build:
-      context: ./frontend-angular/
-      dockerfile: Dockerfile
-    #command: sh -c "npm start"
-    #environment:
-      #- apiUrlPatient=http://patient:8081/patient
-      #- apiUrlNote=http://note:8082/note
-      #- apiUrlReport=http://assess:8083/assess
-    ports:
-      - 4200:4200
-    networks:
-      - web-server
-    restart: always
+ 
+
+ #frontend-angular:
+    #  image: frontend-angular
+    #  container_name: frontend-angular
+    #  build:
+    #    context: ./frontend-angular/
+    #    dockerfile: Dockerfile
+    ##command: sh -c "npm start"
+    ##environment:
+    ##- apiUrlPatient=http://patient:8081/patient
+    ##- apiUrlNote=http://note:8082/note
+    ##- apiUrlReport=http://assess:8083/assess
+    #ports:
+    #  - 4200:4200
+    #networks:
+    #  - web-server
+    #restart: always
 
 
 

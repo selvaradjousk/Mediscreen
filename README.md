@@ -230,7 +230,14 @@ gradlew test or ./gradlew test or gradlew clean test
 
 ## API (Endpoints) documentation 
 
-All endpoints are documented with POSTMAN and can be accessed launched with  POSTMAN.
+All endpoints are documented with POSTMAN and can be accessed launched with the below link to POSTMAN:
+
+
+<a href="https://documenter.getpostman.com/view/16200863/UVXqFYe8"><img src="readme_docs/images/postman_api_link.PNG" alt="POSTMAN API DOCUMENTATION"></a><br>
+<br><br>
+
+
+[POSTMAN - MEDISCREEN APIs](https://documenter.getpostman.com/view/16200863/UVXqFYe8)<br><br><br>
 <br><br>
 
 
