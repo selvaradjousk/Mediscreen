@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - INTEGRATION TESTS - Service - Patient Add</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>INTEGRATION TESTS - Service - Patient Add</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.integration.service.html">com.patient.integration.service</a> &gt; PatientServiceAddIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.029s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test AddPatient - GIVEN a patient  WHEN AddPatientTHEN returns expected updated patient values</td>
+<td class="success">testAddPatient()</td>
+<td class="success">0.029s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:33.215  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.integration.service.PatientServiceAddIT], using SpringBootContextLoader
+2022-01-21 17:06:33.216  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.integration.service.PatientServiceAddIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:33.216  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.integration.service.PatientServiceAddIT]: PatientServiceAddIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:33.220  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.integration.service.PatientServiceAddIT
+2022-01-21 17:06:33.222  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:33.222  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@71750f58, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@3abbfac7, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7786c47d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7604bb54, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2f527503, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4adadfec, org.springframework.test.context.transaction.TransactionalTestExecutionListener@b3e4fe6, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@58b39bce, org.springframework.test.context.event.EventPublishingTestExecutionListener@64f517b6, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@78cc817b, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1f4b0fb, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@45dd36e0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@959d14a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@15825e43, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@31555760]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2022-01-21 17:06:33.410  INFO 20728 --- [    Test worker] c.p.i.service.PatientServiceAddIT        : Starting PatientServiceAddIT using Java 15.0.1 on Senthil with PID 20728 (started by Senthil in F:\_openClassrooms\GitOCProjects\P9_project_working\Mediscreen\patient)
+2022-01-21 17:06:33.410  INFO 20728 --- [    Test worker] c.p.i.service.PatientServiceAddIT        : The following profiles are active: test
+2022-01-21 17:06:33.412 DEBUG 20728 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@6130a891
+2022-01-21 17:06:33.626  INFO 20728 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:06:33.636  INFO 20728 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interfaces.
+2022-01-21 17:06:33.664  INFO 20728 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c46c5c43-eaed-3345-a89d-aa1bec276372
+2022-01-21 17:06:33.770  INFO 20728 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2022-01-21 17:06:33.771  INFO 20728 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+Hibernate: 
+    
+    drop table if exists patients CASCADE 
+Hibernate: 
+    
+    create table patients (
+       id integer generated by default as identity,
+        address varchar(255),
+        date_of_birth date,
+        first_name varchar(255),
+        last_name varchar(255),
+        phone_number varchar(255),
+        sex varchar(255),
+        primary key (id)
+    )
+2022-01-21 17:06:33.801  INFO 20728 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:06:33.934  WARN 20728 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:06:34.049 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-01-21 17:06:34.068 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2022-01-21 17:06:34.101 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-01-21 17:06:34.108 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-01-21 17:06:34.126  WARN 20728 --- [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-01-21 17:06:34.514  INFO 20728 --- [    Test worker] c.p.i.service.PatientServiceAddIT        : Started PatientServiceAddIT in 1.285 seconds (JVM running for 13.315)
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=? 
+        and patient0_.first_name=? 
+        and patient0_.date_of_birth=?
+Hibernate: 
+    insert 
+    into
+        patients
+        (id, address, date_of_birth, first_name, last_name, phone_number, sex) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+2022-01-21 17:06:34.543  INFO 20728 --- [    Test worker] com.patient.service.PatientService       :  *** Service: addPatient - done
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

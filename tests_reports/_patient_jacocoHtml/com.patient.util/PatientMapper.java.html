@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientMapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patient</a> &gt; <a href="index.source.html" class="el_package">com.patient.util</a> &gt; <span class="el_source">PatientMapper.java</span></div><h1>PatientMapper.java</h1><pre class="source lang-java linenums">package com.patient.util;
+
+import org.springframework.stereotype.Component;
+
+import com.patient.dto.PatientDTO;
+import com.patient.model.Patient;
+
+/**
+ * The Class PatientMapper.
+ */
+@Component
+<span class="fc" id="L12">public class PatientMapper {</span>
+
+
+    /**
+     * To patient.
+     *
+     * @param patientDTO the patient DTO
+     * @return the patient
+     */
+    public Patient toPatient(final PatientDTO patientDTO) {
+
+<span class="fc" id="L23">        return new Patient(</span>
+<span class="fc" id="L24">        		patientDTO.getLastName(),</span>
+<span class="fc" id="L25">        		patientDTO.getFirstName(),</span>
+<span class="fc" id="L26">        		patientDTO.getBirthDate(),</span>
+<span class="fc" id="L27">                patientDTO.getSex(),</span>
+<span class="fc" id="L28">                patientDTO.getAddress(),</span>
+<span class="fc" id="L29">                patientDTO.getPhoneNumber());</span>
+    }
+
+
+
+
+  	// *******************************************************************
+
+
+
+    /**
+     * To patient DTO.
+     *
+     * @param patient the patient
+     * @return the patient DTO
+     */
+    public PatientDTO toPatientDTO(final Patient patient) {
+
+<span class="fc" id="L47">        return new PatientDTO(</span>
+<span class="fc" id="L48">        		patient.getId(),</span>
+<span class="fc" id="L49">        		patient.getLastName(),</span>
+<span class="fc" id="L50">        		patient.getFirstName(),</span>
+<span class="fc" id="L51">        		patient.getBirthDate(),</span>
+<span class="fc" id="L52">                patient.getSex(),</span>
+<span class="fc" id="L53">                patient.getAddress(),</span>
+<span class="fc" id="L54">                patient.getPhoneNumber());</span>
+    }
+
+
+  	// *******************************************************************
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

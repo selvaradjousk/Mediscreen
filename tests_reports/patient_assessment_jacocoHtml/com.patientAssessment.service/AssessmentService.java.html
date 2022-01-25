@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AssessmentService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patientAssessment</a> &gt; <a href="index.source.html" class="el_package">com.patientAssessment.service</a> &gt; <span class="el_source">AssessmentService.java</span></div><h1>AssessmentService.java</h1><pre class="source lang-java linenums">package com.patientAssessment.service;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Service;
+
+import com.patientAssessment.constant.DiabetesTrigger;
+import com.patientAssessment.constant.RiskLevels;
+import com.patientAssessment.dto.AssessmentDTO;
+import com.patientAssessment.dto.NoteDTO;
+import com.patientAssessment.dto.PatientDTO;
+import com.patientAssessment.proxy.MicroserviceNoteProxy;
+import com.patientAssessment.proxy.MicroservicePatientProxy;
+
+@Service
+public class AssessmentService implements IAssessmentService {
+
+
+	private final MicroserviceNoteProxy microserviceNoteProxy;
+
+	private final MicroservicePatientProxy microservicePatientProxy;
+
+
+
+  	// *******************************************************************
+
+
+	public AssessmentService(MicroserviceNoteProxy microserviceNoteProxy,
+			MicroservicePatientProxy microservicePatientProxy) {
+<span class="fc" id="L35">		super();</span>
+<span class="fc" id="L36">		this.microserviceNoteProxy = microserviceNoteProxy;</span>
+<span class="fc" id="L37">		this.microservicePatientProxy = microservicePatientProxy;</span>
+<span class="fc" id="L38">	}</span>
+
+
+
+  	// *******************************************************************
+
+	// BUSINESS LAYER: AssessmentService
+	// 					- What Sex? 
+	//					- What age? (calculate age from birth date)
+	// 					- How many Triggers (count number of triggers in all notes of patient)
+	// 					- Probability of Risk Level (SEX, AGE, TRIGGER_COUNT)
+
+
+  	// *******************************************************************
+
+
+	@Override
+	public AssessmentDTO getPatientAssessment(
+    		final Integer patientId) {
+
+<span class="fc" id="L58">        PatientDTO patient = getPatient(patientId);</span>
+
+<span class="fc" id="L60">        int patientAge = getAge(patient.getBirthDate());</span>
+
+<span class="fc" id="L62">        List&lt;NoteDTO&gt; patientNotes = getPatientNotes(patientId);</span>
+<span class="fc" id="L63">        int patientTriggers = getPatientTriggers(patientNotes);</span>
+
+<span class="fc" id="L65">        String diabetesRiskLevel = getDiabetesRiskLevel(</span>
+        		patientTriggers,
+        		patientAge,
+<span class="fc" id="L68">        		patient.getSex());</span>
+
+<span class="fc" id="L70">        return new AssessmentDTO(</span>
+        		patient,
+        		patientAge,
+        		diabetesRiskLevel);
+
+    }
+
+
+
+
+  	// *******************************************************************
+
+
+
+
+
+	//	- What age? (calculate age from birth date)
+    public int getAge(final LocalDate birthDate) {
+
+<span class="fc" id="L89">        LocalDate currentDate = LocalDate.now();</span>
+<span class="fc" id="L90">        int age = Period.between(birthDate, currentDate).getYears();</span>
+
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        if (birthDate.isAfter(currentDate)) {</span>
+<span class="fc" id="L93">            throw new IllegalArgumentException(&quot;birth date is invalid&quot;</span>
+            		+ &quot; - should be below current date&quot;);
+<span class="fc bfc" id="L95" title="All 2 branches covered.">        } else if (age == 0) {</span>
+<span class="fc" id="L96">            age++;</span>
+        }
+
+<span class="fc" id="L99">        return age;</span>
+    }
+
+
+
+  	// *******************************************************************
+
+
+    // Get the patient by Id
+	public PatientDTO getPatient(final Integer patientId) {
+		
+<span class="fc" id="L110">		PatientDTO patient = microservicePatientProxy</span>
+<span class="fc" id="L111">				.getPatientById(patientId);</span>
+
+<span class="fc" id="L113">		return patient;</span>
+	}
+
+
+  	// *******************************************************************
+
+    // Get the patient by LastName
+	public PatientDTO getPatient(final String lastName) {
+		
+<span class="fc" id="L122">		PatientDTO patient = microservicePatientProxy</span>
+<span class="fc" id="L123">				.getPatient(lastName);</span>
+
+<span class="fc" id="L125">		return patient;</span>
+	}
+	
+
+  	// *******************************************************************
+
+    // Get the patients notes through proxy
+    public List&lt;NoteDTO&gt; getPatientNotes(final Integer patientId) {
+
+<span class="fc" id="L134">		List&lt;NoteDTO&gt; patientNotes = microserviceNoteProxy</span>
+<span class="fc" id="L135">				.getAllNote(patientId);</span>
+
+<span class="fc" id="L137">		return patientNotes;</span>
+	}
+
+
+
+  	// *******************************************************************
+
+    // How many Triggers (count number of triggers in all notes of patient)
+    public int getPatientTriggers(final List&lt;NoteDTO&gt; notes) {
+
+<span class="fc" id="L147">        EnumSet&lt;DiabetesTrigger&gt; diabetesTriggers = EnumSet</span>
+<span class="fc" id="L148">        		.allOf(DiabetesTrigger.class);</span>
+
+<span class="fc" id="L150">        List&lt;DiabetesTrigger&gt; patientTriggers = new ArrayList();</span>
+<span class="fc" id="L151">        diabetesTriggers.forEach(diabetesTrigger -&gt; {</span>
+<span class="fc" id="L152">            notes.forEach(note -&gt; {</span>
+<span class="fc bfc" id="L153" title="All 2 branches covered.">                if (StringUtils.containsIgnoreCase(</span>
+<span class="fc" id="L154">                		note.getNote(),</span>
+<span class="fc" id="L155">                		diabetesTrigger.getTrigger()) &amp;&amp;</span>
+<span class="fc bfc" id="L156" title="All 2 branches covered.">                        !patientTriggers.contains(diabetesTrigger)) {</span>
+<span class="fc" id="L157">                    patientTriggers.add(diabetesTrigger);</span>
+                }
+<span class="fc" id="L159">            });</span>
+<span class="fc" id="L160">        });</span>
+
+<span class="fc" id="L162">        return patientTriggers.size();</span>
+    }
+
+
+
+  	// *******************************************************************
+
+    // Probability of Risk Level (SEX, AGE, TRIGGER_COUNT)
+    public String getDiabetesRiskLevel(
+    		final int triggers,
+    		final int patientAge,
+    		final String sex) {
+
+<span class="fc" id="L175">        String diabetesAssessment = RiskLevels.NONE.getRiskLevel();</span>
+
+<span class="fc" id="L177">        if ((((</span>
+<span class="pc bpc" id="L178" title="1 of 6 branches missed.">        		sex.equals(&quot;F&quot;))</span>
+        		&amp;&amp; patientAge &lt; 30
+        		&amp;&amp; triggers &gt;= 7)
+<span class="pc bpc" id="L181" title="2 of 10 branches missed.">        		|| ((sex.equals(&quot;M&quot;))</span>
+        				&amp;&amp; patientAge &lt; 30
+        				&amp;&amp; triggers &gt;= 5))
+        		|| (patientAge &gt;= 30
+        		&amp;&amp; triggers &gt;= 8)) {
+<span class="fc" id="L186">            diabetesAssessment = RiskLevels.EARLY_ONSET.getRiskLevel();</span>
+
+<span class="fc" id="L188">        } else if ((</span>
+<span class="pc bpc" id="L189" title="1 of 6 branches missed.">        		sex.equals(&quot;M&quot;)</span>
+        		&amp;&amp; patientAge &lt; 30
+        		&amp;&amp; triggers &gt;= 3)
+<span class="pc bpc" id="L192" title="5 of 10 branches missed.">        		|| ((sex.equals(&quot;F&quot;))</span>
+        				&amp;&amp; patientAge &lt; 30
+        				&amp;&amp; triggers &gt;= 4)
+        		|| (patientAge &gt;= 30
+        		&amp;&amp; triggers &gt;= 6)) {
+<span class="fc" id="L197">            diabetesAssessment = RiskLevels.IN_DANGER.getRiskLevel();</span>
+
+<span class="pc bpc" id="L199" title="1 of 4 branches missed.">        } else if ((</span>
+        		patientAge &gt;= 30
+        		&amp;&amp; triggers &gt;= 2)) {
+<span class="fc" id="L202">            diabetesAssessment = RiskLevels.BORDERLINE.getRiskLevel();</span>
+        }
+
+<span class="fc" id="L205">        return diabetesAssessment;</span>
+    }
+
+
+
+  	// *******************************************************************
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

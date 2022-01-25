@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UNIT TESTS - Controller - Add Patient</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UNIT TESTS - Controller - Add Patient</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.unittest.controller.html">com.patient.unittest.controller</a> &gt; PatientControllerAddPatientTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.092s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test POST addPatient -  Given a Patient to add, when request for addPatient, then return status 200 Ok</td>
+<td class="success">testAddPatient()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Empty Firstname Given a Patient to Empty Firstname, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForEmptyFirstname()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Empty Lastname Given a Patient to Empty Lastname, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForEmptyLastName()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Empty Sex Given a Patient to Empty Sex, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForEmptySex()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - FirstnameNull Given a Patient to FirstnameNull, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForFirstnameNull()</td>
+<td class="success">0.025s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Invalid Birthdate Given a Patient to invalid birthdate, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForInvalidBirthDate()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - LastNameNull Given a Patient to LastNameNull, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForLastNameNull()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Null Birthdate Given a Patient to Null birthdate, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForNullBirthDate()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Sex Invalid Given a Patient to Sex Invalid, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForSexInvalid()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - SexNull Given a Patient to SexNull, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForSexNull()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:34.792  INFO 20728 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.unittest.controller.PatientControllerAddPatientTest], using SpringBootContextLoader
+2022-01-21 17:06:34.793  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.unittest.controller.PatientControllerAddPatientTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:34.793  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.unittest.controller.PatientControllerAddPatientTest]: PatientControllerAddPatientTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:34.803  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.unittest.controller.PatientControllerAddPatientTest
+2022-01-21 17:06:34.804  INFO 20728 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:34.804  INFO 20728 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3d327a68, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@77149d15, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6270b81c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3b90978b, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@155f5bab, org.springframework.test.context.support.DirtiesContextTestExecutionListener@46f08020, org.springframework.test.context.transaction.TransactionalTestExecutionListener@212770ba, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1e3487da, org.springframework.test.context.event.EventPublishingTestExecutionListener@71d915b4, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@336a7a2f, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@29526e58, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@136236ff, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@2a2ff592, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4a7449fa, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@70eede42]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2022-01-21 17:06:34.986  INFO 20728 --- [    Test worker] c.p.u.c.PatientControllerAddPatientTest  : Starting PatientControllerAddPatientTest using Java 15.0.1 on Senthil with PID 20728 (started by Senthil in F:\_openClassrooms\GitOCProjects\P9_project_working\Mediscreen\patient)
+2022-01-21 17:06:34.986  INFO 20728 --- [    Test worker] c.p.u.c.PatientControllerAddPatientTest  : No active profile set, falling back to default profiles: default
+2022-01-21 17:06:34.987 DEBUG 20728 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@30552407
+2022-01-21 17:06:35.190 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-01-21 17:06:35.202 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2022-01-21 17:06:35.230 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-01-21 17:06:35.236 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-01-21 17:06:35.252  WARN 20728 --- [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-01-21 17:06:35.285  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.285  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.285  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.297  INFO 20728 --- [    Test worker] c.p.u.c.PatientControllerAddPatientTest  : Started PatientControllerAddPatientTest in 0.491 seconds (JVM running for 14.098)
+2022-01-21 17:06:35.302  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.303  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.304  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-01-21 17:06:35.306 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.308 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@48cf31c4]
+2022-01-21 17:06:35.320 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.322 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.322 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@1b2e21]
+2022-01-21 17:06:35.323 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'firstName': rejected value [null]; codes [NotEmpty.patientDTO.firstName,NotEmpty.firstName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.firstName,firstName]; arguments []; default message [firstName]]; default message [Firstname is mandatory]] ]
+2022-01-21 17:06:35.328  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.329  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.329  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.330 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.330 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@222a8abc]
+2022-01-21 17:06:35.331 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.331 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.332 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@144a2796]
+2022-01-21 17:06:35.332 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'lastName': rejected value [null]; codes [NotEmpty.patientDTO.lastName,NotEmpty.lastName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.lastName,lastName]; arguments []; default message [lastName]]; default message [Lastname is mandatory]] ]
+2022-01-21 17:06:35.339  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.339  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.340  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-01-21 17:06:35.342 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.343 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@59692457]
+2022-01-21 17:06:35.346 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.347 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.347 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@2fe03aac]
+2022-01-21 17:06:35.348 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'sex': rejected value [null]; codes [NotEmpty.patientDTO.sex,NotEmpty.sex,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex]]; default message [Sex is mandatory]] ]
+2022-01-21 17:06:35.353  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.353  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.354  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-01-21 17:06:35.355 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.356 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@12953bf1]
+2022-01-21 17:06:35.358 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.358 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.358 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@2cefe68]
+2022-01-21 17:06:35.358 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'lastName': rejected value []; codes [NotEmpty.patientDTO.lastName,NotEmpty.lastName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.lastName,lastName]; arguments []; default message [lastName]]; default message [Lastname is mandatory]] ]
+2022-01-21 17:06:35.362  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.362  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.363  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-01-21 17:06:35.364 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.364 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@5880e35a]
+2022-01-21 17:06:35.365 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.365 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.365 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@63f10108]
+2022-01-21 17:06:35.366 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO) with 2 errors: [Field error in object 'patientDTO' on field 'sex': rejected value []; codes [Pattern.patientDTO.sex,Pattern.sex,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex],[Ljavax.validation.constraints.Pattern$Flag;@662f0405,^[M|F]{1}$]; default message [Please enter character M or F]] [Field error in object 'patientDTO' on field 'sex': rejected value []; codes [NotEmpty.patientDTO.sex,NotEmpty.sex,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex]]; default message [Sex is mandatory]] ]
+2022-01-21 17:06:35.369  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.369  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.369  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.370 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.370 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@223574d1]
+2022-01-21 17:06:35.371 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.371 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.371 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@782322a9]
+2022-01-21 17:06:35.372 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'birthDate': rejected value [null]; codes [NotNull.patientDTO.birthDate,NotNull.birthDate,NotNull.java.time.LocalDate,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.birthDate,birthDate]; arguments []; default message [birthDate]]; default message [Date of birth is mandatory]] ]
+2022-01-21 17:06:35.375  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.375  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.375  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.376 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.376 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@a49b9bd]
+2022-01-21 17:06:35.377 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.377 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.378 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@62849b70]
+2022-01-21 17:06:35.378 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'birthDate': rejected value [9999-09-16]; codes [Past.patientDTO.birthDate,Past.birthDate,Past.java.time.LocalDate,Past]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.birthDate,birthDate]; arguments []; default message [birthDate]]; default message [Please enter a valid birth date]] ]
+2022-01-21 17:06:35.382  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.382  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.382  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.383 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.383 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@7ce2a023]
+2022-01-21 17:06:35.384 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.384 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.384 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@270b1530]
+2022-01-21 17:06:35.384 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'sex': rejected value [Z]; codes [Pattern.patientDTO.sex,Pattern.sex,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex],[Ljavax.validation.constraints.Pattern$Flag;@662f0405,^[M|F]{1}$]; default message [Please enter character M or F]] ]
+2022-01-21 17:06:35.388  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.388  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.389  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-01-21 17:06:35.390 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.390 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@7e85562a]
+2022-01-21 17:06:35.391  INFO 20728 --- [    Test worker] c.patient.controller.PatientController   :  *** patient added successfully
+2022-01-21 17:06:35.394  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.394  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.394  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.395 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:35.396 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json&quot; to [com.patient.dto.PatientDTO@72d29312]
+2022-01-21 17:06:35.396 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:35.396 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.397 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@1d486707]
+2022-01-21 17:06:35.397 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'firstName': rejected value []; codes [NotEmpty.patientDTO.firstName,NotEmpty.firstName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.firstName,firstName]; arguments []; default message [firstName]]; default message [Firstname is mandatory]] ]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

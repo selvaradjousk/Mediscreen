@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patient</a> &gt; <a href="index.source.html" class="el_package">com.patient.dto</a> &gt; <span class="el_source">PatientDTO.java</span></div><h1>PatientDTO.java</h1><pre class="source lang-java linenums">package com.patient.dto;
+
+import java.time.LocalDate;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.patient.constant.Constraints;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+/**
+ * The Class PatientDTO.
+ */
+@Getter
+<span class="fc" id="L24">@Setter</span>
+<span class="fc" id="L25">@NoArgsConstructor</span>
+<span class="fc" id="L26">@AllArgsConstructor</span>
+public class PatientDTO {
+
+
+    /** The id of the patient. */
+<span class="fc" id="L31">    private Integer id;</span>
+
+
+    /** The last name of the patient. */
+    @NotEmpty(message = &quot;Lastname is mandatory&quot;)
+    @Length(
+    		max = Constraints.LAST_NAME_MAX_SIZE,
+    		message = &quot;The maximum length for lastName is 125 characters&quot;)
+<span class="fc" id="L39">    private String lastName;</span>
+
+
+    /** The first name of the patient. */
+    @NotEmpty(message = &quot;Firstname is mandatory&quot;)
+    @Length(
+    		max = Constraints.FIRST_NAME_MAX_SIZE,
+    		message = &quot;The maximum length for firstName is 125 characters&quot;)
+<span class="fc" id="L47">    private String firstName;</span>
+
+
+    /** The birth date of the patient. */
+    @NotNull(message = &quot;Date of birth is mandatory&quot;)
+    @Past(message = &quot;Please enter a valid birth date&quot;)
+    @DateTimeFormat(pattern = &quot;yyyy-MM-dd&quot;)
+<span class="fc" id="L54">    private LocalDate birthDate;</span>
+
+
+    /** The sex of the patient. */
+    @NotEmpty(message = &quot;Sex is mandatory&quot;)
+    @Length(
+    		max = Constraints.SEX_MAX_SIZE,
+    		message = &quot;The maximum length for sex is 1 characters&quot;)
+    @Pattern(
+    		regexp = &quot;^[M|F]{1}$&quot;,
+    		message = &quot;Please enter character M or F&quot;)
+<span class="fc" id="L65">    private String sex;</span>
+
+
+    /** The address of the patient. */
+    @Length(
+    		max = Constraints.ADDRESS_MAX_SIZE,
+    		message = &quot;The maximum length for address is 150 characters&quot;)
+<span class="fc" id="L72">    private String address;</span>
+
+
+    /** The phone number of the patient. */
+    @Length(
+    		max = Constraints.PHONE_MAX_SIZE,
+    		message = &quot;Please enter a valid phone number&quot;)
+<span class="fc" id="L79">    private String phoneNumber;</span>
+
+
+    /**
+     * Instantiates a new patient DTO.
+     *
+     * @param lastName the last name
+     * @param firstName the first name
+     * @param birthDate the birth date
+     * @param sex the sex
+     * @param address the address
+     * @param phoneNumber the phone number
+     */
+    public PatientDTO(
+    		final String lastName,
+    		final String firstName,
+    		final LocalDate birthDate,
+    		final String sex,
+            final String address,
+<span class="fc" id="L98">            final String phoneNumber) {</span>
+
+<span class="fc" id="L100">    	this.lastName = lastName;</span>
+<span class="fc" id="L101">        this.firstName = firstName;</span>
+<span class="fc" id="L102">        this.birthDate = birthDate;</span>
+<span class="fc" id="L103">        this.sex = sex;</span>
+<span class="fc" id="L104">        this.address = address;</span>
+<span class="fc" id="L105">        this.phoneNumber = phoneNumber;</span>
+<span class="fc" id="L106">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

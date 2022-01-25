@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - INTEGRATION TESTS - Controller - Add Patient</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>INTEGRATION TESTS - Controller - Add Patient</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.integration.controller.html">com.patient.integration.controller</a> &gt; PatientControllerAddPatientIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">10</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.157s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test POST addPatient -  Given a Patient to add, when request for addPatient, then return status 200 Ok</td>
+<td class="success">testAddPatient()</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Empty Firstname Given a Patient to Empty Firstname, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForEmptyFirstname()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Empty Lastname Given a Patient to Empty Lastname, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForEmptyLastName()</td>
+<td class="success">0.012s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Empty Sex Given a Patient to Empty Sex, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForEmptySex()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - FirstnameNull Given a Patient to FirstnameNull, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForFirstnameNull()</td>
+<td class="success">0.047s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Invalid Birthdate Given a Patient to invalid birthdate, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForInvalidBirthDate()</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - LastNameNull Given a Patient to LastNameNull, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForLastNameNull()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Null Birthdate Given a Patient to Null birthdate, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForNullBirthDate()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - Sex Invalid Given a Patient to Sex Invalid, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForSexInvalid()</td>
+<td class="success">0.011s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test POST addPatient - SexNull Given a Patient to SexNull, when request for addPatient, then return BAD_REQUEST</td>
+<td class="success">testAddPatientForSexNull()</td>
+<td class="success">0.010s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:30.858  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.integration.controller.PatientControllerAddPatientIT], using SpringBootContextLoader
+2022-01-21 17:06:30.858  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.integration.controller.PatientControllerAddPatientIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:30.859  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.integration.controller.PatientControllerAddPatientIT]: PatientControllerAddPatientIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:30.860  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.integration.controller.PatientControllerAddPatientIT
+2022-01-21 17:06:30.861  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:30.861  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@f1b70d5, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@10223d15, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@5d102129, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@10c45844, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@448d0f51, org.springframework.test.context.support.DirtiesContextTestExecutionListener@45465840, org.springframework.test.context.transaction.TransactionalTestExecutionListener@198320a8, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2b374da4, org.springframework.test.context.event.EventPublishingTestExecutionListener@7ec3814, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@701fe4f1, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@70190c3a, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@61d225f0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7989d46, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@82fc928, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@306f7ccb]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2022-01-21 17:06:31.061  INFO 20728 --- [    Test worker] c.p.i.c.PatientControllerAddPatientIT    : Starting PatientControllerAddPatientIT using Java 15.0.1 on Senthil with PID 20728 (started by Senthil in F:\_openClassrooms\GitOCProjects\P9_project_working\Mediscreen\patient)
+2022-01-21 17:06:31.061  INFO 20728 --- [    Test worker] c.p.i.c.PatientControllerAddPatientIT    : The following profiles are active: test
+2022-01-21 17:06:31.301  INFO 20728 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:06:31.312  INFO 20728 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 1 JPA repository interfaces.
+2022-01-21 17:06:31.343  INFO 20728 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=def7a016-20e3-33dd-a46b-79910ec626f8
+2022-01-21 17:06:31.459  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-01-21 17:06:31.460  INFO 20728 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:06:31.460  INFO 20728 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 17:06:31.500  INFO 20728 --- [    Test worker] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:06:31.501  INFO 20728 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 437 ms
+2022-01-21 17:06:31.708  INFO 20728 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2022-01-21 17:06:31.709  INFO 20728 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+Hibernate: 
+    
+    drop table if exists patients CASCADE 
+Hibernate: 
+    
+    create table patients (
+       id integer generated by default as identity,
+        address varchar(255),
+        date_of_birth date,
+        first_name varchar(255),
+        last_name varchar(255),
+        phone_number varchar(255),
+        sex varchar(255),
+        primary key (id)
+    )
+2022-01-21 17:06:31.744  INFO 20728 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:06:31.845  WARN 20728 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:06:31.925 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-01-21 17:06:31.950 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2022-01-21 17:06:32.015 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-01-21 17:06:32.024 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-01-21 17:06:32.043  WARN 20728 --- [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-01-21 17:06:32.429  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 56207 (http) with context path ''
+2022-01-21 17:06:32.620  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-01-21 17:06:32.621  INFO 20728 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:06:32.621  INFO 20728 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 17:06:32.656  INFO 20728 --- [    Test worker] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:06:32.657  INFO 20728 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 69 ms
+2022-01-21 17:06:32.666  INFO 20728 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2022-01-21 17:06:32.675 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 1 mappings in 'requestMappingHandlerMapping'
+2022-01-21 17:06:32.680 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-01-21 17:06:32.688 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-01-21 17:06:32.696  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 56210 (http) with context path ''
+2022-01-21 17:06:32.867  INFO 20728 --- [    Test worker] c.p.i.c.PatientControllerAddPatientIT    : Started PatientControllerAddPatientIT in 2.004 seconds (JVM running for 11.669)
+2022-01-21 17:06:32.874 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.877 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.878 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@fa90f97] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.881  INFO 20728 --- [o-auto-3-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 17:06:32.881  INFO 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 17:06:32.881 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-01-21 17:06:32.881 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-01-21 17:06:32.881 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-01-21 17:06:32.882 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@175d681
+2022-01-21 17:06:32.883 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@37a21580
+2022-01-21 17:06:32.883 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-01-21 17:06:32.883  INFO 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-21 17:06:32.883 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.884 DEBUG 20728 --- [o-auto-3-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.885 DEBUG 20728 --- [o-auto-3-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@348aa04e]
+2022-01-21 17:06:32.911 DEBUG 20728 --- [o-auto-3-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.913 DEBUG 20728 --- [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.913 DEBUG 20728 --- [o-auto-3-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@6bd541fe]
+2022-01-21 17:06:32.915 DEBUG 20728 --- [o-auto-3-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'firstName': rejected value [null]; codes [NotEmpty.patientDTO.firstName,NotEmpty.firstName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.firstName,firstName]; arguments []; default message [firstName]]; default message [Firstname is mandatory]] ]
+2022-01-21 17:06:32.915 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.915 DEBUG 20728 --- [o-auto-3-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.916 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.922 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.922 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.922 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@2997ddcf] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.924 DEBUG 20728 --- [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.925 DEBUG 20728 --- [o-auto-3-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.926 DEBUG 20728 --- [o-auto-3-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@79a58497]
+2022-01-21 17:06:32.926 DEBUG 20728 --- [o-auto-3-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.927 DEBUG 20728 --- [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.927 DEBUG 20728 --- [o-auto-3-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@776275d3]
+2022-01-21 17:06:32.928 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.928 DEBUG 20728 --- [o-auto-3-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'lastName': rejected value [null]; codes [NotEmpty.patientDTO.lastName,NotEmpty.lastName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.lastName,lastName]; arguments []; default message [lastName]]; default message [Lastname is mandatory]] ]
+2022-01-21 17:06:32.928 DEBUG 20728 --- [o-auto-3-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.928 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.933 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.933 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.933 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@1648598e] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.935 DEBUG 20728 --- [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.935 DEBUG 20728 --- [o-auto-3-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.936 DEBUG 20728 --- [o-auto-3-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@5190dc3c]
+2022-01-21 17:06:32.937 DEBUG 20728 --- [o-auto-3-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.938 DEBUG 20728 --- [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.938 DEBUG 20728 --- [o-auto-3-exec-3] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@5f57387e]
+2022-01-21 17:06:32.939 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.939 DEBUG 20728 --- [o-auto-3-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'sex': rejected value [null]; codes [NotEmpty.patientDTO.sex,NotEmpty.sex,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex]]; default message [Sex is mandatory]] ]
+2022-01-21 17:06:32.939 DEBUG 20728 --- [o-auto-3-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.939 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.944 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.944 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.944 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@62070c10] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.947 DEBUG 20728 --- [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.948 DEBUG 20728 --- [o-auto-3-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.949 DEBUG 20728 --- [o-auto-3-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@4ed1c1fe]
+2022-01-21 17:06:32.950 DEBUG 20728 --- [o-auto-3-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.950 DEBUG 20728 --- [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.950 DEBUG 20728 --- [o-auto-3-exec-4] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@40162654]
+2022-01-21 17:06:32.951 DEBUG 20728 --- [o-auto-3-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'lastName': rejected value []; codes [NotEmpty.patientDTO.lastName,NotEmpty.lastName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.lastName,lastName]; arguments []; default message [lastName]]; default message [Lastname is mandatory]] ]
+2022-01-21 17:06:32.951 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.952 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.952 DEBUG 20728 --- [o-auto-3-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.956 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.956 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.957 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@65c39cb1] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.959 DEBUG 20728 --- [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.959 DEBUG 20728 --- [o-auto-3-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.960 DEBUG 20728 --- [o-auto-3-exec-5] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@62f13edf]
+2022-01-21 17:06:32.961 DEBUG 20728 --- [o-auto-3-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.962 DEBUG 20728 --- [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.962 DEBUG 20728 --- [o-auto-3-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@6c36ccf1]
+2022-01-21 17:06:32.963 DEBUG 20728 --- [o-auto-3-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO) with 2 errors: [Field error in object 'patientDTO' on field 'sex': rejected value []; codes [NotEmpty.patientDTO.sex,NotEmpty.sex,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex]]; default message [Sex is mandatory]] [Field error in object 'patientDTO' on field 'sex': rejected value []; codes [Pattern.patientDTO.sex,Pattern.sex,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex],[Ljavax.validation.constraints.Pattern$Flag;@662f0405,^[M|F]{1}$]; default message [Please enter character M or F]] ]
+2022-01-21 17:06:32.963 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.963 DEBUG 20728 --- [o-auto-3-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.964 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.968 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.968 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.968 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@5d06c6dd] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.970 DEBUG 20728 --- [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.971 DEBUG 20728 --- [o-auto-3-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.972 DEBUG 20728 --- [o-auto-3-exec-6] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@13444a67]
+2022-01-21 17:06:32.972 DEBUG 20728 --- [o-auto-3-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.973 DEBUG 20728 --- [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.973 DEBUG 20728 --- [o-auto-3-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@1d83b67f]
+2022-01-21 17:06:32.974 DEBUG 20728 --- [o-auto-3-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'birthDate': rejected value [null]; codes [NotNull.patientDTO.birthDate,NotNull.birthDate,NotNull.java.time.LocalDate,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.birthDate,birthDate]; arguments []; default message [birthDate]]; default message [Date of birth is mandatory]] ]
+2022-01-21 17:06:32.974 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.974 DEBUG 20728 --- [o-auto-3-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.975 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.981 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.981 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.981 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@36a8d78a] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.983 DEBUG 20728 --- [o-auto-3-exec-7] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.984 DEBUG 20728 --- [o-auto-3-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.985 DEBUG 20728 --- [o-auto-3-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@22ac55bf]
+2022-01-21 17:06:32.986 DEBUG 20728 --- [o-auto-3-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:32.987 DEBUG 20728 --- [o-auto-3-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:32.987 DEBUG 20728 --- [o-auto-3-exec-7] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@2d171419]
+2022-01-21 17:06:32.988 DEBUG 20728 --- [o-auto-3-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'birthDate': rejected value [9999-09-16]; codes [Past.patientDTO.birthDate,Past.birthDate,Past.java.time.LocalDate,Past]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.birthDate,birthDate]; arguments []; default message [birthDate]]; default message [Please enter a valid birth date]] ]
+2022-01-21 17:06:32.988 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:32.989 DEBUG 20728 --- [o-auto-3-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:32.989 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:32.995 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:32.995 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:32.995 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@5125b307] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:32.997 DEBUG 20728 --- [o-auto-3-exec-8] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:32.998 DEBUG 20728 --- [o-auto-3-exec-8] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:32.999 DEBUG 20728 --- [o-auto-3-exec-8] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@4bdd1ca0]
+2022-01-21 17:06:33.000 DEBUG 20728 --- [o-auto-3-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:33.000 DEBUG 20728 --- [o-auto-3-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:33.000 DEBUG 20728 --- [o-auto-3-exec-8] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@412577d0]
+2022-01-21 17:06:33.001 DEBUG 20728 --- [o-auto-3-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'sex': rejected value [Z]; codes [Pattern.patientDTO.sex,Pattern.sex,Pattern.java.lang.String,Pattern]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.sex,sex]; arguments []; default message [sex],[Ljavax.validation.constraints.Pattern$Flag;@662f0405,^[M|F]{1}$]; default message [Please enter character M or F]] ]
+2022-01-21 17:06:33.001 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:33.001 DEBUG 20728 --- [o-auto-3-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:33.001 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:33.005 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:33.006 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:33.006 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@497bf45f] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:33.008 DEBUG 20728 --- [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:33.008 DEBUG 20728 --- [o-auto-3-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:33.009 DEBUG 20728 --- [o-auto-3-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@4ac4194b]
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=? 
+        and patient0_.first_name=? 
+        and patient0_.date_of_birth=?
+Hibernate: 
+    insert 
+    into
+        patients
+        (id, address, date_of_birth, first_name, last_name, phone_number, sex) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+2022-01-21 17:06:33.019  INFO 20728 --- [o-auto-3-exec-9] com.patient.service.PatientService       :  *** Service: addPatient - done
+2022-01-21 17:06:33.019  INFO 20728 --- [o-auto-3-exec-9] c.patient.controller.PatientController   :  *** patient added successfully
+2022-01-21 17:06:33.020 DEBUG 20728 --- [o-auto-3-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:33.020 DEBUG 20728 --- [o-auto-3-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [com.patient.dto.PatientDTO@4fa9621e]
+2022-01-21 17:06:33.021 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 201 CREATED
+2022-01-21 17:06:33.021 DEBUG 20728 --- [o-auto-3-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-01-21 17:06:33.022 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:33.029 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56207/patient/add/
+2022-01-21 17:06:33.029 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:33.029 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@702b0e5f] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:33.031 DEBUG 20728 --- [-auto-3-exec-10] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:33.032 DEBUG 20728 --- [-auto-3-exec-10] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:33.033 DEBUG 20728 --- [-auto-3-exec-10] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@2b6a260d]
+2022-01-21 17:06:33.033 DEBUG 20728 --- [-auto-3-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleException(Exception, WebRequest)
+2022-01-21 17:06:33.034 DEBUG 20728 --- [-auto-3-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:33.034 DEBUG 20728 --- [-auto-3-exec-10] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@25addd10]
+2022-01-21 17:06:33.035 DEBUG 20728 --- [-auto-3-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.addPatient(com.patient.dto.PatientDTO): [Field error in object 'patientDTO' on field 'firstName': rejected value []; codes [NotEmpty.patientDTO.firstName,NotEmpty.firstName,NotEmpty.java.lang.String,NotEmpty]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [patientDTO.firstName,firstName]; arguments []; default message [firstName]]; default message [Firstname is mandatory]] ]
+2022-01-21 17:06:33.035 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 400 BAD_REQUEST
+2022-01-21 17:06:33.035 DEBUG 20728 --- [-auto-3-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2022-01-21 17:06:33.035 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

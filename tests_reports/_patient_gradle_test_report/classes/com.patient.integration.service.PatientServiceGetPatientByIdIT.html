@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - INTEGRATION TESTS - Patient GetById</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>INTEGRATION TESTS - Patient GetById</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.integration.service.html">com.patient.integration.service</a> &gt; PatientServiceGetPatientByIdIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.005s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test GetPatientById - patient not foundGIVEN a patient id not exists WHEN getPatientByIdTHEN in return throws EXCEPTION</td>
+<td class="success">testGetPatientByIdNotExistsThrowsException()</td>
+<td class="success">0.005s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:34.771  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.integration.service.PatientServiceGetPatientByIdIT], using SpringBootContextLoader
+2022-01-21 17:06:34.771  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.integration.service.PatientServiceGetPatientByIdIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:34.771  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.integration.service.PatientServiceGetPatientByIdIT]: PatientServiceGetPatientByIdIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:34.772  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.integration.service.PatientServiceGetPatientByIdIT
+2022-01-21 17:06:34.773  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:34.773  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@50e0bce4, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@235e9bb0, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2ff88496, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3954f6fd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6c066aaf, org.springframework.test.context.support.DirtiesContextTestExecutionListener@3bd2ff84, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5065105c, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@4e18e7b3, org.springframework.test.context.event.EventPublishingTestExecutionListener@1114bfcd, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@3d965cb4, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@45094caa, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4c251ec7, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@78fb2a59, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7707aa0e, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@7864c458]
+Hibernate: 
+    select
+        patient0_.id as id1_0_0_,
+        patient0_.address as address2_0_0_,
+        patient0_.date_of_birth as date_of_3_0_0_,
+        patient0_.first_name as first_na4_0_0_,
+        patient0_.last_name as last_nam5_0_0_,
+        patient0_.phone_number as phone_nu6_0_0_,
+        patient0_.sex as sex7_0_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.id=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

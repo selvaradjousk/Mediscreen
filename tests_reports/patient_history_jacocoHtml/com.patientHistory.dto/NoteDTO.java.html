@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NoteDTO.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patientHistory</a> &gt; <a href="index.source.html" class="el_package">com.patientHistory.dto</a> &gt; <span class="el_source">NoteDTO.java</span></div><h1>NoteDTO.java</h1><pre class="source lang-java linenums">package com.patientHistory.dto;
+
+
+import java.time.LocalDate;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+<span class="fc" id="L12">@Setter</span>
+<span class="fc" id="L13">@NoArgsConstructor</span>
+<span class="fc" id="L14">@AllArgsConstructor</span>
+public class NoteDTO {
+
+<span class="fc" id="L17">    private String id;</span>
+
+<span class="fc" id="L19">    private Integer patientId;</span>
+
+<span class="fc" id="L21">    private LocalDate date;</span>
+
+<span class="fc" id="L23">    private String note;</span>
+
+
+    public NoteDTO(
+    		final Integer patientId,
+    		final LocalDate date,
+<span class="fc" id="L29">    		final String note) {</span>
+<span class="fc" id="L30">        this.patientId = patientId;</span>
+<span class="fc" id="L31">        this.date = date;</span>
+<span class="fc" id="L32">        this.note = note;</span>
+<span class="fc" id="L33">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

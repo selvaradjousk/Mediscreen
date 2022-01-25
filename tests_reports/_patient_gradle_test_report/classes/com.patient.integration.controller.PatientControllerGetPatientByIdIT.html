@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - INTEGRATION TESTS - Controller - Get Patient By Id</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>INTEGRATION TESTS - Controller - Get Patient By Id</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.integration.controller.html">com.patient.integration.controller</a> &gt; PatientControllerGetPatientByIdIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.823s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test GET PatientById -  Given a Patient with id, when request for getPatientById, then return status 200 Ok</td>
+<td class="success">testGetPatientById()</td>
+<td class="success">0.726s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test GetPatientById - patient id invalid character inputGIVEN a patient invalid  WHEN getPatientByIdTHEN in return BAD_REQUEST</td>
+<td class="success">testGetPatientByIdInvalid()</td>
+<td class="success">0.009s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test GetPatientById - patient id nullGIVEN a patient id null WHEN getPatientByIdTHEN in return BAD_REQUEST</td>
+<td class="success">testGetPatientByIdNullhrowsException()</td>
+<td class="success">0.088s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>17:06:22.501 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+17:06:22.519 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+17:06:22.581 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.patient.integration.controller.PatientControllerGetPatientByIdIT] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+17:06:22.604 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.integration.controller.PatientControllerGetPatientByIdIT], using SpringBootContextLoader
+17:06:22.610 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.patient.integration.controller.PatientControllerGetPatientByIdIT]: class path resource [com/patient/integration/controller/PatientControllerGetPatientByIdIT-context.xml] does not exist
+17:06:22.611 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.patient.integration.controller.PatientControllerGetPatientByIdIT]: class path resource [com/patient/integration/controller/PatientControllerGetPatientByIdITContext.groovy] does not exist
+17:06:22.611 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.patient.integration.controller.PatientControllerGetPatientByIdIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:06:22.612 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.patient.integration.controller.PatientControllerGetPatientByIdIT]: PatientControllerGetPatientByIdIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:06:22.760 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [F:\_openClassrooms\GitOCProjects\P9_project_working\Mediscreen\patient\build\classes\java\main\com\patient\PatientApplication.class]
+17:06:22.761 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.integration.controller.PatientControllerGetPatientByIdIT
+17:06:22.900 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [com.patient.integration.controller.PatientControllerGetPatientByIdIT]: using defaults.
+17:06:22.901 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+17:06:22.927 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@3a00b15d, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@36ef1d65, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4be0a27d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@5f366587, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@6003ad65, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2ec99035, org.springframework.test.context.transaction.TransactionalTestExecutionListener@60743cdb, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@c02670f, org.springframework.test.context.event.EventPublishingTestExecutionListener@71179b6f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@13bdf540, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@526e8108, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4dcbae55, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4a9860, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@7ca16adc, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5ae1c281]
+17:06:22.931 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@606a1bc4 testClass = PatientControllerGetPatientByIdIT, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@6a15b73 testClass = PatientControllerGetPatientByIdIT, locations = '{}', classes = '{class com.patient.PatientApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@4ee5b2d9, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1a4d1ab7, [ImportsContextCustomizer@44dc7b7d key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6dd1c3ed, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6dfa915a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1422ac7f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@7fb9f71f], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false]], class annotated with @DirtiesContext [false] with mode [null].
+17:06:22.945 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@606a1bc4 testClass = PatientControllerGetPatientByIdIT, testInstance = com.patient.integration.controller.PatientControllerGetPatientByIdIT@6042d663, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@6a15b73 testClass = PatientControllerGetPatientByIdIT, locations = '{}', classes = '{class com.patient.PatientApplication}', contextInitializerClasses = '[]', activeProfiles = '{test}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@4ee5b2d9, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4b3fa0b3, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@1a4d1ab7, [ImportsContextCustomizer@44dc7b7d key = [org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration, org.springframework.boot.test.autoconfigure.web.reactive.WebTestClientAutoConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@6dd1c3ed, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6dfa915a, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@1422ac7f, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@7fb9f71f], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.web.ServletTestExecutionListener.activateListener' -&gt; false, 'org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -&gt; false]]].
+17:06:22.996 [Test worker] DEBUG org.springframework.boot.ApplicationServletEnvironment - Activating profiles []
+17:06:23.001 [Test worker] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true, server.port=0}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.6.2)
+
+2022-01-21 17:06:23.545  INFO 20728 --- [    Test worker] .p.i.c.PatientControllerGetPatientByIdIT : Starting PatientControllerGetPatientByIdIT using Java 15.0.1 on Senthil with PID 20728 (started by Senthil in F:\_openClassrooms\GitOCProjects\P9_project_working\Mediscreen\patient)
+2022-01-21 17:06:23.547  INFO 20728 --- [    Test worker] .p.i.c.PatientControllerGetPatientByIdIT : The following profiles are active: test
+2022-01-21 17:06:24.561  INFO 20728 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-01-21 17:06:24.621  INFO 20728 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 1 JPA repository interfaces.
+2022-01-21 17:06:24.862  INFO 20728 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=d5e84676-02cf-3912-aecb-0e9ef1558093
+2022-01-21 17:06:25.454  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-01-21 17:06:25.471  INFO 20728 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:06:25.471  INFO 20728 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 17:06:25.626  INFO 20728 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:06:25.626  INFO 20728 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2062 ms
+2022-01-21 17:06:26.509  INFO 20728 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-01-21 17:06:26.832  INFO 20728 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+Hibernate: 
+    
+    drop table if exists patients CASCADE 
+Hibernate: 
+    
+    create table patients (
+       id integer generated by default as identity,
+        address varchar(255),
+        date_of_birth date,
+        first_name varchar(255),
+        last_name varchar(255),
+        phone_number varchar(255),
+        sex varchar(255),
+        primary key (id)
+    )
+2022-01-21 17:06:27.639  INFO 20728 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-01-21 17:06:28.212  WARN 20728 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-01-21 17:06:28.439 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-01-21 17:06:28.540 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 8 mappings in 'requestMappingHandlerMapping'
+2022-01-21 17:06:28.601 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-01-21 17:06:28.616 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2022-01-21 17:06:28.670  WARN 20728 --- [    Test worker] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-01-21 17:06:29.039  INFO 20728 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:29.040  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:29.042  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-01-21 17:06:29.336  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 56198 (http) with context path ''
+2022-01-21 17:06:29.566  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2022-01-21 17:06:29.567  INFO 20728 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-01-21 17:06:29.567  INFO 20728 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.56]
+2022-01-21 17:06:29.604  INFO 20728 --- [    Test worker] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2022-01-21 17:06:29.605  INFO 20728 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 106 ms
+2022-01-21 17:06:29.617  INFO 20728 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2022-01-21 17:06:29.636 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 1 mappings in 'requestMappingHandlerMapping'
+2022-01-21 17:06:29.641 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2022-01-21 17:06:29.651 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2022-01-21 17:06:29.662  INFO 20728 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 56201 (http) with context path ''
+2022-01-21 17:06:29.836  INFO 20728 --- [    Test worker] .p.i.c.PatientControllerGetPatientByIdIT : Started PatientControllerGetPatientByIdIT in 6.832 seconds (JVM running for 8.636)
+2022-01-21 17:06:30.098 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56198/patient/add/
+2022-01-21 17:06:30.156 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:30.171 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@696bbb2] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:30.281  INFO 20728 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-01-21 17:06:30.281  INFO 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-01-21 17:06:30.281 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2022-01-21 17:06:30.281 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2022-01-21 17:06:30.281 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2022-01-21 17:06:30.282 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@6edd0568
+2022-01-21 17:06:30.283 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1c5f40b6
+2022-01-21 17:06:30.283 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2022-01-21 17:06:30.283  INFO 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2022-01-21 17:06:30.294 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:30.303 DEBUG 20728 --- [o-auto-1-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:30.334 DEBUG 20728 --- [o-auto-1-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@534ecd0a]
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=? 
+        and patient0_.first_name=? 
+        and patient0_.date_of_birth=?
+Hibernate: 
+    insert 
+    into
+        patients
+        (id, address, date_of_birth, first_name, last_name, phone_number, sex) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+2022-01-21 17:06:30.517  INFO 20728 --- [o-auto-1-exec-1] com.patient.service.PatientService       :  *** Service: addPatient - done
+2022-01-21 17:06:30.518  INFO 20728 --- [o-auto-1-exec-1] c.patient.controller.PatientController   :  *** patient added successfully
+2022-01-21 17:06:30.522 DEBUG 20728 --- [o-auto-1-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:30.523 DEBUG 20728 --- [o-auto-1-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [com.patient.dto.PatientDTO@8529ae7]
+2022-01-21 17:06:30.530 DEBUG 20728 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-01-21 17:06:30.531 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 201 CREATED
+2022-01-21 17:06:30.532 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:30.535 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56198/patient/add/
+2022-01-21 17:06:30.535 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:30.535 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@1d8307f3] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:30.537 DEBUG 20728 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:30.538 DEBUG 20728 --- [o-auto-1-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:30.539 DEBUG 20728 --- [o-auto-1-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@43d154a7]
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=? 
+        and patient0_.first_name=? 
+        and patient0_.date_of_birth=?
+Hibernate: 
+    insert 
+    into
+        patients
+        (id, address, date_of_birth, first_name, last_name, phone_number, sex) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+2022-01-21 17:06:30.543  INFO 20728 --- [o-auto-1-exec-2] com.patient.service.PatientService       :  *** Service: addPatient - done
+2022-01-21 17:06:30.543  INFO 20728 --- [o-auto-1-exec-2] c.patient.controller.PatientController   :  *** patient added successfully
+2022-01-21 17:06:30.544 DEBUG 20728 --- [o-auto-1-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:30.544 DEBUG 20728 --- [o-auto-1-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [com.patient.dto.PatientDTO@684adf74]
+2022-01-21 17:06:30.545 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 201 CREATED
+2022-01-21 17:06:30.545 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:30.546 DEBUG 20728 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-01-21 17:06:30.559 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#getPatientById(Integer)
+Hibernate: 
+    select
+        patient0_.id as id1_0_0_,
+        patient0_.address as address2_0_0_,
+        patient0_.date_of_birth as date_of_3_0_0_,
+        patient0_.first_name as first_na4_0_0_,
+        patient0_.last_name as last_nam5_0_0_,
+        patient0_.phone_number as phone_nu6_0_0_,
+        patient0_.sex as sex7_0_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.id=?
+2022-01-21 17:06:30.583  INFO 20728 --- [    Test worker] com.patient.service.PatientService       :  *** Service: getPatientById - done
+2022-01-21 17:06:30.583  INFO 20728 --- [    Test worker] c.patient.controller.PatientController   :  *** patient returned successfully
+2022-01-21 17:06:30.583 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:30.583 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Writing [com.patient.dto.PatientDTO@7ed9de9]
+2022-01-21 17:06:30.612 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#getPatientById(Integer)
+2022-01-21 17:06:30.613 DEBUG 20728 --- [    Test worker] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.getPatientById(java.lang.Integer): Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: &quot;null&quot;
+2022-01-21 17:06:30.615 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleTypeMismatch(MethodArgumentTypeMismatchException, WebRequest)
+2022-01-21 17:06:30.618 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:30.619 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@5cbdc910]
+2022-01-21 17:06:30.620 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: &quot;null&quot;]
+2022-01-21 17:06:30.700 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-01-21 17:06:30.702 DEBUG 20728 --- [    Test worker] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

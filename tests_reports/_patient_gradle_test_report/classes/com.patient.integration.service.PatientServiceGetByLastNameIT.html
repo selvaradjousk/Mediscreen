@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - INTEGRATION TESTS - Patient GetByLastName</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>INTEGRATION TESTS - Patient GetByLastName</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.integration.service.html">com.patient.integration.service</a> &gt; PatientServiceGetByLastNameIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">2</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.016s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test GetPatientByLastName - GIVEN a patient id value WHEN GetPatientByLastNameTHEN returns expected patient</td>
+<td class="success">testGetPatientByLastName()</td>
+<td class="success">0.012s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test GetPatientByLastName - not exists lastnameGIVEN a patient lastname not exists WHEN GetPatientByLastNameTHEN in return throws EXCEPTION</td>
+<td class="success">testGetPatientLastNameNotExistsThrowsException()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:34.573  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.integration.service.PatientServiceGetByLastNameIT], using SpringBootContextLoader
+2022-01-21 17:06:34.574  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.integration.service.PatientServiceGetByLastNameIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:34.574  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.integration.service.PatientServiceGetByLastNameIT]: PatientServiceGetByLastNameIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:34.575  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.integration.service.PatientServiceGetByLastNameIT
+2022-01-21 17:06:34.576  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:34.576  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@18316934, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@338664d3, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7631518, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@3b4b10d0, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@2820a644, org.springframework.test.context.support.DirtiesContextTestExecutionListener@2880ff6f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@3754e4b2, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@54fabf18, org.springframework.test.context.event.EventPublishingTestExecutionListener@79c52145, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5691d295, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4670dd81, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@47f3b828, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@176c769a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4fb10b98, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@f6d5b3a]
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=? 
+        and patient0_.first_name=? 
+        and patient0_.date_of_birth=?
+Hibernate: 
+    insert 
+    into
+        patients
+        (id, address, date_of_birth, first_name, last_name, phone_number, sex) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+2022-01-21 17:06:34.583  INFO 20728 --- [    Test worker] com.patient.service.PatientService       :  *** Service: addPatient - done
+Hibernate: 
+    select
+        count(patient0_.id) as col_0_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=?
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=?
+2022-01-21 17:06:34.589  INFO 20728 --- [    Test worker] com.patient.service.PatientService       :  *** Service: getPatient by lastname - done
+Hibernate: 
+    select
+        count(patient0_.id) as col_0_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

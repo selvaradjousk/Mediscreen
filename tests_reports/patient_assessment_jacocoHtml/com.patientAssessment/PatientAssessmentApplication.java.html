@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientAssessmentApplication.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patientAssessment</a> &gt; <a href="index.source.html" class="el_package">com.patientAssessment</a> &gt; <span class="el_source">PatientAssessmentApplication.java</span></div><h1>PatientAssessmentApplication.java</h1><pre class="source lang-java linenums">package com.patientAssessment;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
+@EnableFeignClients(&quot;com.patientAssessment&quot;)
+@SpringBootApplication
+<span class="fc" id="L9">public class PatientAssessmentApplication {</span>
+
+	public static void main(String[] args) {
+<span class="nc" id="L12">		SpringApplication.run(PatientAssessmentApplication.class, args);</span>
+<span class="nc" id="L13">	}</span>
+
+
+	// OBJECTIF - SPRINT 3 - MICROSERVICE - PATIENT ASSESSMENT
+	// -------------------------------------------------------
+	// - Le rapport doit inclure les données démographiques du patient
+	// - ainsi que le niveau de risque
+	
+	// BUSINESS LAYER - TASKS
+	// -------------------------
+	// déterminer sa probabilité à développer un diabète
+
+	
+	// BUSINESS LAYER INPUTS
+	// ------------------------
+	// un patient pourra avoir l'un des 4 niveaux de risque
+	// - aucun risque (None) =&gt; aucune déclencheurs
+	// - risque limité (Borderline) =&gt; le patient est âgé de plus de 30 ans + 2 déclencheurs
+	// - danger (In Danger) =&gt; 	homme et a moins de 30 ans + 3 termes déclencheurs
+	//							une femme et a moins de 30 ans + 4 termes déclencheurs
+	// 							le patient a plus de 30 ans + 6 termes déclencheurs
+	// - apparition précoce (Early onset) =&gt; 	homme et a moins de 30 ans + 5 termes déclencheurs
+	//							une femme et a moins de 30 ans + 7 termes déclencheurs
+	// 							le patient a plus de 30 ans + &gt; 8 termes déclencheurs
+	
+	
+	// Les termes déclencheurs ==&gt; ENUM ou array
+	// ------------------------------------------
+	// Hémoglobine A1C, Microalbumine, Taille, Poids, Fumeur, Anormal, Cholestérol, Vertige,
+	// Rechute, Réaction, Anticorps.
+
+
+	// MVC schema - conception for implementation
+	// ------------
+	// DTO (PatientDTO, NoteDTO, AssessmentDTO)
+	// ENUMS (RiskLevels, DiabetesTrigger)
+	// PROXY (MS-NoteProxy, MS-PatientProxy)
+	// BUSINESS LAYER: AssessmentService
+	// 					- What Sex? 
+	//					- What age? (calculate age from birth date)
+	// 					- How many Triggers (count number of triggers in all notes of patient)
+	// 					- Probability of Risk Level (SEX, AGE, TRIGGER_COUNT)
+	// CONTROLLER: 	getPatientAssessment(patientId):AssessmentDTO  =&gt; http://localhost:8083/assess/{id}
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

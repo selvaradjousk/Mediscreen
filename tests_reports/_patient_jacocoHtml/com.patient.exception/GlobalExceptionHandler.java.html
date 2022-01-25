@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GlobalExceptionHandler.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patient</a> &gt; <a href="index.source.html" class="el_package">com.patient.exception</a> &gt; <span class="el_source">GlobalExceptionHandler.java</span></div><h1>GlobalExceptionHandler.java</h1><pre class="source lang-java linenums">package com.patient.exception;
+
+import java.time.LocalDateTime;
+import java.util.stream.Collectors;
+
+import org.springframework.context.support.DefaultMessageSourceResolvable;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+/**
+ * The Class GlobalExceptionHandler.
+ */
+@ControllerAdvice
+<span class="fc" id="L21">public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {</span>
+
+
+    /**
+     * Handle type mismatch.
+     *
+     * @param ex the ex
+     * @param request the request
+     * @return the response entity
+     */
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity handleTypeMismatch(
+    		final MethodArgumentTypeMismatchException ex, final WebRequest request) {
+
+
+<span class="fc" id="L36">        ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(),</span>
+<span class="fc" id="L37">                request.getDescription(false));</span>
+<span class="fc" id="L38">        errorDetails.setMessage(&quot;Invalid id&quot;);</span>
+
+<span class="fc" id="L40">        return new ResponseEntity&lt;&gt;(errorDetails, HttpStatus.BAD_REQUEST);</span>
+    }
+
+
+    /**
+     * Handle not found.
+     *
+     * @param ex the ex
+     * @param request the request
+     * @return the response entity
+     */
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity handleNotFound(
+    		final ResourceNotFoundException ex, final WebRequest request) {
+
+<span class="fc" id="L55">        ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), ex.getMessage(),</span>
+<span class="fc" id="L56">                request.getDescription(false));</span>
+
+<span class="fc" id="L58">        return new ResponseEntity&lt;&gt;(errorDetails, HttpStatus.NOT_FOUND);</span>
+    }
+
+    /**
+     * Handle method argument not valid.
+     *
+     * @param ex the ex
+     * @param header the header
+     * @param status the status
+     * @param request the request
+     * @return the response entity
+     */
+    @Override
+    public ResponseEntity handleMethodArgumentNotValid(
+    		final MethodArgumentNotValidException ex,
+    		final HttpHeaders header,
+            final HttpStatus status, final WebRequest request) {
+
+    	// Get the error messages for invalid fields
+<span class="fc" id="L77">        String errorMessage = ex.getBindingResult().getFieldErrors().stream()</span>
+<span class="fc" id="L78">                .map(DefaultMessageSourceResolvable::getDefaultMessage)</span>
+<span class="fc" id="L79">                .collect(Collectors.joining(&quot;, &quot;));</span>
+
+        // Create ValidationErrorResponse object using error messages and request details
+<span class="fc" id="L82">        ErrorDetails errorDetails = new ErrorDetails(LocalDateTime.now(), errorMessage, request.getDescription(false));</span>
+
+<span class="fc" id="L84">        return new ResponseEntity&lt;Object&gt;(errorDetails, HttpStatus.BAD_REQUEST);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

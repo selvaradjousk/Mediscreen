@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DiabetesTrigger.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patientAssessment</a> &gt; <a href="index.source.html" class="el_package">com.patientAssessment.constant</a> &gt; <span class="el_source">DiabetesTrigger.java</span></div><h1>DiabetesTrigger.java</h1><pre class="source lang-java linenums">package com.patientAssessment.constant;
+
+import lombok.Getter;
+
+<span class="fc" id="L5">@Getter</span>
+public enum DiabetesTrigger {
+
+<span class="fc" id="L8">    HEMOGLOBIN_A1C(&quot;Hemoglobin A1C&quot;),</span>
+<span class="fc" id="L9">    MICROALBUMIN(&quot;Microalbumin&quot;),</span>
+<span class="fc" id="L10">    HEIGHT(&quot;Height&quot;),</span>
+<span class="fc" id="L11">    WEIGHT(&quot;Weight&quot;),</span>
+<span class="fc" id="L12">    SMOKER(&quot;Smoker&quot;),</span>
+<span class="fc" id="L13">    ABNORMAL(&quot;Abnormal&quot;),</span>
+<span class="fc" id="L14">    CHOLESTEROL(&quot;Cholesterol&quot;),</span>
+<span class="fc" id="L15">    DIZZINESS(&quot;Dizziness&quot;),</span>
+<span class="fc" id="L16">    RELAPSE(&quot;Relapse&quot;),</span>
+<span class="fc" id="L17">    REACTION(&quot;Reaction&quot;),</span>
+<span class="fc" id="L18">    ANTIBODIES(&quot;Antibodies&quot;);</span>
+
+<span class="fc" id="L20">    private String trigger;</span>
+
+<span class="fc" id="L22">    DiabetesTrigger(final String trigger) {</span>
+<span class="fc" id="L23">        this.trigger = trigger;</span>
+<span class="fc" id="L24">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

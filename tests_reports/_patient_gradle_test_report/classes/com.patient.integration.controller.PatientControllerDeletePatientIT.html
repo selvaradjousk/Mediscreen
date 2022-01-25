@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - INTEGRATION TESTS - Controller - Delete Patient</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>INTEGRATION TESTS - Controller - Delete Patient</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.integration.controller.html">com.patient.integration.controller</a> &gt; PatientControllerDeletePatientIT</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.030s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test DELETE PatientById -  Given a Patient with id, when request for deletePatient, then return status 200 Ok</td>
+<td class="success">testDeletePatient()</td>
+<td class="success">0.030s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:33.039  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.integration.controller.PatientControllerDeletePatientIT], using SpringBootContextLoader
+2022-01-21 17:06:33.039  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.integration.controller.PatientControllerDeletePatientIT]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:33.040  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.integration.controller.PatientControllerDeletePatientIT]: PatientControllerDeletePatientIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:33.041  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.integration.controller.PatientControllerDeletePatientIT
+2022-01-21 17:06:33.043  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:33.043  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@745770c6, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@37d09345, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@4d4d91fd, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@1a2e8980, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@55301b43, org.springframework.test.context.support.DirtiesContextTestExecutionListener@6649f01b, org.springframework.test.context.transaction.TransactionalTestExecutionListener@47aa5756, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@29a6a4aa, org.springframework.test.context.event.EventPublishingTestExecutionListener@7c1958de, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5579a66e, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@40fc5b70, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5ce33431, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@6a0a48db, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@72d8d922, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@50dd3bd2]
+2022-01-21 17:06:33.048 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : HTTP POST http://localhost:56198/patient/add/
+2022-01-21 17:06:33.048 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Accept=[application/json, application/*+json]
+2022-01-21 17:06:33.048 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Writing [com.patient.dto.PatientDTO@20b167a2] with org.springframework.http.converter.json.MappingJackson2HttpMessageConverter
+2022-01-21 17:06:33.051 DEBUG 20728 --- [o-auto-1-exec-4] o.s.web.servlet.DispatcherServlet        : POST &quot;/patient/add/&quot;, parameters={}
+2022-01-21 17:06:33.051 DEBUG 20728 --- [o-auto-1-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#addPatient(PatientDTO)
+2022-01-21 17:06:33.052 DEBUG 20728 --- [o-auto-1-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Read &quot;application/json;charset=UTF-8&quot; to [com.patient.dto.PatientDTO@451c69ff]
+Hibernate: 
+    select
+        patient0_.id as id1_0_,
+        patient0_.address as address2_0_,
+        patient0_.date_of_birth as date_of_3_0_,
+        patient0_.first_name as first_na4_0_,
+        patient0_.last_name as last_nam5_0_,
+        patient0_.phone_number as phone_nu6_0_,
+        patient0_.sex as sex7_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.last_name=? 
+        and patient0_.first_name=? 
+        and patient0_.date_of_birth=?
+Hibernate: 
+    insert 
+    into
+        patients
+        (id, address, date_of_birth, first_name, last_name, phone_number, sex) 
+    values
+        (null, ?, ?, ?, ?, ?, ?)
+2022-01-21 17:06:33.056  INFO 20728 --- [o-auto-1-exec-4] com.patient.service.PatientService       :  *** Service: addPatient - done
+2022-01-21 17:06:33.056  INFO 20728 --- [o-auto-1-exec-4] c.patient.controller.PatientController   :  *** patient added successfully
+2022-01-21 17:06:33.057 DEBUG 20728 --- [o-auto-1-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:33.057 DEBUG 20728 --- [o-auto-1-exec-4] m.m.a.RequestResponseBodyMethodProcessor : Writing [com.patient.dto.PatientDTO@3603d6af]
+2022-01-21 17:06:33.058 DEBUG 20728 --- [o-auto-1-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 201 CREATED
+2022-01-21 17:06:33.058 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Response 201 CREATED
+2022-01-21 17:06:33.058 DEBUG 20728 --- [    Test worker] o.s.web.client.RestTemplate              : Reading to [com.patient.dto.PatientDTO]
+2022-01-21 17:06:33.059 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#deletePatient(Integer)
+Hibernate: 
+    select
+        patient0_.id as id1_0_0_,
+        patient0_.address as address2_0_0_,
+        patient0_.date_of_birth as date_of_3_0_0_,
+        patient0_.first_name as first_na4_0_0_,
+        patient0_.last_name as last_nam5_0_0_,
+        patient0_.phone_number as phone_nu6_0_0_,
+        patient0_.sex as sex7_0_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.id=?
+Hibernate: 
+    delete 
+    from
+        patients 
+    where
+        id=?
+2022-01-21 17:06:33.068  INFO 20728 --- [    Test worker] com.patient.service.PatientService       :  *** Service: deletePatient - done
+2022-01-21 17:06:33.068  INFO 20728 --- [    Test worker] c.patient.controller.PatientController   :  *** patient deleted successfully
+2022-01-21 17:06:33.069 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:33.069 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Nothing to write: null body
+2022-01-21 17:06:33.070 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#deletePatient(Integer)
+Hibernate: 
+    select
+        patient0_.id as id1_0_0_,
+        patient0_.address as address2_0_0_,
+        patient0_.date_of_birth as date_of_3_0_0_,
+        patient0_.first_name as first_na4_0_0_,
+        patient0_.last_name as last_nam5_0_0_,
+        patient0_.phone_number as phone_nu6_0_0_,
+        patient0_.sex as sex7_0_0_ 
+    from
+        patients patient0_ 
+    where
+        patient0_.id=?
+2022-01-21 17:06:33.072 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleNotFound(ResourceNotFoundException, WebRequest)
+2022-01-21 17:06:33.073 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:33.073 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@73f1084c]
+2022-01-21 17:06:33.073 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.patient.exception.ResourceNotFoundException: Patient does not exists]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

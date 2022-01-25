@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patient</a> &gt; <a href="index.source.html" class="el_package">com.patient.controller</a> &gt; <span class="el_source">PatientController.java</span></div><h1>PatientController.java</h1><pre class="source lang-java linenums">package com.patient.controller;
+
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.patient.dto.PatientDTO;
+import com.patient.service.IPatientService;
+
+/**
+ * The Class PatientController - REST Api for patient.
+ */
+
+@CrossOrigin(origins = &quot;*&quot;)
+@RestController
+@RequestMapping(&quot;/patient&quot;)
+public class PatientController {
+
+	/** The logger. */
+<span class="fc" id="L34">	private Logger logger = LoggerFactory</span>
+<span class="fc" id="L35">			.getLogger(PatientController.class);</span>
+
+
+	// ##############################################################
+
+    /** The patient service. */
+    private final IPatientService patientService;
+
+
+
+  	// *******************************************************************
+
+
+
+    /**
+	   * Instantiates a new patient controller.
+	   *
+	   * @param patientService the patient service
+	   */
+	  @Autowired
+    public PatientController(
+<span class="fc" id="L56">    		final IPatientService patientService) {</span>
+<span class="fc" id="L57">        this.patientService = patientService;</span>
+<span class="fc" id="L58">    }</span>
+
+
+
+  	// *******************************************************************
+
+
+
+    /**
+	   * Gets the patient list.
+	   *
+	   * @param keyword the keyword optional
+	   * @return the patient list
+	   */
+	  @GetMapping(&quot;/list&quot;)
+    public List&lt;PatientDTO&gt; getPatientList(
+    		@RequestParam(value = &quot;keyword&quot;, required = false) final String keyword) {
+
+<span class="fc" id="L76">	    logger.debug(&quot;GET /patient/list - called&quot;);</span>
+
+<span class="fc" id="L78">		  List&lt;PatientDTO&gt; patientList = patientService</span>
+<span class="fc" id="L79">        		.getAllPatients(keyword);</span>
+
+<span class="fc" id="L81">        logger.info(&quot; *** patient list returned successfully&quot;);</span>
+
+<span class="fc" id="L83">        return patientList;</span>
+    }
+
+
+
+  	// *******************************************************************
+
+
+    /**
+	   * Update patient.
+	   *
+	   * @param patientId the patient id
+	   * @param patientDTO the patient DTO
+	   * @return the patient DTO
+	   */
+	  @PostMapping(&quot;/update/{id}&quot;)
+    public PatientDTO updatePatient(
+    		@PathVariable(&quot;id&quot;) final Integer patientId,
+    		@Valid @RequestBody final PatientDTO patientDTO) {
+
+<span class="fc" id="L103">	    logger.debug(&quot;POST /patient/update/{id} called: {}&quot;, patientId);</span>
+
+<span class="fc" id="L105">        PatientDTO patientUpdated = patientService</span>
+<span class="fc" id="L106">        		.updatePatient(patientId, patientDTO);</span>
+
+<span class="fc" id="L108">        logger.info(&quot; *** patient updated successfully&quot;);</span>
+
+<span class="fc" id="L110">        return patientUpdated;</span>
+    }
+
+
+  	// *******************************************************************
+
+    /**
+	   * Gets the patient by id.
+	   *
+	   * @param patientId the patient id
+	   * @return the patient by id
+	   */
+	  @GetMapping(&quot;/get/{id}&quot;)
+    public PatientDTO getPatientById(
+    		@PathVariable(&quot;id&quot;) final Integer patientId) {
+
+<span class="fc" id="L126">	    logger.debug(&quot;GET /patient/get/{id} - called&quot;);</span>
+
+<span class="fc" id="L128">        PatientDTO patient = patientService</span>
+<span class="fc" id="L129">        		.getPatientById(patientId);</span>
+
+<span class="fc" id="L131">        logger.info(&quot; *** patient returned successfully&quot;);</span>
+
+<span class="fc" id="L133">        return patient;</span>
+    }
+
+
+
+  	// *******************************************************************
+
+    /**
+	   * Gets the patient.
+	   *
+	   * @param lastName the last name
+	   * @return the patient
+	   */
+	  @GetMapping(&quot;/getByFamilyName&quot;)
+    public PatientDTO getPatient(@RequestParam String lastName) {
+
+<span class="fc" id="L149">	    logger.debug(&quot;GET /patient/getByFamilyName called&quot;</span>
+	    		+ &quot; for lastname: {}&quot;, lastName);
+
+<span class="fc" id="L152">    	PatientDTO patient = patientService.getPatient(lastName);</span>
+
+<span class="fc" id="L154">        logger.info(&quot; *** patient returned successfully&quot;);</span>
+
+<span class="fc" id="L156">        return patient;</span>
+    }
+
+  	// *******************************************************************
+
+    /**
+	   * Adds the patient.
+	   *
+	   * @param patientDTO the patient DTO
+	   * @return the patient DTO
+	   */
+	  @PostMapping(&quot;/add&quot;)
+    @ResponseStatus(HttpStatus.CREATED)
+    public PatientDTO addPatient(
+    		@Valid @RequestBody final PatientDTO patientDTO) {
+
+<span class="fc" id="L172">	    logger.debug(&quot;POST /patient/add called&quot;);</span>
+
+<span class="fc" id="L174">        PatientDTO patientAdded = patientService</span>
+<span class="fc" id="L175">        		.addPatient(patientDTO);</span>
+
+<span class="fc" id="L177">        logger.info(&quot; *** patient added successfully&quot;);</span>
+
+<span class="fc" id="L179">        return patientAdded;</span>
+    }
+
+
+
+
+  	// *******************************************************************
+
+    /**
+	   * Delete patient.
+	   *
+	   * @param patientId the patient id
+	   */
+	  @GetMapping(&quot;/delete/{id}&quot;)
+    public void deletePatient(
+    		@PathVariable(&quot;id&quot;) final Integer patientId) {
+
+<span class="fc" id="L196">	    logger.debug(&quot;GET /patientdelete/{id} called&quot;);</span>
+
+<span class="fc" id="L198">        patientService.deletePatient(patientId);</span>
+
+<span class="fc" id="L200">        logger.info(&quot; *** patient deleted successfully&quot;);</span>
+
+<span class="fc" id="L202">    }</span>
+
+
+  	// *******************************************************************
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

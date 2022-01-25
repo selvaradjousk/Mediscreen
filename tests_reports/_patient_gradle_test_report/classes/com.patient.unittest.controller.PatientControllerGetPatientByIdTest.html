@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UNIT TESTS - Controller - Get Patient By Id</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UNIT TESTS - Controller - Get Patient By Id</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.patient.unittest.controller.html">com.patient.unittest.controller</a> &gt; PatientControllerGetPatientByIdTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">3</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.017s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Method name</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">test GET PatientById -  Given a Patient with id, when request for getPatientById, then return status 200 Ok</td>
+<td class="success">testGetPatientById()</td>
+<td class="success">0.007s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test GetPatientById - patient id invalid character inputGIVEN a patient invalid  WHEN getPatientByIdTHEN in return BAD_REQUEST</td>
+<td class="success">testGetPatientByIdInvalid()</td>
+<td class="success">0.004s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">test GetPatientById - patient id nullGIVEN a patient id null WHEN getPatientByIdTHEN in return BAD_REQUEST</td>
+<td class="success">testGetPatientByIdNullhrowsException()</td>
+<td class="success">0.006s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2022-01-21 17:06:35.413  INFO 20728 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.patient.unittest.controller.PatientControllerGetPatientByIdTest], using SpringBootContextLoader
+2022-01-21 17:06:35.414  INFO 20728 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.patient.unittest.controller.PatientControllerGetPatientByIdTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-01-21 17:06:35.414  INFO 20728 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.patient.unittest.controller.PatientControllerGetPatientByIdTest]: PatientControllerGetPatientByIdTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-01-21 17:06:35.415  INFO 20728 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.patient.PatientApplication for test class com.patient.unittest.controller.PatientControllerGetPatientByIdTest
+2022-01-21 17:06:35.416  INFO 20728 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-01-21 17:06:35.416  INFO 20728 --- [    Test worker] .b.t.a.w.s.WebMvcTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2d5cb74c, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@76a8c54, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@541ac2ba, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@57d33377, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@1f7d0816, org.springframework.test.context.support.DirtiesContextTestExecutionListener@4c262f81, org.springframework.test.context.transaction.TransactionalTestExecutionListener@4eab3bad, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2de184, org.springframework.test.context.event.EventPublishingTestExecutionListener@77e7642f, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@ac00775, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@1d2133d3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@726fd032, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@3e65044c, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@3414475a, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@20bf55a0]
+2022-01-21 17:06:35.419  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.420  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.420  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.421 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#getPatientById(Integer)
+2022-01-21 17:06:35.422  INFO 20728 --- [    Test worker] c.patient.controller.PatientController   :  *** patient returned successfully
+2022-01-21 17:06:35.423 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.423 DEBUG 20728 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Writing [com.patient.dto.PatientDTO@2c3477fa]
+2022-01-21 17:06:35.428  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.428  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.428  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2022-01-21 17:06:35.429 DEBUG 20728 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.patient.controller.PatientController#getPatientById(Integer)
+2022-01-21 17:06:35.430 DEBUG 20728 --- [    Test worker] o.s.web.method.HandlerMethod             : Could not resolve parameter [0] in public com.patient.dto.PatientDTO com.patient.controller.PatientController.getPatientById(java.lang.Integer): Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: &quot;null&quot;
+2022-01-21 17:06:35.430 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler com.patient.exception.GlobalExceptionHandler#handleTypeMismatch(MethodArgumentTypeMismatchException, WebRequest)
+2022-01-21 17:06:35.430 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json, application/json, application/*+json]
+2022-01-21 17:06:35.430 DEBUG 20728 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.patient.exception.ErrorDetails@8d4bc4b]
+2022-01-21 17:06:35.431 DEBUG 20728 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Integer'; nested exception is java.lang.NumberFormatException: For input string: &quot;null&quot;]
+2022-01-21 17:06:35.434  INFO 20728 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-01-21 17:06:35.434  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-01-21 17:06:35.435  INFO 20728 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2022-01-21 17:06:35.435 DEBUG 20728 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2022-01-21 17:06:35.436 DEBUG 20728 --- [    Test worker] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 7.3.2</a> at 21 janv. 2022 à 17:06:36</p>
+</div>
+</div>
+</body>
+</html>

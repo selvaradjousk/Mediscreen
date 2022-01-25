@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">patient</a> &gt; <a href="index.source.html" class="el_package">com.patient.service</a> &gt; <span class="el_source">PatientService.java</span></div><h1>PatientService.java</h1><pre class="source lang-java linenums">package com.patient.service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.patient.dto.PatientDTO;
+import com.patient.exception.DataAlreadyRegisteredException;
+import com.patient.exception.MultiplePatientsLastNameException;
+import com.patient.exception.ResourceNotFoundException;
+import com.patient.model.Patient;
+import com.patient.repository.PatientRepository;
+import com.patient.util.PatientMapper;
+
+/**
+ * The Class PatientService.
+ */
+@Service
+public class PatientService implements IPatientService {
+
+	/** The logger. */
+<span class="fc" id="L25">	private Logger logger = LoggerFactory</span>
+<span class="fc" id="L26">			.getLogger(PatientService.class);</span>
+
+
+	// ##############################################################
+	/** The patient repository. */
+	private final PatientRepository patientRepository;
+
+    /** The patient mapper. */
+    private final PatientMapper patientMapper;
+
+
+
+
+  	// *******************************************************************
+
+
+
+    /**
+	   * Instantiates a new patient service.
+	   *
+	   * @param patientRepository the patient repository
+	   * @param patientMapper the patient mapper
+	   */
+	  public PatientService(
+    		final PatientRepository patientRepository,
+    		final PatientMapper patientMapper) {
+<span class="fc" id="L52">		super();</span>
+<span class="fc" id="L53">		this.patientRepository = patientRepository;</span>
+<span class="fc" id="L54">		this.patientMapper = patientMapper;</span>
+<span class="fc" id="L55">	}</span>
+
+
+
+
+  	// *******************************************************************
+
+
+
+    /**
+	   * Gets the all patients.
+	   *
+	   * @param keyword the keyword optional input
+	   * @return the all patients
+	   */
+	  @Override
+	public List&lt;PatientDTO&gt; getAllPatients(final String keyword) {
+
+<span class="fc" id="L73">		logger.debug(&quot; *** Service: getAllPatients - requested&quot;);</span>
+
+<span class="fc bfc" id="L75" title="All 2 branches covered.">        if (keyword != null) {</span>
+<span class="fc" id="L76">    	List&lt;PatientDTO&gt; patientList = patientRepository</span>
+<span class="fc" id="L77">    			.findByKeyword(keyword).stream()</span>
+<span class="fc" id="L78">                .map(patient -&gt; patientMapper.toPatientDTO(patient))</span>
+<span class="fc" id="L79">                .collect(Collectors.toList());</span>
+
+<span class="fc" id="L81">	    logger.info(&quot; *** Service: getAllPatients with keyword - returned&quot;);</span>
+        
+<span class="fc" id="L83">        return patientList;</span>
+    }
+
+<span class="fc" id="L86">    List&lt;PatientDTO&gt; allPatient = patientRepository</span>
+<span class="fc" id="L87">    		.findAll().stream()</span>
+<span class="fc" id="L88">            .map(patient -&gt; patientMapper.toPatientDTO(patient))</span>
+<span class="fc" id="L89">            .collect(Collectors.toList());</span>
+
+<span class="fc" id="L91">    logger.info(&quot; *** Service: getAllPatients classic - returned&quot;);</span>
+
+<span class="fc" id="L93">    return allPatient;</span>
+    
+	  }
+
+
+  	// *******************************************************************
+
+
+
+
+    /**
+	   * Update patient.
+	   *
+	   * @param patientId the patient id
+	   * @param patientDTO the patient DTO
+	   * @return the patient DTO
+	   */
+	  public PatientDTO updatePatient(
+    		final int patientId,
+    		final PatientDTO patientDTO) {
+
+<span class="fc" id="L114">		logger.debug(&quot; *** Service: updatePatient - requested&quot;);</span>
+
+<span class="fc" id="L116">        patientRepository.findById(patientId).orElseThrow(() -&gt;</span>
+<span class="fc" id="L117">                new ResourceNotFoundException(&quot;Patient Id not found&quot;));</span>
+
+<span class="fc" id="L119">        Patient patientToUpdate = patientMapper</span>
+<span class="fc" id="L120">        		.toPatient(patientDTO);</span>
+
+<span class="fc" id="L122">        patientToUpdate.setId(patientId);</span>
+
+<span class="fc" id="L124">        Patient patientUpdated = patientRepository</span>
+<span class="fc" id="L125">        		.save(patientToUpdate);</span>
+
+<span class="fc" id="L127">        logger.info(&quot; *** Service: updatePatient - done&quot;);</span>
+
+<span class="fc" id="L129">        return patientMapper.toPatientDTO(patientUpdated);</span>
+    }
+
+
+
+  	// *******************************************************************
+
+
+
+    /**
+	   * Gets the patient by id.
+	   *
+	   * @param patientId the patient id
+	   * @return the patient by id
+	   */
+	  public PatientDTO getPatientById(final int patientId) {
+
+<span class="fc" id="L146">		logger.debug(&quot; *** Service: getPatientById - requested&quot;);</span>
+
+<span class="fc" id="L148">        Patient patient = patientRepository</span>
+<span class="fc" id="L149">        		.findById(patientId).orElseThrow(() -&gt;</span>
+<span class="fc" id="L150">                new ResourceNotFoundException(</span>
+                		&quot;Patient not found&quot;));
+
+<span class="fc" id="L153">        logger.info(&quot; *** Service: getPatientById - done&quot;);</span>
+
+<span class="fc" id="L155">        return patientMapper.toPatientDTO(patient);</span>
+    }
+
+
+
+  	// *******************************************************************
+
+    /**
+	   * Gets the patient.
+	   *
+	   * @param lastName the last name
+	   * @return the patient
+	   */
+	  @Override
+    public PatientDTO getPatient(String lastName) {
+
+<span class="fc" id="L171">		  logger.debug(&quot; *** Service: getPatient by lastname - requested&quot;);</span>
+
+<span class="fc" id="L173">	      int lastNameOccurences = patientRepository.countByLastName(lastName);</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">	      if (lastNameOccurences == 0) {</span>
+
+<span class="fc" id="L176">	        throw new ResourceNotFoundException(</span>
+	            &quot;Patient not found&quot;);
+	      }
+
+<span class="fc bfc" id="L180" title="All 2 branches covered.">	      if (lastNameOccurences &gt; 1) {</span>
+	
+<span class="fc" id="L182">	        throw new MultiplePatientsLastNameException(</span>
+	            &quot;There are several patients with this Last name, search by patient id&quot;);
+	      }
+
+<span class="fc" id="L186">	      Patient patient = patientRepository.findByLastName(lastName);</span>
+
+<span class="fc" id="L188">		  logger.info(&quot; *** Service: getPatient by lastname - done&quot;);</span>
+
+<span class="fc" id="L190">	      return patientMapper.toPatientDTO(patient);</span>
+    }
+
+  	// *******************************************************************
+
+    /**
+	   * Adds the patient.
+	   *
+	   * @param patientDTO the patient DTO
+	   * @return the patient DTO
+	   */
+	  public PatientDTO addPatient(final PatientDTO patientDTO) {
+
+<span class="fc" id="L203">		logger.debug(&quot; *** Service: addPatient - requested&quot;);</span>
+
+<span class="fc" id="L205">        Patient patientFound = patientRepository</span>
+<span class="fc" id="L206">        		.findByLastNameAndFirstNameAndBirthDate(</span>
+<span class="fc" id="L207">        				patientDTO.getLastName(),</span>
+<span class="fc" id="L208">        				patientDTO.getFirstName(),</span>
+<span class="fc" id="L209">        				patientDTO.getBirthDate());</span>
+
+<span class="fc bfc" id="L211" title="All 2 branches covered.">        if (patientFound != null) {</span>
+<span class="fc" id="L212">            throw new DataAlreadyRegisteredException(</span>
+            		&quot;The patient data already exists&quot;);
+        }
+<span class="fc" id="L215">        Patient patientSaved = patientRepository</span>
+<span class="fc" id="L216">        		.save(patientMapper.toPatient(patientDTO));</span>
+
+<span class="fc" id="L218">		logger.info(&quot; *** Service: addPatient - done&quot;);</span>
+
+<span class="fc" id="L220">        return patientMapper.toPatientDTO(patientSaved);</span>
+    }
+
+
+
+
+  	// *******************************************************************
+
+    /**
+	   * Delete patient.
+	   *
+	   * @param patientId the patient id
+	   */
+	  public void deletePatient(final int patientId) {
+
+<span class="fc" id="L235">		logger.debug(&quot; *** Service: deletePatient - requested&quot;);</span>
+
+<span class="fc" id="L237">        patientRepository.findById(patientId)</span>
+<span class="fc" id="L238">        .orElseThrow(() -&gt;</span>
+<span class="fc" id="L239">                new ResourceNotFoundException(&quot;Patient does not exists&quot;));</span>
+
+<span class="fc" id="L241">        patientRepository.deleteById(patientId);</span>
+
+<span class="fc" id="L243">		logger.info(&quot; *** Service: deletePatient - done&quot;);</span>
+
+<span class="fc" id="L245">	  }</span>
+
+
+
+  	// *******************************************************************
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
